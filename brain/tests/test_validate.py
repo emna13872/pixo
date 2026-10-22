@@ -32,9 +32,12 @@ WORDS = [
 ]
 PHRASES = {
     "greet": [{"id": "greet_hello", "text": "Hello, {name}!"}],
+    "attention": [{"id": "attention_look", "text": "Look!"}],
+    "your_turn": [{"id": "your_turn", "text": "Your turn!"}],
     "praise": [{"id": "praise_yes", "text": "Yes!"}, {"id": "praise_super", "text": "Super!"}],
-    "encourage": [{"id": "encourage_try", "text": "Good try!"}],
+    "encourage": [{"id": "encourage_good_try", "text": "Good try!"}],
     "ask_say": [{"id": "ask_say", "text": "Say {word}!"}],
+    "ask_touch": [{"id": "ask_touch", "text": "Touch {word}!"}],
     "goodbye": [{"id": "goodbye_bye", "text": "Bye-bye, {name}!"}],
 }
 SESSION = {
@@ -284,3 +287,14 @@ def test_s09_nickname_three_times(tmp_path, session):
 def test_s09_category_counts_only_if_every_variant_has_name(tmp_path, phrases, session):
     phrases["greet"].append({"id": "greet_hi", "text": "Hi!"})
     assert "S09" in codes(write_content(tmp_path, phrases=phrases, sessions=[session]))
+
+
+@pytest.mark.parametrize("category", ["attention", "your_turn", "praise", "encourage"])
+def test_p05_engine_categories_exist(tmp_path, phrases, category):
+    del phrases[category]
+    assert "P05" in codes(write_content(tmp_path, phrases=phrases))
+
+
+def test_p05_last_try_phrase_exists(tmp_path, phrases):
+    phrases["encourage"] = [{"id": "encourage_other", "text": "Almost!"}]
+    assert "P05" in codes(write_content(tmp_path, phrases=phrases))

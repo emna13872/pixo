@@ -5,6 +5,7 @@ on an Android phone or tablet. V1 covers 3 units ("Hello!", "Colors", "My body")
 
 - **How sessions are written:** [docs/schema.md](docs/schema.md)
 - **How the app and the brain talk:** [docs/protocol.md](docs/protocol.md)
+- **How Pixo is animated (Lottie):** [docs/animation.md](docs/animation.md)
 
 A full guide (setup, how to test, and the decisions behind the design) will be added here once
 Prototype 0 works.
@@ -15,7 +16,7 @@ Prototype 0 works.
 |---|---|---|
 | `content/` | Pedagogical content: `words.yaml`, `phrases.yaml`, `sessions/*.yaml` | emna |
 | `brain/` | Python brain: loads and checks the content, runs sessions (the only part that decides) | emna (Viven later) |
-| `app/` | Android app (Kotlin, Jetpack Compose): displays, speaks, listens, never decides | (Step 4) |
+| `android/` | Android app (Kotlin, Jetpack Compose, Lottie): displays, speaks, listens, never decides | Montassar later |
 | `docs/` | Technical references: session schema, app ↔ brain protocol | everyone |
 
 ## Everyday commands
@@ -29,6 +30,16 @@ uv run pixo-play 1.1 --name Sara   # play a session in the terminal: you type th
 uv run pixo-serve       # run the brain as a server; test page at http://127.0.0.1:8000
 uv run pytest           # run the tests
 uv run ruff check .     # lint (code style and common mistakes)
+```
+
+From the `android/` folder, in PowerShell (or open the folder in Android Studio):
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"   # the JDK that ships with Android Studio
+.\gradlew assembleDebug          # build the app: app\build\outputs\apk\debug\app-debug.apk
+.\gradlew testDebugUnitTest      # run the app's unit tests
+adb reverse tcp:8000 tcp:8000     # phone on USB: its 127.0.0.1:8000 reaches the brain on the PC
+.\gradlew installDebug           # install on the phone
 ```
 
 ## How we work

@@ -25,7 +25,8 @@ def print_report(report: SessionReport, log_path: Path) -> None:
     print("\n--- Session report ---")
     for r in report.results:
         status = "right" if r.success else "missed"
-        print(f"  step {r.step:>2}  {r.type:<9} {r.word:<8} {status:<6} in {r.attempts} tries")
+        tries = "1 try" if r.attempts == 1 else f"{r.attempts} tries"
+        print(f"  step {r.step:>2}  {r.type:<9} {r.word:<8} {status:<6} in {tries}")
     total = len(report.results)
     print(f"  {report.successes}/{total} right, nickname said {report.nickname_count} times")
     print(f"  log: {log_path}")

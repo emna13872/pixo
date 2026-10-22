@@ -4,6 +4,7 @@ Pixo is a talking mascot that teaches spoken American English to children aged 5
 on an Android phone or tablet. V1 covers 3 units ("Hello!", "Colors", "My body") in 12 sessions.
 
 - **How sessions are written:** [docs/schema.md](docs/schema.md)
+- **How the app and the brain talk:** [docs/protocol.md](docs/protocol.md)
 
 A full guide (setup, how to test, and the decisions behind the design) will be added here once
 Prototype 0 works.
@@ -25,6 +26,7 @@ From the `brain/` folder, in PowerShell:
 uv sync                 # first time (and after a dependency change): install the brain's libraries
 uv run pixo-validate    # check all the content, after every edit in content/
 uv run pixo-play 1.1 --name Sara   # play a session in the terminal: you type the child's answers
+uv run pixo-serve       # run the brain as a server; test page at http://127.0.0.1:8000
 uv run pytest           # run the tests
 uv run ruff check .     # lint (code style and common mistakes)
 ```

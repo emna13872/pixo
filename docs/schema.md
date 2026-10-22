@@ -63,11 +63,14 @@ and does the matching animation.
   word: hello
   tries: 3                 # optional, default 3, between 1 and 3
 ```
-At runtime: "Your turn!" + an `ask_say` phrase ("Say hello!"), then Pixo listens. The answer counts as
-right if the speech recognizer returns the word or one of its `accepted` variants.
-- Right: a `praise` phrase.
-- Not right / silence: an `encourage` phrase, Pixo shows and says the word again, and the child tries again.
-- After the last try: "Good try!" and the session goes on. The child is never blocked, and Pixo never says "No!".
+At runtime: the image stays on screen, then a `your_turn` phrase ("Your turn!") and an `ask_say` phrase
+("Say hello!"), and Pixo listens. The answer is right if any of the recognizer's guesses contains the
+word or one of its `accepted` variants.
+- Right: happy animation + a `praise` phrase.
+- Wrong answer: an `encourage` phrase, Pixo says the word again, asks again, listens again.
+- Silence: same, but with a `your_turn` phrase instead of `encourage`.
+- After the last try: "Good try!" (`encourage_good_try`) and the session goes on. The child is never
+  blocked, and Pixo never says "No!".
 
 ### `ask_touch`: the child touches the right image
 ```yaml
@@ -77,7 +80,13 @@ right if the speech recognizer returns the word or one of its `accepted` variant
   tries: 3                 # optional, default 3
 ```
 At runtime: the images appear, Pixo says an `ask_touch` phrase ("Touch hello!"). Right image → praise.
-Wrong image → encourage, Pixo says the word again and highlights the right image.
+Wrong image or no touch → encourage, the right image is highlighted, Pixo asks again. After the last
+try the right image stays highlighted, Pixo says "Good try!", and the session goes on.
+
+### Rules the engine applies to every session
+- A category never gives the same variant twice in a row.
+- 3 right answers in a row → Pixo dances (the "combo"). A miss resets the count.
+- The images are cleared after each `ask_say` / `ask_touch`.
 
 ## 3. Placeholders in phrases
 - `{name}`: the child's nickname
@@ -103,6 +112,7 @@ Each rule has a code, so the tests and the docs can refer to it.
 | P02 | 1 to 5 words per sentence (`{name}` / `{word}` count as one word) |
 | P03 | Never "No!" or "Wrong!" in `praise` or `encourage` |
 | P04 | Only `{name}` and `{word}` placeholders |
+| P05 | The categories the engine uses by itself exist (`attention`, `your_turn`, `ask_say`, `ask_touch`, `praise`, `encourage`), and so does the phrase `encourage_good_try` |
 | **Sessions** | |
 | S01 | Structure matches this document (types, required fields, no unknown fields) |
 | S02 | `id` matches the file name, and ids are unique |
@@ -119,3 +129,4 @@ list), "slow speech rate" (a voice setting).
 
 ## 5. Changelog
 - **0.1** (2026-10-22): first draft. Core step types `say`, `show`, `ask_say`, `ask_touch`.
+- **0.1** (2026-10-22, Step 2): runtime behaviour written down from the engine; rule P05 added.

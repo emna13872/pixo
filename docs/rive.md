@@ -62,3 +62,11 @@ machine and inputs to match the contract.
 
 Rive was chosen because the official mission names it and because its state machine keeps the
 animation logic inside the art file.
+
+## 4. Rive API version
+
+The app uses Rive Android 11's `RiveAnimationView` with state machine inputs. Rive 11 marks this API
+as legacy in favour of its new `app.rive` API and **data binding** (view model properties instead of
+inputs). The legacy API works and is the one most examples use, so Prototype 0 keeps it. When the real
+`pixo.riv` is made, decide whether to build it with data binding instead; the contract above then
+becomes view model properties with the same names.

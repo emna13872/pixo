@@ -1,3 +1,8 @@
+// Rive 11 marks RiveAnimationView and state machine inputs as "legacy" in favour of its new
+// app.rive API and data binding. The legacy API is still supported and documented; moving to data
+// binding is planned together with the real pixo.riv (see docs/rive.md).
+@file:Suppress("DEPRECATION")
+
 package com.pixo.app.avatar
 
 import android.annotation.SuppressLint

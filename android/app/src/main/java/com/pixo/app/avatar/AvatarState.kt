@@ -1,6 +1,6 @@
 package com.pixo.app.avatar
 
-/** What Pixo is doing right now. [PixoAvatar] turns it into a drawing or into Rive inputs. */
+/** What Pixo is doing right now. [PixoAvatar] turns it into a drawing or a Lottie clip. */
 data class AvatarState(
     val talking: Boolean = false,
     val listening: Boolean = false,

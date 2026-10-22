@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import com.pixo.app.avatar.PixoRive
 import com.pixo.app.ui.PixoApp
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +15,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        PixoRive.init(this)
         if (savedInstanceState == null) askMicrophone.launch(Manifest.permission.RECORD_AUDIO)
         enableEdgeToEdge()
         setContent { PixoApp() }

@@ -42,7 +42,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp)
-    implementation(libs.rive.android)
+    implementation(libs.lottie.compose)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     testImplementation(libs.junit)

@@ -5,7 +5,7 @@ on an Android phone or tablet. V1 covers 3 units ("Hello!", "Colors", "My body")
 
 - **How sessions are written:** [docs/schema.md](docs/schema.md)
 - **How the app and the brain talk:** [docs/protocol.md](docs/protocol.md)
-- **How Pixo is animated (Rive):** [docs/rive.md](docs/rive.md)
+- **How Pixo is animated (Lottie):** [docs/animation.md](docs/animation.md)
 
 A full guide (setup, how to test, and the decisions behind the design) will be added here once
 Prototype 0 works.
@@ -16,7 +16,7 @@ Prototype 0 works.
 |---|---|---|
 | `content/` | Pedagogical content: `words.yaml`, `phrases.yaml`, `sessions/*.yaml` | emna |
 | `brain/` | Python brain: loads and checks the content, runs sessions (the only part that decides) | emna (Viven later) |
-| `android/` | Android app (Kotlin, Jetpack Compose, Rive): displays, speaks, listens, never decides | Montassar later |
+| `android/` | Android app (Kotlin, Jetpack Compose, Lottie): displays, speaks, listens, never decides | Montassar later |
 | `docs/` | Technical references: session schema, app ↔ brain protocol | everyone |
 
 ## Everyday commands

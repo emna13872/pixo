@@ -1,0 +1,51 @@
+# Séance 1.1 — « Hello! » : hello, bye
+# Format : docs/schema.md (version 0.1).
+# Brouillon technique à relire par emna : contenu court (environ 3 minutes),
+# à allonger vers 8-10 minutes une fois la boucle testée sur le téléphone.
+
+schema_version: "0.1"
+id: "1.1"
+unit: u1
+title: "Hello!"
+words: [hello, bye]
+
+steps:
+  # Accueil (surnom n°1)
+  - type: say
+    phrase: greet_hello          # "Hello, {name}!"
+  - type: say
+    phrase: greet_ready          # "Are you ready?"
+  - type: say
+    phrase: greet_go             # "Let's go!"
+
+  # Mot 1 : hello. Montrer avant de demander.
+  - type: show
+    word: hello
+  - type: ask_say
+    word: hello
+
+  # Mot 2 : bye
+  - type: say
+    phrase: transition_next      # "Next!"
+  - type: show
+    word: bye
+  - type: ask_say
+    word: bye
+
+  # Petit jeu : toucher la bonne image
+  - type: say
+    phrase: transition_now       # "Now…"
+  - type: ask_touch
+    word: hello
+    choices: [hello, bye]
+  - type: ask_touch
+    word: bye
+    choices: [hello, bye]
+
+  # Bravo (surnom n°2) puis au revoir (surnom n°3)
+  - type: say
+    phrase: praise_good_job_name # "Good job, {name}!"
+  - type: say
+    phrase: goodbye_great_today  # "Great job today!"
+  - type: say
+    phrase: goodbye_bye          # "Bye-bye, {name}!"

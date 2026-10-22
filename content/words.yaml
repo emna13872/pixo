@@ -1,0 +1,126 @@
+# Pixo V1 : les 23 mots de référence.
+# accepted = ce que la reconnaissance vocale peut renvoyer quand l'enfant dit
+# correctement le mot (prononciations approximatives, singulier/pluriel).
+# Règle : une variante ne correspond jamais à un autre mot de la liste.
+# "yes" et "no" sont entre guillemets : sans cela, YAML les lit comme vrai/faux.
+
+# --- Unité 1 « Hello! » ---
+- id: hello
+  text: hello
+  unit: u1
+  image: word_hello
+  accepted: [hello, hallo, hullo, allo, ello]
+- id: bye
+  text: bye
+  unit: u1
+  image: word_bye
+  accepted: [bye, bye-bye, by, buy, bai]
+- id: "yes"
+  text: "yes"
+  unit: u1
+  image: word_yes
+  accepted: ["yes", yeah, yas, yez, yess]
+- id: "no"
+  text: "no"
+  unit: u1
+  image: word_no
+  accepted: ["no", know, noh, nope]
+- id: one
+  text: one
+  unit: u1
+  image: word_one
+  accepted: [one, won, wan, wun]
+- id: two
+  text: two
+  unit: u1
+  image: word_two
+  accepted: [two, to, too, tu]
+- id: three
+  text: three
+  unit: u1
+  image: word_three
+  accepted: [three, tree, free, sree, tri]
+- id: four
+  text: four
+  unit: u1
+  image: word_four
+  accepted: [four, for, fore, foor]
+- id: five
+  text: five
+  unit: u1
+  image: word_five
+  accepted: [five, fife, fiv, faiv]
+
+# --- Unité 2 « Colors » ---
+- id: red
+  text: red
+  unit: u2
+  image: word_red
+  accepted: [red, read, wed, rad, rid]
+- id: blue
+  text: blue
+  unit: u2
+  image: word_blue
+  accepted: [blue, blew, blu, bloo]
+- id: yellow
+  text: yellow
+  unit: u2
+  image: word_yellow
+  accepted: [yellow, yello, lellow, yelo, jello]
+- id: green
+  text: green
+  unit: u2
+  image: word_green
+  accepted: [green, grin, grean, gween, greene]
+- id: pink
+  text: pink
+  unit: u2
+  image: word_pink
+  accepted: [pink, bink, pinky, peenk]
+- id: black
+  text: black
+  unit: u2
+  image: word_black
+  accepted: [black, blak, block, blek]
+- id: white
+  text: white
+  unit: u2
+  image: word_white
+  accepted: [white, wite, wait, weight, waite]
+
+# --- Unité 3 « My body » ---
+- id: head
+  text: head
+  unit: u3
+  image: word_head
+  accepted: [head, had, hed, ed, hat]
+- id: eyes
+  text: eyes
+  unit: u3
+  image: word_eyes
+  accepted: [eyes, eye, ice, ayes, aiz]
+- id: nose
+  text: nose
+  unit: u3
+  image: word_nose
+  accepted: [nose, noz, knows, nos, noise]
+- id: mouth
+  text: mouth
+  unit: u3
+  image: word_mouth
+  accepted: [mouth, mouse, mout, mouf, maus]
+- id: ears
+  text: ears
+  unit: u3
+  image: word_ears
+  accepted: [ears, ear, years, eers, hears]
+- id: hands
+  text: hands
+  unit: u3
+  image: word_hands
+  accepted: [hands, hand, ands, hans, hanz]
+- id: feet
+  text: feet
+  unit: u3
+  image: word_feet
+  accepted: [feet, foot, fit, feets, feat]

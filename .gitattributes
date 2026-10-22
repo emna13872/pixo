@@ -1,0 +1,10 @@
+# Same line endings for everyone (Windows checkouts get CRLF, the repo stores LF)
+* text=auto
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.sh  text eol=lf
+gradlew text eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary

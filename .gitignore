@@ -1,0 +1,34 @@
+# Secrets: API keys go in .env files, never in Git
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+captures/
+.idea/
+*.iml
+
+# Private working notes (progress file, setup guide, decision notes) and reference PDFs:
+# kept on the PC, never pushed
+notes/
+docs/reference/
+
+# Session logs (may contain children's data)
+logs/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/

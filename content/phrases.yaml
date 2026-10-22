@@ -1,0 +1,151 @@
+# Pixo V1 : répliques réutilisables, rangées par catégorie.
+# Marqueurs : {name} = surnom de l'enfant, {word} = mot travaillé (voir words.yaml).
+# Règles : 1 à 5 mots par phrase, aucun mot hors programme, jamais « No! » ni « Wrong! ».
+# Une catégorie à plusieurs variantes permet au cerveau de varier les répliques.
+# Les lignes marquées « # ajout » ne viennent pas du PDF : variété proposée, à valider.
+
+greet:
+  - id: greet_hello
+    text: "Hello, {name}!"
+  - id: greet_ready
+    text: "Are you ready?"
+  - id: greet_go
+    text: "Let's go!"
+  - id: greet_hi
+    text: "Hi, {name}!"            # ajout
+  - id: greet_ready_name
+    text: "Ready, {name}?"         # ajout
+  - id: greet_play
+    text: "Let's play!"            # ajout
+
+attention:
+  - id: attention_look
+    text: "Look!"
+  - id: attention_listen
+    text: "Listen!"
+  - id: attention_look_here
+    text: "Look here!"             # ajout
+  - id: attention_listen_name
+    text: "Listen, {name}!"        # ajout
+  - id: attention_watch_me
+    text: "Watch me!"              # ajout
+
+your_turn:
+  - id: your_turn
+    text: "Your turn!"
+  - id: your_turn_name
+    text: "Your turn, {name}!"     # ajout
+  - id: your_turn_now_you
+    text: "Now you!"               # ajout
+  - id: your_turn_you_try
+    text: "You try!"               # ajout
+
+ask_say:
+  - id: ask_say
+    text: "Say {word}!"
+  - id: ask_say_can_you
+    text: "Can you say {word}?"    # ajout
+  - id: ask_say_name
+    text: "Say {word}, {name}!"    # ajout
+  - id: ask_say_with_me
+    text: "Say it with me!"        # ajout
+
+ask_touch:
+  - id: ask_touch_the
+    text: "Touch the {word}!"
+  - id: ask_touch
+    text: "Touch {word}!"
+  - id: ask_touch_find
+    text: "Find {word}!"           # ajout
+  - id: ask_touch_name
+    text: "Touch {word}, {name}!"  # ajout
+
+sing:
+  - id: sing
+    text: "Let's sing!"
+  - id: sing_with_me
+    text: "Sing with me!"          # ajout
+  - id: sing_name
+    text: "Let's sing, {name}!"    # ajout
+
+praise:
+  - id: praise_great_job
+    text: "Great job!"
+  - id: praise_yes
+    text: "Yes!"
+  - id: praise_super
+    text: "Super!"
+  - id: praise_well_done
+    text: "Well done!"
+  - id: praise_you_did_it
+    text: "You did it!"
+  - id: praise_wow
+    text: "Wow!"                   # ajout
+  - id: praise_yay
+    text: "Yay!"                   # ajout
+  - id: praise_awesome
+    text: "Awesome!"               # ajout
+  - id: praise_good_job_name
+    text: "Good job, {name}!"      # ajout
+  - id: praise_high_five
+    text: "High five!"             # ajout (five = mot de l'unité 1)
+  - id: praise_thats_it
+    text: "That's it!"             # ajout
+
+encourage:
+  - id: encourage_good_try
+    text: "Good try!"
+  - id: encourage_try_again
+    text: "Let's try again!"
+  - id: encourage_look
+    text: "Look…"
+  - id: encourage_almost
+    text: "Almost!"                # ajout
+  - id: encourage_try_again_name
+    text: "Try again, {name}!"     # ajout
+  - id: encourage_you_can
+    text: "You can do it!"         # ajout
+  - id: encourage_listen
+    text: "Listen again…"          # ajout
+  - id: encourage_watch_me
+    text: "Watch me…"              # ajout
+
+transition:
+  - id: transition_now
+    text: "Now…"
+  - id: transition_next
+    text: "Next!"
+  - id: transition_and_now
+    text: "And now…"               # ajout
+  - id: transition_okay
+    text: "Okay!"                  # ajout
+  - id: transition_ready_next
+    text: "Ready? Next!"           # ajout
+
+again:
+  - id: again
+    text: "Again!"
+  - id: again_one_more
+    text: "One more time!"         # ajout (one = mot de l'unité 1)
+  - id: again_name
+    text: "Again, {name}!"         # ajout
+
+goodbye:
+  - id: goodbye_bye
+    text: "Bye-bye, {name}!"
+  - id: goodbye_tomorrow
+    text: "See you tomorrow!"
+  - id: goodbye_bye_name
+    text: "Bye, {name}!"           # ajout
+  - id: goodbye_great_today
+    text: "Great job today!"       # ajout
+  - id: goodbye_soon
+    text: "See you soon!"          # ajout
+
+welcome_back:
+  - id: welcome_back
+    text: "Welcome back, {name}! Let's go on!"
+  - id: welcome_back_hello_again
+    text: "Hello again, {name}!"   # ajout
+  - id: welcome_back_hi
+    text: "Hi, {name}! Let's play!" # ajout

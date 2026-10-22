@@ -5,16 +5,20 @@ description = "Pixo's brain: loads the pedagogical content and runs the sessions
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "fastapi>=0.115,<1",
     "pydantic>=2.9,<3",
     "pyyaml>=6.0,<7",
+    "uvicorn[standard]>=0.32,<1",
 ]
 
 [project.scripts]
 pixo-validate = "pixo_brain.validate:main"
 pixo-play = "pixo_brain.play:main"
+pixo-serve = "pixo_brain.server:main"
 
 [dependency-groups]
 dev = [
+    "httpx2>=2.16.0",
     "pytest>=8",
     "ruff>=0.7",
 ]

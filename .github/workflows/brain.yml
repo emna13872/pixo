@@ -1,0 +1,28 @@
+name: brain
+
+# Runs on every pull request and every push to main: the content must be valid
+# and the brain's tests must pass before anything is merged.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: brain
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: uv sync --locked
+      - name: Validate content
+        run: uv run pixo-validate
+      - name: Lint
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Tests
+        run: uv run pytest

@@ -24,6 +24,7 @@ From the `brain/` folder, in PowerShell:
 ```powershell
 uv sync                 # first time (and after a dependency change): install the brain's libraries
 uv run pixo-validate    # check all the content, after every edit in content/
+uv run pixo-play 1.1 --name Sara   # play a session in the terminal: you type the child's answers
 uv run pytest           # run the tests
 uv run ruff check .     # lint (code style and common mistakes)
 ```

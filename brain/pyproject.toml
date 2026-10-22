@@ -11,6 +11,7 @@ dependencies = [
 
 [project.scripts]
 pixo-validate = "pixo_brain.validate:main"
+pixo-play = "pixo_brain.play:main"
 
 [dependency-groups]
 dev = [

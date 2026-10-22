@@ -24,6 +24,7 @@ from .content import (
     ShowStep,
     load_content,
 )
+from .engine import LAST_TRY_PHRASE, REQUIRED_CATEGORIES
 
 DEFAULT_CONTENT = Path(__file__).resolve().parents[2] / "content"
 
@@ -103,6 +104,15 @@ def check_phrases(content: Content) -> list[Issue]:
                         "P04", "phrases.yaml", phrase.id, f"unknown placeholder {{{placeholder}}}"
                     )
                 )
+    for category in REQUIRED_CATEGORIES:
+        if not content.categories.get(category):
+            issues.append(
+                Issue("P05", "phrases.yaml", category, "category needed by the engine is missing")
+            )
+    if LAST_TRY_PHRASE not in content.phrases:
+        issues.append(
+            Issue("P05", "phrases.yaml", LAST_TRY_PHRASE, "phrase needed by the engine is missing")
+        )
     return issues
 
 

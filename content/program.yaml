@@ -1,6 +1,6 @@
 # Programme V1 : 3 unités, 12 séances (4 par unité), dans l'ordre de jeu.
 # Brouillon : 3 à 4 mots nouveaux dans les premières séances, puis des séances
-# de jeux et de révision (words: []). À VALIDER (emna).
+# de jeux et de révision (words: []). Validé par emna le 2026-10-28.
 
 schema_version: "1.0-draft"
 units:

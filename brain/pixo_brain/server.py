@@ -17,13 +17,15 @@ from importlib.resources import files
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 
 from .channels import LoggingChannel
 from .content import Content
 from .engine import SessionRunner
+from .livekit_token import TokenRequest, TokenResponse, make_token
 from .play import DEFAULT_LOGS
+from .settings import Settings, load_settings
 from .validate import DEFAULT_CONTENT, validate
 
 PROTOCOL_VERSION = "0.1"
@@ -114,14 +116,21 @@ def session_words(content: Content, session_id: str) -> dict[str, dict[str, str]
     }
 
 
-def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) -> FastAPI:
+def create_app(
+    content_root: Path = DEFAULT_CONTENT,
+    logs: Path = DEFAULT_LOGS,
+    settings: Settings | None = None,
+) -> FastAPI:
     """Build the server. Refuses to start (InvalidContentError) if the content is not valid."""
+    settings = settings or load_settings()
     content, issues = validate(content_root)
     if issues:
         raise InvalidContentError(issues)
 
     app = FastAPI(title="Pixo brain", version=PROTOCOL_VERSION)
     sessions = [{"id": s.id, "title": s.title} for s in content.sessions.values()]
+    # v1 sessions, by id: "units/u1-hello/s1.yaml" -> "u1-s1"
+    v1_sessions = {f"{f.split('/')[1][:2]}-{f.split('/')[2][:-5]}" for f in content.unit_files}
 
     @app.get("/", response_class=HTMLResponse)
     async def test_page() -> str:
@@ -130,6 +139,14 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
     @app.get("/health")
     async def health() -> dict[str, Any]:
         return {"status": "ok", "protocol": PROTOCOL_VERSION, "sessions": sessions}
+
+    @app.post("/session/token")
+    async def session_token(request: TokenRequest) -> TokenResponse:
+        if not settings.livekit_ready:
+            raise HTTPException(503, "LiveKit is not configured: fill in brain/.env")
+        if request.session not in v1_sessions:
+            raise HTTPException(404, f"unknown session {request.session!r}")
+        return make_token(settings, request)
 
     async def run_session(ws: WebSocket, msg: dict[str, Any]) -> None:
         session_id = msg.get("session")

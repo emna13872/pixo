@@ -6,8 +6,10 @@ import json
 
 import pytest
 from fastapi.testclient import TestClient
+from livekit import api
 
 from pixo_brain.server import PROTOCOL_VERSION, InvalidContentError, create_app
+from pixo_brain.settings import Settings
 from pixo_brain.validate import DEFAULT_CONTENT
 
 
@@ -200,3 +202,46 @@ def test_disconnect_mid_session_is_logged(client, logs):
     client.get("/health")  # let the server notice the disconnect
     log = next(logs.iterdir()).read_text(encoding="utf-8")
     assert '"kind": "disconnected"' in log
+
+
+# --- POST /session/token ------------------------------------------------------------------
+
+LIVEKIT = Settings(
+    livekit_url="wss://pixo-test.livekit.cloud", livekit_api_key="key", livekit_api_secret="s" * 32
+)
+
+
+@pytest.fixture
+def lk_client(logs):
+    return TestClient(create_app(DEFAULT_CONTENT, logs, LIVEKIT))
+
+
+def test_token_is_signed_for_one_room(lk_client):
+    res = lk_client.post("/session/token", json={"nickname": "Sara", "session": "u1-s1"})
+    assert res.status_code == 200
+    body = res.json()
+    assert body["url"] == LIVEKIT.livekit_url
+    assert body["room"].startswith("pixo-u1-s1-")
+    claims = api.TokenVerifier("key", "s" * 32).verify(body["token"])
+    assert claims.name == "Sara"
+    assert claims.video.room == body["room"] and claims.video.room_join
+    assert claims.room_config.agents[0].agent_name == "pixo"
+
+
+def test_token_needs_livekit_settings(logs):
+    client = TestClient(create_app(DEFAULT_CONTENT, logs, Settings()))
+    res = client.post("/session/token", json={"nickname": "Sara", "session": "u1-s1"})
+    assert res.status_code == 503
+
+
+@pytest.mark.parametrize(
+    "body, status",
+    [
+        ({"nickname": "Sara", "session": "u1-s9"}, 404),
+        ({"nickname": "Sara", "session": "1.1"}, 422),
+        ({"nickname": "<script>", "session": "u1-s1"}, 422),
+        ({"nickname": "", "session": "u1-s1"}, 422),
+    ],
+)
+def test_token_rejects_bad_requests(lk_client, body, status):
+    assert lk_client.post("/session/token", json=body).status_code == status

@@ -25,6 +25,7 @@ from .content import (
     load_content,
 )
 from .engine import LAST_TRY_PHRASE, REQUIRED_CATEGORIES
+from .units import check_v1
 
 DEFAULT_CONTENT = Path(__file__).resolve().parents[2] / "content"
 
@@ -210,6 +211,8 @@ def validate(root: Path) -> tuple[Content, list[Issue]]:
     issues += check_phrases(content)
     for session in content.sessions.values():
         issues += check_session(content, session)
+    content.unit_files, v1_issues = check_v1(root, content)
+    issues += v1_issues
     return content, issues
 
 
@@ -223,7 +226,7 @@ def main(argv: list[str] | None = None) -> int:
         print(issue)
     summary = (
         f"{len(content.words)} words, {len(content.phrases)} phrases, "
-        f"{len(content.sessions)} session(s)"
+        f"{len(content.sessions)} session(s), {len(content.unit_files)} v1 session(s)"
     )
     if issues:
         print(f"\nFAILED: {len(issues)} problem(s) found ({summary})")

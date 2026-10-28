@@ -150,6 +150,8 @@ class Content:
     sessions: dict[str, Session] = field(default_factory=dict)
     # file name (relative to root) of each session, by session id
     session_files: dict[str, str] = field(default_factory=dict)
+    # v1 session files (units/<unit>/s<n>.yaml), relative to root
+    unit_files: list[str] = field(default_factory=list)
 
     def phrases_for(self, step: SayStep) -> list[Phrase]:
         """Phrases a `say` step can produce: one for a phrase id, all variants for a category."""

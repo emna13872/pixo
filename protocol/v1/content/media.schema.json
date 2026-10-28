@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.local/protocol/v1/content/media.schema.json",
+  "title": "media.yaml: every picture, song and video a session may use",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "images",
+    "songs",
+    "videos"
+  ],
+  "properties": {
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "unit",
+          "file",
+          "source",
+          "license",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "unit": {
+            "enum": [
+              "u1",
+              "u2",
+              "u3",
+              "all"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "todo",
+              "found",
+              "done"
+            ]
+          }
+        }
+      }
+    },
+    "songs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "unit",
+          "file",
+          "source",
+          "license",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "unit": {
+            "enum": [
+              "u1",
+              "u2",
+              "u3",
+              "all"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "todo",
+              "found",
+              "done"
+            ]
+          }
+        }
+      }
+    },
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "unit",
+          "file",
+          "source",
+          "license",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "unit": {
+            "enum": [
+              "u1",
+              "u2",
+              "u3",
+              "all"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "todo",
+              "found",
+              "done"
+            ]
+          }
+        }
+      }
+    },
+    "other": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "unit",
+          "file",
+          "source",
+          "license",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "unit": {
+            "enum": [
+              "u1",
+              "u2",
+              "u3",
+              "all"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "todo",
+              "found",
+              "done"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

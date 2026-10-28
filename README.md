@@ -3,7 +3,7 @@
 Pixo is a talking mascot that teaches spoken American English to children aged 5 to 8,
 on an Android phone or tablet. V1 covers 3 units ("Hello!", "Colors", "My body") in 12 sessions.
 
-- **How sessions are written:** [docs/schema.md](docs/schema.md)
+- **How sessions are written:** [docs/content-v1.md](docs/content-v1.md) (v1 draft), [docs/schema.md](docs/schema.md) (v0.1, used by the app today)
 - **How the app and the brain talk:** [docs/protocol.md](docs/protocol.md)
 
 A full guide (setup, how to test, and the decisions behind the design) will be added here once

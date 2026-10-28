@@ -24,11 +24,8 @@
         "minLength": 1
       },
       "unit": {
-        "enum": [
-          "u1",
-          "u2",
-          "u3"
-        ]
+        "type": "string",
+        "pattern": "^u[1-9][0-9]*$"
       },
       "image": {
         "type": "string",

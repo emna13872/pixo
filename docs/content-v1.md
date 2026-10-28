@@ -1,6 +1,6 @@
 # Content format, version 1 (draft)
 
-Status: **draft**, to be frozen with Viven (mission task 3). It replaces [schema.md](schema.md)
+Status: **draft**, to be frozen with Viven (mission task 3). Units are open-ended (u1, u2, … u50): the program grows until the child is fluent, so nothing in the format or the validator fixes their number. It replaces [schema.md](schema.md)
 (version 0.1) once the brain plays v1 sessions. Until then, both formats are validated.
 
 The shape of each file is defined by a JSON Schema in
@@ -16,7 +16,7 @@ uv run pixo-validate      # checks ../content, also run by CI on every pull requ
 
 | File | Schema | What it holds |
 |---|---|---|
-| `content/words.yaml` | `words.schema.json` | the 23 words: id, text, unit, image id, 3 to 5 accepted forms |
+| `content/words.yaml` | `words.schema.json` | the words: id, text, unit, image id, 3 to 5 accepted forms |
 | `content/phrases.yaml` | `phrases.schema.json` | Pixo's reusable lines, by category |
 | `content/program.yaml` | `program.schema.json` | the units and their sessions, in play order, with the new words of each |
 | `content/media.yaml` | `media.schema.json` | every image, song and video, with its file, source, licence and status |

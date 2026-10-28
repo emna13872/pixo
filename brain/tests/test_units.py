@@ -173,3 +173,49 @@ def test_program_unknown_word(root):
     program["units"][1]["sessions"][0]["words"].append("purple")
     write(root, "program.yaml", program)
     assert "V02" in codes(root)
+
+
+def test_units_are_not_limited_to_three(root):
+    """The program grows until fluency: a unit 12 needs no code change."""
+    words = read(root, "words.yaml")
+    words.append(
+        {
+            "id": "apple",
+            "text": "apple",
+            "unit": "u12",
+            "image": "word_apple",
+            "accepted": ["apple", "apples", "appel"],
+        }
+    )
+    write(root, "words.yaml", words)
+    media = read(root, "media.yaml")
+    media["images"].append(
+        {
+            "id": "word_apple",
+            "unit": "u12",
+            "file": "",
+            "source": "",
+            "license": "",
+            "status": "todo",
+        }
+    )
+    write(root, "media.yaml", media)
+    program = read(root, "program.yaml")
+    program["units"].append(
+        {"id": "u12-food", "title": "Food", "sessions": [{"id": "s1", "words": ["apple"]}]}
+    )
+    write(root, "program.yaml", program)
+    s = session(root)
+    s.update(id="u12-s1", unit="u12-food", words=["apple"], review=["hello"])
+    s["steps"]["new"] = [
+        {"show": {"image": "word_apple"}},
+        {"ask_say": {"word": "apple", "prompt": "ask_say"}},
+        {"say": {"text": "Good job, {name}!"}},
+    ]
+    s["steps"]["game"] = [
+        {"ask_touch": {"prompt": "ask_touch", "options": ["apple", "hello"], "answer": "apple"}}
+    ]
+    (root / "units" / "u12-food").mkdir()
+    write(root, "units/u12-food/s1.yaml", s)
+    _, issues = validate(root)
+    assert [str(i) for i in issues] == []

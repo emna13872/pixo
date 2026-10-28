@@ -1,0 +1,670 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.local/protocol/v1/messages.schema.json",
+  "title": "Pixo protocol v1: one message on the LiveKit data channel, topic \"pixo\"",
+  "description": "Envelope {v, type, id, ts, data}. `gesture` is a proposal, not yet agreed with Viven. Directions: face=brain_to_app, gesture=brain_to_app, say_start=brain_to_app, say_end=brain_to_app, visemes=brain_to_app, listening=brain_to_app, show=brain_to_app, ask_touch=brain_to_app, hide=brain_to_app, award=brain_to_app, play_video=brain_to_app, session_state=brain_to_app, sleep=brain_to_app, hello=app_to_brain, touch=app_to_brain, video_ended=app_to_brain, app_state=app_to_brain, error=both",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "v",
+    "type",
+    "id",
+    "ts",
+    "data"
+  ],
+  "properties": {
+    "v": {
+      "const": 1
+    },
+    "type": {
+      "enum": [
+        "face",
+        "gesture",
+        "say_start",
+        "say_end",
+        "visemes",
+        "listening",
+        "show",
+        "ask_touch",
+        "hide",
+        "award",
+        "play_video",
+        "session_state",
+        "sleep",
+        "hello",
+        "touch",
+        "video_ended",
+        "app_state",
+        "error"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "ts": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Unix time in milliseconds"
+    },
+    "data": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "face"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/face"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "gesture"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/gesture"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "say_start"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/say_start"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "say_end"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/say_end"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "visemes"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/visemes"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "listening"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/listening"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "show"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/show"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "ask_touch"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/ask_touch"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "hide"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/hide"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "award"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/award"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "play_video"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/play_video"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "session_state"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/session_state"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "sleep"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/sleep"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "hello"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/hello"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "touch"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/touch"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "video_ended"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/video_ended"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "app_state"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/app_state"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "error"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/error"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "face": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "idle",
+            "talking",
+            "listening",
+            "thinking",
+            "happy",
+            "celebrate",
+            "encourage",
+            "surprised",
+            "sleeping"
+          ]
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    "gesture": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gesture": {
+          "$ref": "content/session.schema.json#/$defs/gesture"
+        }
+      },
+      "required": [
+        "gesture"
+      ]
+    },
+    "say_start": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "utterance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "utterance_id",
+        "text"
+      ]
+    },
+    "say_end": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "utterance_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "utterance_id"
+      ]
+    },
+    "visemes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "utterance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "t_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "viseme": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 21
+              }
+            },
+            "required": [
+              "t_ms",
+              "viseme"
+            ]
+          }
+        }
+      },
+      "required": [
+        "utterance_id",
+        "frames"
+      ]
+    },
+    "listening": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "open": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "open"
+      ]
+    },
+    "show": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layout": {
+          "enum": [
+            "full",
+            "with_pixo"
+          ]
+        }
+      },
+      "required": [
+        "image",
+        "layout"
+      ]
+    },
+    "ask_touch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 2,
+          "maxItems": 4
+        },
+        "timeout_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "activity_id",
+        "options",
+        "timeout_s"
+      ]
+    },
+    "hide": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {},
+      "required": []
+    },
+    "award": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "star",
+            "sticker"
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "kind",
+        "count"
+      ]
+    },
+    "play_video": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "video": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "video"
+      ]
+    },
+    "session_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "step": {
+          "enum": [
+            "hello",
+            "song",
+            "review",
+            "new",
+            "game",
+            "catchup",
+            "bye",
+            "ended"
+          ]
+        }
+      },
+      "required": [
+        "session_id",
+        "step"
+      ]
+    },
+    "sleep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reason"
+      ]
+    },
+    "hello": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "app_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_v": {
+          "const": 1
+        },
+        "content_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "app_version",
+        "protocol_v",
+        "content_version"
+      ]
+    },
+    "touch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "choice": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "activity_id",
+        "choice"
+      ]
+    },
+    "video_ended": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "video": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "video"
+      ]
+    },
+    "app_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "foreground",
+            "background"
+          ]
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    }
+  }
+}

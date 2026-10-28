@@ -19,7 +19,7 @@ schema_version: "1.0-draft"
 id: u1-s1
 unit: u1-hello
 title: "Hello!"
-words: [hello, bye]
+words: [hello, bye, "yes", "no"]
 duration_min: 8   # cible 8 à 10 minutes. À AJUSTER (emna) après un essai chronométré.
 
 steps:

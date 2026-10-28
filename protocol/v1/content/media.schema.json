@@ -47,6 +47,14 @@
               "found",
               "done"
             ]
+          },
+          "tune": {
+            "type": "string",
+            "description": "songs: the tune it is sung to"
+          },
+          "lyrics": {
+            "type": "string",
+            "description": "songs: the words, {name} allowed"
           }
         }
       }
@@ -88,6 +96,14 @@
               "found",
               "done"
             ]
+          },
+          "tune": {
+            "type": "string",
+            "description": "songs: the tune it is sung to"
+          },
+          "lyrics": {
+            "type": "string",
+            "description": "songs: the words, {name} allowed"
           }
         }
       }
@@ -129,6 +145,14 @@
               "found",
               "done"
             ]
+          },
+          "tune": {
+            "type": "string",
+            "description": "songs: the tune it is sung to"
+          },
+          "lyrics": {
+            "type": "string",
+            "description": "songs: the words, {name} allowed"
           }
         }
       }
@@ -170,6 +194,14 @@
               "found",
               "done"
             ]
+          },
+          "tune": {
+            "type": "string",
+            "description": "songs: the tune it is sung to"
+          },
+          "lyrics": {
+            "type": "string",
+            "description": "songs: the words, {name} allowed"
           }
         }
       }

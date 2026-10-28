@@ -59,7 +59,7 @@ An action is one key, the action's name, followed by its fields:
 `face`: idle, talking, listening, thinking, happy, celebrate, encourage, surprised, sleeping.
 
 `gesture` (**proposal**, not yet in protocol v1): wave, thumbs_up, thumbs_down,
-count_1 … count_5, point, point_head, point_eyes, point_nose, point_mouth, point_ears,
+count_1 … count_5, nod, head_shake, wave_bye, finger_wag, point, point_head, point_eyes, point_nose, point_mouth, point_ears,
 show_hands, point_feet, clap, hands_up, high_five.
 
 ## Cross-checks

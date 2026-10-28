@@ -1,0 +1,79 @@
+# Séance u1-s1 : « Hello! », mots hello et bye.
+# Brouillon au format de la mission de Viven (tâche 3) : 7 étapes fixes,
+# actions say, show, ask_say, ask_touch, sing, video, celebrate.
+# Le schéma n'est pas encore figé : ce fichier sert de base à la séance
+# commune avec Viven. Les lignes « À ÉCRIRE (emna) » sont du contenu
+# pédagogique à décider.
+#
+# Rappels des règles :
+#   - montrer avant de demander : image, mot dit 2 fois, Pixo le fait, puis « Your turn! » ;
+#   - 1 à 5 mots par réplique, seulement les mots de l'unité ou les phrases-types ;
+#   - jamais « No! » ni « Wrong! » ;
+#   - le surnom ({name}) au moins 3 fois (ici : hello, new, bye).
+#
+# say : « phrase » = une catégorie de phrases.yaml (le cerveau tire une variante),
+#       « text » = une réplique écrite ici (utile pour garantir le surnom).
+# face : idle | talking | listening | thinking | happy | celebrate | encourage | surprised | sleeping
+
+schema_version: "1.0-draft"
+id: u1-s1
+unit: u1-hello
+title: "Hello!"
+words: [hello, bye]
+duration_min: 8   # cible 8 à 10 minutes. À AJUSTER (emna) après un essai chronométré.
+
+steps:
+  hello:
+    - say: { text: "Hello, {name}!", face: happy }
+    - say: { phrase: greet }              # « Are you ready? », « Let's go! »…
+
+  song:
+    - say: { phrase: sing }               # « Let's sing! »
+    - sing: { song: song_hello }          # À ÉCRIRE (emna) : quelle chanson ? (audio enregistré)
+    - celebrate: {}
+
+  review:
+    []                                    # Première séance : rien à réviser.
+                                          # À DÉCIDER (emna + Viven) : étape vide permise ?
+
+  new:
+    # Mot 1 : hello
+    - say: { phrase: attention }          # « Look! »
+    - show: { image: word_hello, face: talking }
+    - say: { text: "Hello!" }
+    - say: { text: "Hello!", face: happy } # Pixo fait coucou. À ÉCRIRE (emna) : geste exact.
+    - say: { phrase: your_turn }
+    - ask_say: { word: hello, prompt: ask_say }
+    - say: { phrase: praise }
+
+    # Mot 2 : bye
+    - say: { phrase: transition }         # « Next! »
+    - show: { image: word_bye, face: talking }
+    - say: { text: "Bye!" }
+    - say: { text: "Bye!", face: happy }
+    - say: { phrase: your_turn }
+    - ask_say: { word: bye, prompt: ask_say }
+    - say: { text: "Good job, {name}!", face: celebrate }
+
+  game:
+    # Toucher la bonne image. La bonne réponse reste côté cerveau.
+    - say: { phrase: transition }
+    - ask_touch:
+        prompt: ask_touch                 # « Touch {word}! »
+        options: [hello, bye]
+        answer: hello
+        rounds: 3                         # À AJUSTER (emna) : combien de tours ?
+    - ask_touch:
+        prompt: ask_touch
+        options: [hello, bye]
+        answer: bye
+        rounds: 3
+    - celebrate: { text: "You did it!" }
+
+  catchup:
+    []                                    # Générée par le moteur à partir des mots non validés.
+
+  bye:
+    - say: { text: "Great job today!" }
+    - video: { video: video_reward_u1 }   # À ÉCRIRE (emna) : quelle vidéo récompense ?
+    - say: { text: "Bye-bye, {name}!", face: happy }

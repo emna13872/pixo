@@ -1,0 +1,27 @@
+# Programme V1 : 3 unités, 12 séances (4 par unité), dans l'ordre de jeu.
+# Brouillon : la répartition des mots par séance est une proposition,
+# À VALIDER (emna). La dernière séance de chaque unité révise toute l'unité.
+
+schema_version: "1.0-draft"
+units:
+  - id: u1-hello
+    title: "Hello!"
+    sessions:
+      - { id: s1, words: [hello, bye] }
+      - { id: s2, words: ["yes", "no"] }
+      - { id: s3, words: [one, two, three] }
+      - { id: s4, words: [four, five] }
+  - id: u2-colors
+    title: "Colors"
+    sessions:
+      - { id: s1, words: [red, blue] }
+      - { id: s2, words: [yellow, green] }
+      - { id: s3, words: [pink, black] }
+      - { id: s4, words: [white] }
+  - id: u3-my-body
+    title: "My body"
+    sessions:
+      - { id: s1, words: [head, eyes] }
+      - { id: s2, words: [nose, mouth] }
+      - { id: s3, words: [ears, hands] }
+      - { id: s4, words: [feet] }

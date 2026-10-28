@@ -1,0 +1,45 @@
+# Liste des médias de Pixo V1 : ce qu'il faut trouver ou créer.
+# Le validateur vérifiera que chaque image, chanson et vidéo citée dans une
+# séance existe ici (tâche 3.3). « file » reste vide tant que le média n'est pas trouvé.
+# status : todo | found | done.   license : à noter pour chaque source.
+# Format conseillé pour les images : PNG ou SVG carré (512 x 512), fond clair,
+# un seul style pour les 23 mots, nom de fichier = identifiant (word_hello.png).
+
+images:
+  - { id: word_hello, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_bye, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_yes, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_no, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_one, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_two, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_three, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_four, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_five, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_red, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_blue, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_yellow, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_green, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_pink, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_black, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_white, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_head, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_eyes, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_nose, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_mouth, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_ears, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_hands, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_feet, unit: u3, file: "", source: "", license: "", status: todo }
+
+songs:
+  - { id: song_hello, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: song_colors, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: song_body, unit: u3, file: "", source: "", license: "", status: todo }
+
+videos:
+  - { id: video_reward_u1, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: video_reward_u2, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: video_reward_u3, unit: u3, file: "", source: "", license: "", status: todo }
+
+# Images de Pixo hors mots (par exemple pour la démo du jalon 0).
+other:
+  - { id: pixo_wave, unit: all, file: "", source: "", license: "", status: todo }

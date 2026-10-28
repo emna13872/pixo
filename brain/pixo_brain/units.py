@@ -16,10 +16,9 @@ from pathlib import Path
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import best_match
 
-from .content import UNITS, Content, Issue, load_yaml
+from .content import Content, Issue, load_yaml, unit_number
 
 SCHEMAS = Path(__file__).resolve().parents[2] / "protocol" / "v1" / "content"
-UNIT_DIRS = {"u1": "u1-hello", "u2": "u2-colors", "u3": "u3-my-body"}
 MAX_WORDS_PER_LINE = 5
 MIN_NAME_PER_SESSION = 3
 
@@ -93,9 +92,15 @@ def check_v1(root: Path, content: Content) -> tuple[list[str], list[Issue]]:
 
     program = _load(root, "program.yaml", "program.schema.json", issues)
     planned: dict[str, list[str]] = {}  # "u1-s1" -> words
+    unit_dirs: dict[str, str] = {}  # "u1" -> "u1-hello"
     if isinstance(program, dict):
         for unit in program["units"]:
             short = unit["id"].split("-")[0]
+            if short in unit_dirs:
+                issues.append(
+                    Issue("V08", "program.yaml", unit["id"], f"unit {short} appears twice")
+                )
+            unit_dirs[short] = unit["id"]
             for session in unit["sessions"]:
                 planned[f"{short}-{session['id']}"] = session["words"]
                 for word_id in session["words"]:
@@ -119,12 +124,17 @@ def check_v1(root: Path, content: Content) -> tuple[list[str], list[Issue]]:
         rel = path.relative_to(root).as_posix()
         data = _load(root, rel, "session.schema.json", issues)
         if isinstance(data, dict):
-            issues += _check_session(content, media, planned, rel, data)
+            issues += _check_session(content, media, planned, unit_dirs, rel, data)
     return [p.relative_to(root).as_posix() for p in files], issues
 
 
 def _check_session(
-    content: Content, media: Media, planned: dict[str, list[str]], file: str, s: dict
+    content: Content,
+    media: Media,
+    planned: dict[str, list[str]],
+    unit_dirs: dict[str, str],
+    file: str,
+    s: dict,
 ) -> list[Issue]:
     issues: list[Issue] = []
 
@@ -132,22 +142,24 @@ def _check_session(
         issues.append(Issue(code, file, where, message))
 
     unit = s["id"].split("-")[0]
-    expected = f"units/{UNIT_DIRS[unit]}/{s['id'].split('-')[1]}.yaml"
-    if s["unit"] != UNIT_DIRS[unit] or file != expected:
+    unit_dir = unit_dirs.get(unit, s["unit"])
+    expected = f"units/{unit_dir}/{s['id'].split('-')[1]}.yaml"
+    if s["unit"] != unit_dir or not s["unit"].startswith(f"{unit}-") or file != expected:
         add("V08", "id", f'session "{s["id"]}" must live in {expected}')
     if s["id"] in planned and planned[s["id"]] != s["words"]:
         add("V08", "words", f"words differ from program.yaml: {planned[s['id']]}")
     elif planned and s["id"] not in planned:
         add("V08", "id", f'"{s["id"]}" is not in program.yaml')
 
-    allowed_units = set(UNITS[: UNITS.index(unit) + 1])
     declared = set(s["words"]) | set(s.get("review", []))
     for key in ("words", "review"):
         for word_id in s.get(key, []):
             word = content.words.get(word_id)
             if word is None:
                 add("V02", key, f'unknown word "{word_id}"')
-            elif word.unit not in ({unit} if key == "words" else allowed_units):
+            elif (
+                word.unit != unit if key == "words" else unit_number(word.unit) > unit_number(unit)
+            ):
                 add("V02", key, f'"{word_id}" belongs to unit {word.unit}')
 
     shown: set[str] = set()  # images shown so far

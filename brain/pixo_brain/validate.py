@@ -14,7 +14,6 @@ from pathlib import Path
 
 from .content import (
     ASK_STEPS,
-    UNITS,
     WORD_STEPS,
     AskTouchStep,
     Content,
@@ -23,6 +22,7 @@ from .content import (
     Session,
     ShowStep,
     load_content,
+    unit_number,
 )
 from .engine import LAST_TRY_PHRASE, REQUIRED_CATEGORIES
 from .units import check_v1
@@ -137,16 +137,18 @@ def check_session(content: Content, session: Session) -> list[Issue]:
         issues.append(Issue(code, file, where, message))
 
     # S03: words exist, and come from the right unit
-    unit_index = UNITS.index(session.unit)
-    for field_name, ids, allowed_units in (
-        ("words", session.words, {session.unit}),
-        ("review", session.review, set(UNITS[: unit_index + 1])),
+    unit_index = unit_number(session.unit)
+    for field_name, ids, same_unit_only in (
+        ("words", session.words, True),
+        ("review", session.review, False),
     ):
         for word_id in ids:
             word = content.words.get(word_id)
             if word is None:
                 add("S03", field_name, f'unknown word "{word_id}"')
-            elif word.unit not in allowed_units:
+            elif (
+                word.unit != session.unit if same_unit_only else unit_number(word.unit) > unit_index
+            ):
                 add("S03", field_name, f'"{word_id}" is from {word.unit}, not allowed here')
 
     declared = set(session.words) | set(session.review)

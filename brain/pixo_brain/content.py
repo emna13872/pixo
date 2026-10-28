@@ -14,8 +14,13 @@ from typing import Annotated, Literal
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, TypeAdapter, ValidationError, model_validator
 
-Unit = Literal["u1", "u2", "u3"]
-UNITS: tuple[str, ...] = ("u1", "u2", "u3")
+# Units are numbered u1, u2, … with no upper limit: the program keeps growing.
+Unit = Annotated[str, Field(pattern=r"^u[1-9][0-9]*$")]
+
+
+def unit_number(unit: str) -> int:
+    """u12 -> 12, so units compare in teaching order."""
+    return int(unit[1:])
 
 
 # --- YAML -----------------------------------------------------------------------------

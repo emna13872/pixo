@@ -1,4 +1,4 @@
-# Séance u1-s1 : « Hello! », mots hello et bye.
+# Séance u1-s1 : « Hello! », mots hello, bye, yes et no.
 # Brouillon au format de la mission de Viven (tâche 3) : 7 étapes fixes,
 # actions say, show, ask_say, ask_touch, sing, video, celebrate.
 # Le schéma n'est pas encore figé : ce fichier sert de base à la séance
@@ -53,6 +53,24 @@ steps:
     - say: { text: "Bye!", face: happy }
     - say: { phrase: your_turn }
     - ask_say: { word: bye, prompt: ask_say }
+    - say: { phrase: praise }
+
+    # Mot 3 : yes (Pixo hoche la tête)
+    - say: { phrase: transition }
+    - show: { image: word_yes, face: talking }
+    - say: { text: "Yes!" }
+    - say: { text: "Yes!", face: happy }
+    - say: { phrase: your_turn }
+    - ask_say: { word: "yes", prompt: ask_say }
+    - say: { phrase: praise }
+
+    # Mot 4 : no (Pixo secoue la tête). Jamais pour signaler une erreur.
+    - say: { phrase: transition }
+    - show: { image: word_no, face: talking }
+    - say: { text: "No!" }
+    - say: { text: "No!", face: surprised }
+    - say: { phrase: your_turn }
+    - ask_say: { word: "no", prompt: ask_say }
     - say: { text: "Good job, {name}!", face: celebrate }
 
   game:
@@ -60,13 +78,23 @@ steps:
     - say: { phrase: transition }
     - ask_touch:
         prompt: ask_touch                 # « Touch {word}! »
-        options: [hello, bye]
+        options: [hello, bye, "yes", "no"]
         answer: hello
         rounds: 3                         # À AJUSTER (emna) : combien de tours ?
     - ask_touch:
         prompt: ask_touch
-        options: [hello, bye]
+        options: [hello, bye, "yes", "no"]
         answer: bye
+        rounds: 3
+    - ask_touch:
+        prompt: ask_touch
+        options: [hello, bye, "yes", "no"]
+        answer: "yes"
+        rounds: 3
+    - ask_touch:
+        prompt: ask_touch
+        options: [hello, bye, "yes", "no"]
+        answer: "no"
         rounds: 3
     - celebrate: { text: "You did it!" }
 

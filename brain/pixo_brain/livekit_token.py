@@ -22,7 +22,7 @@ _NICKNAME = re.compile(r"^[\w' -]{1,30}$")
 
 class TokenRequest(BaseModel):
     nickname: str = Field(min_length=1, max_length=30)
-    session: str = Field(pattern=r"^u[1-3]-s[0-9]+$")
+    session: str = Field(pattern=r"^u[1-9][0-9]*-s[1-9][0-9]*$")
 
     @field_validator("nickname")
     @classmethod

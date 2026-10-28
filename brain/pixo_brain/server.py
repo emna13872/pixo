@@ -130,7 +130,10 @@ def create_app(
     app = FastAPI(title="Pixo brain", version=PROTOCOL_VERSION)
     sessions = [{"id": s.id, "title": s.title} for s in content.sessions.values()]
     # v1 sessions, by id: "units/u1-hello/s1.yaml" -> "u1-s1"
-    v1_sessions = {f"{f.split('/')[1][:2]}-{f.split('/')[2][:-5]}" for f in content.unit_files}
+    v1_sessions = {
+        f"{f.split('/')[1].split('-')[0]}-{f.split('/')[2].removesuffix('.yaml')}"
+        for f in content.unit_files
+    }
 
     @app.get("/", response_class=HTMLResponse)
     async def test_page() -> str:

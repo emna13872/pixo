@@ -29,7 +29,7 @@ steps:
 
   song:
     - say: { phrase: sing }               # « Let's sing! »
-    - sing: { song: song_hello }          # À ÉCRIRE (emna) : quelle chanson ? (audio enregistré)
+    - sing: { song: song_hello }          # sur l'air de Frère Jacques, paroles dans media.yaml
     - celebrate: {}
 
   review:
@@ -54,7 +54,7 @@ steps:
     - say: { phrase: attention }
     - show: { image: word_bye, layout: with_pixo, face: talking }
     - say: { text: "Bye!" }
-    - say: { text: "Bye!", gesture: wave, face: happy }
+    - say: { text: "Bye!", gesture: wave_bye, face: happy }
     - say: { phrase: your_turn, face: listening }
     - ask_say: { word: bye, prompt: ask_say }
     - say: { phrase: praise, face: happy }
@@ -74,7 +74,7 @@ steps:
     - say: { phrase: attention }
     - show: { image: word_no, layout: with_pixo, face: talking }
     - say: { text: "No!" }
-    - say: { text: "No!", gesture: thumbs_down, face: surprised }
+    - say: { text: "No!", gesture: finger_wag, face: happy }   # « non » joueur, jamais un reproche
     - say: { phrase: your_turn, face: listening }
     - ask_say: { word: "no", prompt: ask_say }
     - say: { text: "Good job, {name}!", face: celebrate }   # surnom n°2
@@ -82,7 +82,7 @@ steps:
 
   game:
     # Règles du jeu (règlement) : 2 images au début, puis 3 ; 2 tours par mot.
-    - say: { text: "Let's play!", face: happy }
+    - say: { phrase: game_intro, face: happy }
     - ask_touch: { prompt: ask_touch, options: [hello, bye], answer: hello, rounds: 2 }
     - ask_touch: { prompt: ask_touch, options: [hello, bye], answer: bye, rounds: 2 }
     - ask_touch: { prompt: ask_touch, options: ["yes", "no", hello], answer: "yes", rounds: 2 }
@@ -95,4 +95,4 @@ steps:
   bye:
     - say: { text: "Great job today!" }
     - video: { video: video_reward_u1 }   # récompense : une danse de Pixo (animation), pas une vidéo externe
-    - say: { text: "Bye-bye, {name}!", face: happy, gesture: wave }   # surnom n°3
+    - say: { text: "Bye-bye, {name}!", face: happy, gesture: wave_bye }   # surnom n°3

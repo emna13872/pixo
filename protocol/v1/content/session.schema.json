@@ -139,7 +139,11 @@
         "point_feet",
         "clap",
         "hands_up",
-        "high_five"
+        "high_five",
+        "wave_bye",
+        "finger_wag",
+        "nod",
+        "head_shake"
       ]
     },
     "action": {

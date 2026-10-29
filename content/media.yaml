@@ -33,10 +33,10 @@ images:
 songs:
   - id: song_hello
     unit: u1
-    file: ""
-    source: "lyrics by emna; audio to be made with Suno (paid plan)"
-    license: "own lyrics; tune Frère Jacques (public domain); audio: Suno paid plan, commercial use"
-    status: todo           # audio à générer avec Suno ; « friend » remplace le surnom (un enregistrement ne peut pas le dire)
+    file: "media/songs/song_hello.mp3"   # 21 s, MP3 107 kbit/s ; pour l'instant sur le PC d'emna : notes\media\song_hello.mp3
+    source: "lyrics by emna; audio made with Suno, free plan (2026-10-29)"
+    license: "TESTING ONLY: Suno free plan is not for commercial use; re-generate on a paid plan before real users"
+    status: found
     tune: "Frère Jacques"
     lyrics: |
       Hello, hello! Hello, hello!

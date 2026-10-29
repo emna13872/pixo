@@ -68,6 +68,39 @@ def line_words(text: str) -> int:
     return len(_WORD.findall(_PLACEHOLDER.sub("X", text)))
 
 
+def _check_timing(song: dict, media: Media) -> list[Issue]:
+    """V10: a song's timed lines match its lyrics and run forward in time."""
+    issues: list[Issue] = []
+
+    def add(where: str, message: str) -> None:
+        issues.append(Issue("V10", "media.yaml", f"{song['id']}.{where}", message))
+
+    timing = song.get("timing", [])
+    if not timing:
+        return issues
+    lyrics = [line.strip() for line in song.get("lyrics", "").splitlines() if line.strip()]
+    texts = [line["text"] for line in timing]
+    if lyrics and texts != lyrics:
+        add("timing", "the timed lines differ from `lyrics`")
+    for i, line in enumerate(timing):
+        end = timing[i + 1]["at"] if i + 1 < len(timing) else None
+        if end is not None and end <= line["at"]:
+            add(f"timing[{i + 1}]", "starts before the line above it")
+        if "image" in line and line["image"] not in media.images:
+            add(f"timing[{i}]", f'image "{line["image"]}" is not in media.yaml')
+        words = line.get("words", [])
+        if words and " ".join(w["text"] for w in words) != line["text"]:
+            add(f"timing[{i}].words", "the words do not spell the line")
+        starts = [w["at"] for w in words]
+        if starts and (
+            starts != sorted(starts)
+            or starts[0] < line["at"]
+            or (end is not None and starts[-1] >= end)
+        ):
+            add(f"timing[{i}].words", "a word starts outside its line or before the word above it")
+    return issues
+
+
 def check_v1(root: Path, content: Content) -> tuple[list[str], list[Issue]]:
     """Check the v1 files under `root`. Returns the session files found and the issues."""
     issues: list[Issue] = []
@@ -89,6 +122,8 @@ def check_v1(root: Path, content: Content) -> tuple[list[str], list[Issue]]:
                 issues.append(
                     Issue("V03", "media.yaml", word.id, f'image "{word.image}" is not listed')
                 )
+        for song in raw_media["songs"]:
+            issues += _check_timing(song, media)
 
     program = _load(root, "program.yaml", "program.schema.json", issues)
     planned: dict[str, list[str]] = {}  # "u1-s1" -> words

@@ -220,3 +220,35 @@ def test_units_are_not_limited_to_three(root):
     write(root, "units/u12-food/s1.yaml", s)
     _, issues = validate(root)
     assert [str(i) for i in issues] == []
+
+
+def _song(media: dict) -> dict:
+    return next(s for s in media["songs"] if s["id"] == "song_hello")
+
+
+def test_v10_timing_must_match_lyrics(root):
+    media = read(root, "media.yaml")
+    _song(media)["timing"][1]["text"] = "Yes, yes!"
+    write(root, "media.yaml", media)
+    assert "V10" in codes(root)
+
+
+def test_v10_lines_run_forward(root):
+    media = read(root, "media.yaml")
+    _song(media)["timing"][2]["at"] = 1.0
+    write(root, "media.yaml", media)
+    assert "V10" in codes(root)
+
+
+def test_v10_words_stay_inside_their_line(root):
+    media = read(root, "media.yaml")
+    _song(media)["timing"][0]["words"][-1]["at"] = 9.0
+    write(root, "media.yaml", media)
+    assert "V10" in codes(root)
+
+
+def test_v10_line_image_must_exist(root):
+    media = read(root, "media.yaml")
+    _song(media)["timing"][0]["image"] = "word_cat"
+    write(root, "media.yaml", media)
+    assert "V10" in codes(root)

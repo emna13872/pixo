@@ -43,6 +43,24 @@ songs:
       Yes, yes, yes! Yes, yes, yes!
       Hello, friend! Hello, friend!
       Bye-bye! Bye-bye!
+    # timed with faster-whisper (small.en) on the audio; also in songs/song_hello.lrc
+    timing:
+      - at: 3.10
+        text: "Hello, hello! Hello, hello!"
+        image: word_hello
+        words: [{at: 3.22, text: "Hello,"}, {at: 5.22, text: "hello!"}, {at: 6.22, text: "Hello,"}, {at: 6.72, text: "hello!"}]
+      - at: 7.88
+        text: "Yes, yes, yes! Yes, yes, yes!"
+        image: word_yes
+        words: [{at: 7.98, text: "Yes,"}, {at: 8.50, text: "yes,"}, {at: 9.02, text: "yes!"}, {at: 10.24, text: "Yes,"}, {at: 10.56, text: "yes,"}, {at: 10.96, text: "yes!"}]
+      - at: 12.04
+        text: "Hello, friend! Hello, friend!"
+        image: word_hello
+        words: [{at: 12.14, text: "Hello,"}, {at: 12.76, text: "friend!"}, {at: 14.44, text: "Hello,"}, {at: 15.00, text: "friend!"}]
+      - at: 16.36
+        text: "Bye-bye! Bye-bye!"
+        image: word_bye
+        words: [{at: 16.46, text: "Bye-bye!"}, {at: 18.34, text: "Bye-bye!"}]
   - { id: song_colors, unit: u2, file: "", source: "", license: "", status: todo }
   - { id: song_body, unit: u3, file: "", source: "", license: "", status: todo }
 

@@ -13,198 +13,170 @@
     "images": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "unit",
-          "file",
-          "source",
-          "license",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9][a-z0-9_-]*$"
-          },
-          "unit": {
-            "type": "string",
-            "pattern": "^(u[1-9][0-9]*|all)$"
-          },
-          "file": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "todo",
-              "found",
-              "done"
-            ]
-          },
-          "tune": {
-            "type": "string",
-            "description": "songs: the tune it is sung to"
-          },
-          "lyrics": {
-            "type": "string",
-            "description": "songs: the words, {name} allowed"
-          }
-        }
+        "$ref": "#/$defs/entry"
       }
     },
     "songs": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "unit",
-          "file",
-          "source",
-          "license",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9][a-z0-9_-]*$"
-          },
-          "unit": {
-            "type": "string",
-            "pattern": "^(u[1-9][0-9]*|all)$"
-          },
-          "file": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "todo",
-              "found",
-              "done"
-            ]
-          },
-          "tune": {
-            "type": "string",
-            "description": "songs: the tune it is sung to"
-          },
-          "lyrics": {
-            "type": "string",
-            "description": "songs: the words, {name} allowed"
-          }
-        }
+        "$ref": "#/$defs/song"
       }
     },
     "videos": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "unit",
-          "file",
-          "source",
-          "license",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9][a-z0-9_-]*$"
-          },
-          "unit": {
-            "type": "string",
-            "pattern": "^(u[1-9][0-9]*|all)$"
-          },
-          "file": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "todo",
-              "found",
-              "done"
-            ]
-          },
-          "tune": {
-            "type": "string",
-            "description": "songs: the tune it is sung to"
-          },
-          "lyrics": {
-            "type": "string",
-            "description": "songs: the words, {name} allowed"
-          }
-        }
+        "$ref": "#/$defs/entry"
       }
     },
     "other": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "unit",
-          "file",
-          "source",
-          "license",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9][a-z0-9_-]*$"
-          },
-          "unit": {
-            "type": "string",
-            "pattern": "^(u[1-9][0-9]*|all)$"
-          },
-          "file": {
-            "type": "string"
-          },
-          "source": {
-            "type": "string"
-          },
-          "license": {
-            "type": "string"
-          },
-          "status": {
-            "enum": [
-              "todo",
-              "found",
-              "done"
-            ]
-          },
-          "tune": {
-            "type": "string",
-            "description": "songs: the tune it is sung to"
-          },
-          "lyrics": {
-            "type": "string",
-            "description": "songs: the words, {name} allowed"
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "unit",
+        "file",
+        "source",
+        "license",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "^(u[1-9][0-9]*|all)$"
+        },
+        "file": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "todo",
+            "found",
+            "done"
+          ]
+        }
+      }
+    },
+    "song": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "unit",
+        "file",
+        "source",
+        "license",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "^(u[1-9][0-9]*|all)$"
+        },
+        "file": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "todo",
+            "found",
+            "done"
+          ]
+        },
+        "tune": {
+          "type": "string",
+          "description": "the tune it is sung to"
+        },
+        "lyrics": {
+          "type": "string",
+          "description": "the words, one line per sung line, {name} allowed"
+        },
+        "timing": {
+          "type": "array",
+          "minItems": 1,
+          "description": "when each lyrics line is sung, so the app can show it karaoke style",
+          "items": {
+            "$ref": "#/$defs/line"
           }
         }
       }
+    },
+    "line": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "at",
+        "text"
+      ],
+      "properties": {
+        "at": {
+          "$ref": "#/$defs/seconds"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "the lyrics line, exactly as in `lyrics`"
+        },
+        "image": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "description": "optional picture shown beside the line"
+        },
+        "words": {
+          "type": "array",
+          "minItems": 1,
+          "description": "optional: when each word starts, to light it up as it is sung",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "at",
+              "text"
+            ],
+            "properties": {
+              "at": {
+                "$ref": "#/$defs/seconds"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "seconds": {
+      "type": "number",
+      "minimum": 0,
+      "description": "seconds from the start of the audio file"
     }
   }
 }

@@ -62,6 +62,22 @@ An action is one key, the action's name, followed by its fields:
 count_1 … count_5, nod, head_shake, wave_bye, finger_wag, point, point_head, point_eyes, point_nose, point_mouth, point_ears,
 show_hands, point_feet, clap, hands_up, high_five.
 
+## Song lyrics on screen
+
+A song in `media.yaml` may carry `timing`: one entry per lyrics line, with the second it starts
+(`at`), its `text`, an optional picture shown beside it (`image`) and, optionally, the start of each
+word (`words`) so the app can light words up as they are sung. Times are seconds from the start of
+the audio file. The same timings are kept as a standard karaoke file next to the audio
+(`songs/<id>.lrc`).
+
+```yaml
+timing:
+  - at: 3.10
+    text: "Hello, hello! Hello, hello!"
+    image: word_hello
+    words: [{at: 3.22, text: "Hello,"}, {at: 5.22, text: "hello!"}, ...]
+```
+
 ## Cross-checks
 
 | Code | Rule |
@@ -75,6 +91,7 @@ show_hands, point_feet, clap, hands_up, high_five.
 | V07 | a new word's picture is shown before the child is asked for it |
 | V08 | the file path matches the session id, and its words match `program.yaml` |
 | V09 | the nickname is guaranteed at least 3 times |
+| V10 | a song's `timing` matches its `lyrics`, runs forward in time, and its pictures exist |
 
 ## Open points for Viven
 

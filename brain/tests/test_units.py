@@ -164,6 +164,7 @@ def test_v08_wrong_folder(root):
 def test_v09_nickname_too_rare(root):
     s = session(root)
     s["steps"]["hello"][0] = {"say": {"text": "Hello!"}}
+    s["steps"]["song"] = [a for a in s["steps"]["song"] if "{name}" not in str(a)]
     write(root, S1, s)
     assert "V09" in codes(root)
 

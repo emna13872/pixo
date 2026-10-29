@@ -38,6 +38,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
     private val speaker = Speaker(app)
     private val listener = Listener(app)
     private val songs = SongPlayer()
+    private val voice = SongPlayer() // Pixo's natural voice, when the brain sends it
 
     private val _ui = MutableStateFlow(
         UiState(
@@ -161,7 +162,9 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
         is BrainMessage.Say -> {
             updateSession { copy(subtitle = command.text, avatar = avatar.copy(talking = true)) }
             try {
-                speaker.speak(command.text, command.slow)
+                val audio = command.audioUrl.takeIf { it.isNotEmpty() }
+                    ?.let { _ui.value.session?.mediaBase.orEmpty() + it }
+                if (audio == null || !voice.play(audio) {}) speaker.speak(command.text, command.slow)
             } finally {
                 updateSession { copy(avatar = avatar.copy(talking = false)) }
             }
@@ -243,6 +246,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
         commandJob?.cancel()
         commandJob = null
         songs.stop()
+        voice.stop()
         speaker.stop()
         listener.stop()
     }

@@ -46,6 +46,10 @@ class MessagesTest {
             BrainMessage.Say(3, "Hello!", slow = true),
             parseBrainMessage("""{"type": "say", "id": 3, "text": "Hello!", "slow": true}"""),
         )
+        assertEquals(
+            BrainMessage.Say(5, "Hi!", audioUrl = "voice/ab12.mp3"),
+            parseBrainMessage("""{"type": "say", "id": 5, "text": "Hi!", "audio_url": "voice/ab12.mp3"}"""),
+        )
         val sing = parseBrainMessage(
             """{"type": "sing", "id": 4, "song": "song_hello", "url": "media/songs/song_hello.mp3",
                "timing": [{"at": 3.1, "text": "Hello, hello!", "image": "word_hello",

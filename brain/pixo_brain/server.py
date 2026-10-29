@@ -26,7 +26,9 @@ from .content import Content, load_yaml
 from .engine import SessionRunner
 from .play import DEFAULT_LOGS
 from .player import SessionPlayer
+from .settings import load_settings
 from .validate import DEFAULT_CONTENT, validate
+from .voice import AzureVoice
 
 PROTOCOL_VERSION = "0.1"
 LISTEN_TIMEOUT_MS = 5000  # teaching rulebook: the child gets 5 seconds to answer
@@ -64,8 +66,9 @@ async def send_error(ws: WebSocket, code: str, message: str) -> None:
 class WebSocketChannel:
     """A Channel whose every call is a command to the app, answered with the same `id`."""
 
-    def __init__(self, ws: WebSocket) -> None:
+    def __init__(self, ws: WebSocket, voice: AzureVoice | None = None) -> None:
         self._ws = ws
+        self._voice = voice
         self._next_id = 0
         self.ignored: list[dict[str, Any]] = []  # answers that didn't match (for the log)
 
@@ -83,11 +86,19 @@ class WebSocketChannel:
                 return msg
             self.ignored.append(msg)
 
+    async def _audio(self, text: str, slow: bool) -> dict[str, str]:
+        """Pixo's natural voice for this line, if Azure is set up (else the phone speaks)."""
+        if self._voice is None:
+            return {}
+        name = await self._voice.audio(text, slow)
+        return {"audio_url": f"voice/{name}"} if name else {}
+
     async def say(self, text: str) -> None:
-        await self._command("say", "done", text=text)
+        await self._command("say", "done", text=text, **await self._audio(text, False))
 
     async def say_slowly(self, text: str) -> None:
-        await self._command("say", "done", text=text, slow=True)
+        audio = await self._audio(text, True)
+        await self._command("say", "done", text=text, slow=True, **audio)
 
     async def sing(self, song: str, file: str, timing: list[dict]) -> None:
         await self._command("sing", "done", song=song, url=file, timing=timing)
@@ -145,8 +156,15 @@ def v1_session_words(
     return words
 
 
-def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) -> FastAPI:
-    """Build the server. Refuses to start (InvalidContentError) if the content is not valid."""
+def create_app(
+    content_root: Path = DEFAULT_CONTENT,
+    logs: Path = DEFAULT_LOGS,
+    voice: AzureVoice | None = None,
+) -> FastAPI:
+    """Build the server. Refuses to start (InvalidContentError) if the content is not valid.
+
+    With a [voice], `say` carries the line as an MP3 served at /voice (Pixo's natural voice).
+    """
     content, issues = validate(content_root)
     if issues:
         raise InvalidContentError(issues)
@@ -164,6 +182,8 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
     # pictures and songs, at the paths media.yaml gives (media/images/word_hello.png…)
     if (content_root / "media").is_dir():
         app.mount("/media", StaticFiles(directory=content_root / "media"), name="media")
+    if voice is not None:
+        app.mount("/voice", StaticFiles(directory=voice.cache), name="voice")
 
     @app.get("/", response_class=HTMLResponse)
     async def test_page() -> str:
@@ -181,7 +201,7 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
         nickname = str(msg.get("nickname") or "").strip()[:MAX_NICKNAME_LENGTH] or "friend"
 
         stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-        inner = WebSocketChannel(ws)
+        inner = WebSocketChannel(ws, voice)
         channel = LoggingChannel(inner, logs / f"{stamp}_session-{session_id}.jsonl")
         channel.log("start", session=session_id, nickname=nickname, mode="websocket")
         runner: SessionRunner | SessionPlayer
@@ -277,13 +297,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--logs", type=Path, default=DEFAULT_LOGS)
     args = parser.parse_args(argv)
     try:
-        app = create_app(args.content, args.logs)
+        voice = AzureVoice.from_settings(load_settings(), args.logs / "voice-cache")
+        app = create_app(args.content, args.logs, voice)
     except InvalidContentError as err:
         for issue in err.issues:
             print(issue)
         print("\nThe content has problems: fix them first (uv run pixo-validate).")
         return 1
     print(f"Pixo brain, protocol {PROTOCOL_VERSION}")
+    print(f"  voice: {voice.voice + ' (Azure)' if voice else 'the phone (no Azure key in .env)'}")
     print(f"  test page: http://127.0.0.1:{args.port}")
     print(f"  app connects to: ws://<this PC>:{args.port}/ws")
     uvicorn.run(app, host=args.host, port=args.port, log_level="info")

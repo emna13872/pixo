@@ -52,8 +52,16 @@ sealed interface BrainMessage {
         val id: Int
     }
 
-    /** [slow]: Pixo models a word for the child to repeat. */
-    data class Say(override val id: Int, val text: String, val slow: Boolean = false) : Command
+    /**
+     * [slow]: Pixo models a word for the child to repeat. [audioUrl]: the line in Pixo's natural
+     * voice (relative to the brain's address); empty when the brain has none: the phone speaks.
+     */
+    data class Say(
+        override val id: Int,
+        val text: String,
+        val slow: Boolean = false,
+        val audioUrl: String = "",
+    ) : Command
 
     /** Play the song at [url] (relative to the brain's address) and show its timed lyrics. */
     data class Sing(
@@ -145,6 +153,7 @@ fun parseBrainMessage(raw: String): BrainMessage {
             id,
             obj.string("text").orEmpty(),
             (obj["slow"] as? JsonPrimitive)?.booleanOrNull ?: false,
+            obj.string("audio_url").orEmpty(),
         )
 
         type == "sing" -> BrainMessage.Sing(

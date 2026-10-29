@@ -19,11 +19,13 @@ from typing import Any
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 from .channels import LoggingChannel
-from .content import Content
+from .content import Content, load_yaml
 from .engine import SessionRunner
 from .play import DEFAULT_LOGS
+from .player import SessionPlayer
 from .validate import DEFAULT_CONTENT, validate
 
 PROTOCOL_VERSION = "0.1"
@@ -84,6 +86,15 @@ class WebSocketChannel:
     async def say(self, text: str) -> None:
         await self._command("say", "done", text=text)
 
+    async def say_slowly(self, text: str) -> None:
+        await self._command("say", "done", text=text, slow=True)
+
+    async def sing(self, song: str, file: str, timing: list[dict]) -> None:
+        await self._command("sing", "done", song=song, url=file, timing=timing)
+
+    async def play_video(self, video: str, file: str) -> None:
+        await self._command("play_video", "done", video=video, url=file)
+
     async def show(self, words: list[str], highlight: str | None = None) -> None:
         await self._command("show", "done", words=words, highlight=highlight)
 
@@ -114,6 +125,26 @@ def session_words(content: Content, session_id: str) -> dict[str, dict[str, str]
     }
 
 
+IMAGE_TYPES = (".png", ".jpg", ".jpeg", ".webp")
+
+
+def v1_session_words(
+    content: Content, session: dict[str, Any], media: dict[str, Any]
+) -> dict[str, dict[str, str]]:
+    """Like session_words, plus the picture's address on this server (empty until it exists)."""
+    files_by_image = {m["id"]: m.get("file", "") for m in media.get("images", [])}
+    words = {}
+    for word_id in [*session["words"], *session.get("review", [])]:
+        word = content.words[word_id]
+        file = files_by_image.get(word.image, "")
+        words[word_id] = {
+            "text": word.text,
+            "image": word.image,
+            "image_url": file if file.lower().endswith(IMAGE_TYPES) else "",
+        }
+    return words
+
+
 def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) -> FastAPI:
     """Build the server. Refuses to start (InvalidContentError) if the content is not valid."""
     content, issues = validate(content_root)
@@ -121,7 +152,18 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
         raise InvalidContentError(issues)
 
     app = FastAPI(title="Pixo brain", version=PROTOCOL_VERSION)
+    # v1 sessions (units/<unit>/s<n>.yaml), played by SessionPlayer
+    v1: dict[str, dict[str, Any]] = {}
+    for rel in content.unit_files:
+        data = load_yaml(content_root / rel)
+        v1[data["id"]] = data
+    media_path = content_root / "media.yaml"
+    media = load_yaml(media_path) if media_path.exists() else {}
     sessions = [{"id": s.id, "title": s.title} for s in content.sessions.values()]
+    sessions += [{"id": s["id"], "title": s["title"]} for s in v1.values()]
+    # pictures and songs, at the paths media.yaml gives (media/images/word_hello.png…)
+    if (content_root / "media").is_dir():
+        app.mount("/media", StaticFiles(directory=content_root / "media"), name="media")
 
     @app.get("/", response_class=HTMLResponse)
     async def test_page() -> str:
@@ -133,7 +175,7 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
 
     async def run_session(ws: WebSocket, msg: dict[str, Any]) -> None:
         session_id = msg.get("session")
-        if session_id not in content.sessions:
+        if session_id not in content.sessions and session_id not in v1:
             await send_error(ws, "unknown_session", f"unknown session {session_id!r}")
             return
         nickname = str(msg.get("nickname") or "").strip()[:MAX_NICKNAME_LENGTH] or "friend"
@@ -142,16 +184,21 @@ def create_app(content_root: Path = DEFAULT_CONTENT, logs: Path = DEFAULT_LOGS) 
         inner = WebSocketChannel(ws)
         channel = LoggingChannel(inner, logs / f"{stamp}_session-{session_id}.jsonl")
         channel.log("start", session=session_id, nickname=nickname, mode="websocket")
+        runner: SessionRunner | SessionPlayer
+        if session_id in v1:
+            title = v1[session_id]["title"]
+            words = v1_session_words(content, v1[session_id], media)
+            runner = SessionPlayer(
+                content, v1[session_id], media, nickname, channel, random.Random()
+            )
+        else:
+            title = content.sessions[session_id].title
+            words = session_words(content, session_id)
+            runner = SessionRunner(
+                content, content.sessions[session_id], nickname, channel, random.Random()
+            )
         await ws.send_json(
-            {
-                "type": "session_started",
-                "session": session_id,
-                "title": content.sessions[session_id].title,
-                "words": session_words(content, session_id),
-            }
-        )
-        runner = SessionRunner(
-            content, content.sessions[session_id], nickname, channel, random.Random()
+            {"type": "session_started", "session": session_id, "title": title, "words": words}
         )
 
         def log_ignored() -> None:

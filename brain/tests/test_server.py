@@ -200,3 +200,25 @@ def test_disconnect_mid_session_is_logged(client, logs):
     client.get("/health")  # let the server notice the disconnect
     log = next(logs.iterdir()).read_text(encoding="utf-8")
     assert '"kind": "disconnected"' in log
+
+
+# --- v1 sessions ------------------------------------------------------------------------
+
+
+def test_v1_session_plays_with_song_and_lyrics(client):
+    assert {"id": "u1-s1", "title": "Hello!"} in client.get("/health").json()["sessions"]
+    ws = connect(client)
+    ws.send_json({"type": "start_session", "session": "u1-s1", "nickname": "Sara"})
+    taps = ["hello", "hello", "bye", "bye", "yes", "yes", "no", "no"]
+    app = FakeApp(ws, [["hello"], ["bye"], ["yes"], ["no"], *taps])
+    end = app.play()
+    assert end["type"] == "session_ended" and end["successes"] == end["asks"] == 12
+    assert set(app.words) == {"hello", "bye", "yes", "no"}
+    sing = next(c for c in app.commands if c["type"] == "sing")
+    assert sing["url"] == "media/songs/song_hello.mp3"
+    assert sing["timing"][1]["text"] == "Yes, yes, yes! Yes, yes, yes!"
+
+
+def test_media_files_are_served(client):
+    response = client.get("/media/images/word_hello.svg")
+    assert response.status_code == 200

@@ -80,5 +80,5 @@ show_hands, point_feet, clap, hands_up, high_five.
 
 - The `gesture` action and fields, and a matching `gesture` message in protocol v1.
 - Whether an empty `review` step is allowed for a unit's first session (it is, for now).
-- The 5-word rule on phrase templates: `phrases.yaml` is still checked per sentence, so
+- The 5-word rule on phrase templates: emna decided (2026-10-29) to keep it per sentence, so
   "Welcome back, {name}! Let's go on!" (6 words) passes there.

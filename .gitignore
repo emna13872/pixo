@@ -32,3 +32,7 @@ logs/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Free-plan Suno song: testing only, not for commercial use. Remove this line once
+# it is re-generated on a paid plan.
+content/media/songs/song_hello.mp3

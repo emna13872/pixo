@@ -66,6 +66,8 @@ fun WordCard(
         colors = CardDefaults.cardColors(
             containerColor = Color.White,
             disabledContainerColor = Color.White,
+            contentColor = Color(0xFF1B2330),
+            disabledContentColor = Color(0xFF1B2330),
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (highlighted) 8.dp else 2.dp),
         modifier = modifier.fillMaxHeight().aspectRatio(0.8f),

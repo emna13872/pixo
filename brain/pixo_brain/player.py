@@ -8,6 +8,7 @@ so files don't repeat it:
   3rd miss: "Good try!", and the word goes to the catch-up step.
 - the praise (`say: {phrase: praise}`) and `celebrate` written right after an ask_say are
   for a success: they are skipped when the child missed.
+- a right answer makes Pixo do its happy dance; `celebrate` shows stars.
 - ask_touch: each round shows the options in a new order. A wrong touch gets an
   encouragement, the answer glows, and the child tries once more.
 - catchup: the engine fills it with the words missed in `new`.
@@ -114,6 +115,7 @@ class SessionPlayer:
         while attempt < SAY_TRIES:
             heard = await self.io.listen()
             if matches(word, heard):
+                await self.io.animate("dance")  # the happy dance, on every right answer
                 self._result(step, "ask_say", word.id, True, attempt + 1)
                 return True
             if not heard and not reprompted:
@@ -143,7 +145,7 @@ class SessionPlayer:
             for attempt in range(1, TOUCH_TRIES + 1):
                 tapped = await self.io.wait_tap(options)
                 if tapped == answer.id:
-                    await self.io.animate("happy")
+                    await self.io.animate("dance")
                     await self._say_from("praise")
                     self._result(step, "ask_touch", answer.id, True, attempt)
                     break
@@ -169,7 +171,7 @@ class SessionPlayer:
             await self.io.animate("dance")
 
     async def _celebrate(self, a: dict[str, Any]) -> None:
-        await self.io.animate("dance")
+        await self.io.animate("celebrate")  # stars
         await self.io.say(
             self._line(a["text"]) if a.get("text") else self._line(self._pick("celebrate"))
         )

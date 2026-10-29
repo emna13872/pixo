@@ -36,8 +36,8 @@ object PixoClips {
 }
 
 /**
- * Pixo on screen. Plays the Lottie clips when the app ships them (the real, animated Pixo);
- * otherwise a placeholder drawn in code, so the whole loop can be tested before the art exists.
+ * Pixo on screen. Plays the Lottie clips when the app ships them; otherwise the face drawn in
+ * code ([ScreenFace]): glowing eyes on a black screen, with hands for gestures.
  */
 @Composable
 fun PixoAvatar(state: AvatarState, modifier: Modifier = Modifier) {
@@ -46,7 +46,7 @@ fun PixoAvatar(state: AvatarState, modifier: Modifier = Modifier) {
     if (PixoClips.IDLE in clips) {
         LottiePixo(clips, state, modifier)
     } else {
-        PlaceholderPixo(state, modifier)
+        ScreenFace(state, modifier)
     }
 }
 

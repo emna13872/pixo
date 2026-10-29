@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -46,7 +46,7 @@ fun LyricsPanel(song: SongState, words: Map<String, WordInfo>, mediaBase: String
             Image(
                 image,
                 contentDescription = picture?.text,
-                modifier = Modifier.size(160.dp).clip(RoundedCornerShape(24.dp)),
+                modifier = Modifier.fillMaxHeight(0.8f).aspectRatio(1f).clip(RoundedCornerShape(28.dp)),
             )
         }
         Column(Modifier.weight(1f).fillMaxHeight(), verticalArrangement = Arrangement.Center) {
@@ -63,7 +63,7 @@ fun LyricsPanel(song: SongState, words: Map<String, WordInfo>, mediaBase: String
             if (next != null) {
                 Text(
                     next.text,
-                    fontSize = 20.sp,
+                    fontSize = 26.sp,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f),
                     modifier = Modifier.padding(top = 12.dp),
                 )
@@ -82,5 +82,5 @@ private fun LyricWordText(text: String, sung: Boolean, now: Boolean = false) {
         },
         label = "lyric",
     )
-    Text(text, fontSize = if (now) 40.sp else 34.sp, fontWeight = FontWeight.Bold, color = color)
+    Text(text, fontSize = if (now) 52.sp else 44.sp, fontWeight = FontWeight.Bold, color = color)
 }

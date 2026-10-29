@@ -36,3 +36,6 @@ Thumbs.db
 # Free-plan Suno song: testing only, not for commercial use. Remove this line once
 # it is re-generated on a paid plan.
 content/media/songs/song_hello.mp3
+
+# AI-generated word pictures (Canva): kept on emna's PC until the style and the licence are confirmed.
+content/media/images/*.png

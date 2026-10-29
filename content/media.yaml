@@ -6,10 +6,10 @@
 # un seul style pour les 23 mots, nom de fichier = identifiant (word_hello.png).
 
 images:
-  - { id: word_hello, unit: u1, file: "media/images/word_hello.svg", source: "drawn for Pixo", license: "own work", status: found }
-  - { id: word_bye, unit: u1, file: "media/images/word_bye.svg", source: "drawn for Pixo", license: "own work", status: found }
-  - { id: word_yes, unit: u1, file: "media/images/word_yes.svg", source: "drawn for Pixo", license: "own work", status: found }
-  - { id: word_no, unit: u1, file: "media/images/word_no.svg", source: "drawn for Pixo", license: "own work", status: found }
+  - { id: word_hello, unit: u1, file: "media/images/word_hello.png", source: "Canva AI image generator, 3D cartoon style (2026-10-29)", license: "Canva content license: confirm before release", status: found }
+  - { id: word_bye, unit: u1, file: "media/images/word_bye.png", source: "Canva AI image generator, 3D cartoon style (2026-10-29)", license: "Canva content license: confirm before release", status: found }
+  - { id: word_yes, unit: u1, file: "media/images/word_yes.png", source: "Canva AI image generator, 3D cartoon style (2026-10-29)", license: "Canva content license: confirm before release", status: found }
+  - { id: word_no, unit: u1, file: "media/images/word_no.png", source: "Canva AI image generator, 3D cartoon style (2026-10-29)", license: "Canva content license: confirm before release", status: found }
   - { id: word_one, unit: u1, file: "", source: "", license: "", status: todo }
   - { id: word_two, unit: u1, file: "", source: "", license: "", status: todo }
   - { id: word_three, unit: u1, file: "", source: "", license: "", status: todo }

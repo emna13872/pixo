@@ -3,6 +3,7 @@ package com.pixo.app.speech
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
+import android.speech.tts.Voice
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.util.Locale
@@ -40,10 +41,18 @@ class Speaker(context: Context) {
         })
     }
 
+    /** The clearest American English voice installed on the phone (offline first: no lag). */
+    private val bestVoice: Voice? by lazy {
+        tts.voices.orEmpty()
+            .filter { it.locale == Locale.US && Voice.FEATURE_NOT_INSTALLED !in it.features }
+            .maxWithOrNull(compareBy<Voice>({ it.quality }, { !it.isNetworkConnectionRequired }))
+    }
+
     /** Speaks [text] and returns once it has been fully said (or failed). [slow]: a word to repeat. */
     suspend fun speak(text: String, slow: Boolean = false) {
         if (!ready.await()) return
         tts.language = Locale.US
+        bestVoice?.let { tts.voice = it }
         tts.setSpeechRate(if (slow) SLOW_RATE else SPEECH_RATE)
         tts.setPitch(PITCH)
         val id = UUID.randomUUID().toString()
@@ -70,6 +79,6 @@ class Speaker(context: Context) {
     private companion object {
         const val SPEECH_RATE = 0.85f // the pedagogy rules ask for a slow pace
         const val SLOW_RATE = 0.6f // rulebook: after a first miss, the word is modelled slowly
-        const val PITCH = 1.3f // a younger, friendlier voice
+        const val PITCH = 1.0f // a raised pitch sounded irritating (emna, 2026-10-29)
     }
 }

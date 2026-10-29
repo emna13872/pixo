@@ -27,7 +27,7 @@ from .play import DEFAULT_LOGS
 from .validate import DEFAULT_CONTENT, validate
 
 PROTOCOL_VERSION = "0.1"
-LISTEN_TIMEOUT_MS = 8000
+LISTEN_TIMEOUT_MS = 5000  # teaching rulebook: the child gets 5 seconds to answer
 TAP_TIMEOUT_MS = 10000
 MAX_NICKNAME_LENGTH = 30
 

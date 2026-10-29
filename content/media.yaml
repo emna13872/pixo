@@ -34,14 +34,14 @@ songs:
   - id: song_hello
     unit: u1
     file: ""
-    source: "written by emna"
-    license: "own work; tune Frère Jacques (public domain)"
-    status: todo           # paroles validées le 2026-10-28, enregistrement à faire
+    source: "lyrics by emna; audio to be made with Suno (paid plan)"
+    license: "own lyrics; tune Frère Jacques (public domain); audio: Suno paid plan, commercial use"
+    status: todo           # audio à générer avec Suno ; « friend » remplace le surnom (un enregistrement ne peut pas le dire)
     tune: "Frère Jacques"
     lyrics: |
       Hello, hello! Hello, hello!
       Yes, yes, yes! Yes, yes, yes!
-      Hello, {name}! Hello, {name}!
+      Hello, friend! Hello, friend!
       Bye-bye! Bye-bye!
   - { id: song_colors, unit: u2, file: "", source: "", license: "", status: todo }
   - { id: song_body, unit: u3, file: "", source: "", license: "", status: todo }

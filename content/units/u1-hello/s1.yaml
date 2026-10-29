@@ -1,0 +1,98 @@
+# Séance u1-s1 : « Hello! », mots hello, bye, yes et no.
+# Brouillon au format de la mission de Viven (tâche 3) : 7 étapes fixes,
+# actions say, show, ask_say, ask_touch, sing, video, celebrate.
+# Le schéma n'est pas encore figé : ce fichier sert de base à la séance
+# commune avec Viven. Les lignes « À ÉCRIRE (emna) » sont du contenu
+# pédagogique à décider.
+#
+# Rappels des règles :
+#   - montrer avant de demander : image, mot dit 2 fois, Pixo le fait, puis « Your turn! » ;
+#   - 1 à 5 mots par réplique, seulement les mots de l'unité ou les phrases-types ;
+#   - jamais « No! » ni « Wrong! » ;
+#   - le surnom ({name}) au moins 3 fois (ici : hello, new, bye).
+#
+# say : « phrase » = une catégorie de phrases.yaml (le cerveau tire une variante),
+#       « text » = une réplique écrite ici (utile pour garantir le surnom).
+# face : idle | talking | listening | thinking | happy | celebrate | encourage | surprised | sleeping
+
+schema_version: "1.0-draft"
+id: u1-s1
+unit: u1-hello
+title: "Hello!"
+words: [hello, bye, "yes", "no"]
+duration_min: 8   # cible 8 à 10 minutes. À AJUSTER (emna) après un essai chronométré.
+
+steps:
+  hello:
+    - say: { text: "Hello, {name}!", face: happy, gesture: wave }   # surnom n°1
+    - say: { phrase: greet }              # « Are you ready? », « Let's go! »…
+
+  song:
+    - say: { phrase: sing }               # « Let's sing! »
+    - sing: { song: song_hello }          # sur l'air de Frère Jacques, paroles dans media.yaml
+    - say: { text: "Yay, {name}!", face: celebrate, gesture: clap }   # le surnom, que la chanson ne peut pas dire
+
+  review:
+    []                                    # Première séance : rien à réviser.
+                                          # À DÉCIDER (emna + Viven) : étape vide permise ?
+
+  new:
+    # Chaque mot suit les 6 temps du règlement : attention, image, mot dit
+    # deux fois avec le geste, « Your turn! », l'enfant parle, bravo.
+    # Les relances (3 essais) sont gérées par le cerveau.
+    # Mot 1 : hello
+    - say: { phrase: attention }              # « Look! »
+    - show: { image: word_hello, layout: with_pixo, face: talking }
+    - say: { text: "Hello!" }
+    - say: { text: "Hello!", gesture: wave, face: happy }
+    - say: { phrase: your_turn, face: listening }
+    - ask_say: { word: hello, prompt: ask_say }
+    - say: { phrase: praise, face: happy }
+    - celebrate: {}                       # une étoile
+
+    # Mot 2 : bye
+    - say: { phrase: attention }
+    - show: { image: word_bye, layout: with_pixo, face: talking }
+    - say: { text: "Bye!" }
+    - say: { text: "Bye!", gesture: wave_bye, face: happy }
+    - say: { phrase: your_turn, face: listening }
+    - ask_say: { word: bye, prompt: ask_say }
+    - say: { phrase: praise, face: happy }
+    - celebrate: {}                       # une étoile
+
+    # Mot 3 : yes
+    - say: { phrase: attention }
+    - show: { image: word_yes, layout: with_pixo, face: talking }
+    - say: { text: "Yes!" }
+    - say: { text: "Yes!", gesture: thumbs_up, face: happy }
+    - say: { phrase: your_turn, face: listening }
+    - ask_say: { word: "yes", prompt: ask_say }
+    - say: { phrase: praise, face: happy }
+    - celebrate: {}                       # une étoile
+
+    # Mot 4 : no
+    - say: { phrase: attention }
+    - show: { image: word_no, layout: with_pixo, face: talking }
+    - say: { text: "No!" }
+    - say: { text: "No!", gesture: finger_wag, face: happy }   # « non » joueur, jamais un reproche
+    - say: { phrase: your_turn, face: listening }
+    - ask_say: { word: "no", prompt: ask_say }
+    - say: { text: "Good job, {name}!", face: celebrate }   # surnom n°2
+    - celebrate: {}                       # une étoile
+
+  game:
+    # Règles du jeu (règlement) : 2 images au début, puis 3 ; 2 tours par mot.
+    - say: { phrase: game_intro, face: happy }
+    - ask_touch: { prompt: ask_touch, options: [hello, bye], answer: hello, rounds: 2 }
+    - ask_touch: { prompt: ask_touch, options: [hello, bye], answer: bye, rounds: 2 }
+    - ask_touch: { prompt: ask_touch, options: ["yes", "no", hello], answer: "yes", rounds: 2 }
+    - ask_touch: { prompt: ask_touch, options: ["yes", "no", bye], answer: "no", rounds: 2 }
+    - celebrate: { text: "You did it!" }
+
+  catchup:
+    []                                    # Générée par le moteur à partir des mots non validés.
+
+  bye:
+    - say: { text: "Great job today!" }
+    - video: { video: video_reward_u1 }   # récompense : une danse de Pixo (animation), pas une vidéo externe
+    - say: { text: "Bye-bye, {name}!", face: happy, gesture: wave_bye }   # surnom n°3

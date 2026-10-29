@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.local/protocol/v1/content/program.schema.json",
+  "title": "program.yaml: units and sessions, in play order",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "units"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "sessions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^u[1-9][0-9]*-[a-z0-9][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "sessions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "words"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^s[0-9]+$"
+                },
+                "words": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

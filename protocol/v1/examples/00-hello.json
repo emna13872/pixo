@@ -1,0 +1,11 @@
+{
+  "v": 1,
+  "type": "hello",
+  "id": "00000000-0000-4000-8000-000000000000",
+  "ts": 1793180000000,
+  "data": {
+    "app_version": "0.2.0",
+    "protocol_v": 1,
+    "content_version": "1.0-draft"
+  }
+}

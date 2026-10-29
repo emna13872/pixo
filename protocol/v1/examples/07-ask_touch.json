@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "type": "ask_touch",
+  "id": "00000000-0000-4000-8000-000000000007",
+  "ts": 1793180007000,
+  "data": {
+    "activity_id": "a-1",
+    "options": [
+      "word_hello",
+      "word_bye"
+    ],
+    "timeout_s": 20
+  }
+}

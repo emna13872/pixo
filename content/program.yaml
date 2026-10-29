@@ -1,0 +1,27 @@
+# Programme V1 : 3 unités, 12 séances (4 par unité), dans l'ordre de jeu.
+# Brouillon : 3 à 4 mots nouveaux dans les premières séances, puis des séances
+# de jeux et de révision (words: []). Validé par emna le 2026-10-28.
+
+schema_version: "1.0-draft"
+units:
+  - id: u1-hello
+    title: "Hello!"
+    sessions:
+      - { id: s1, words: [hello, bye, "yes", "no"] }
+      - { id: s2, words: [one, two, three] }
+      - { id: s3, words: [four, five] }        # + jeu de comptage avec one à five
+      - { id: s4, words: [] }                  # révision de toute l'unité
+  - id: u2-colors
+    title: "Colors"
+    sessions:
+      - { id: s1, words: [red, blue, yellow, green] }
+      - { id: s2, words: [pink, black, white] }
+      - { id: s3, words: [] }                  # jeux avec les 7 couleurs
+      - { id: s4, words: [] }                  # révision de toute l'unité
+  - id: u3-my-body
+    title: "My body"
+    sessions:
+      - { id: s1, words: [head, eyes, nose, mouth] }
+      - { id: s2, words: [ears, hands, feet] }
+      - { id: s3, words: [] }                  # jeux (« Touch your nose! »)
+      - { id: s4, words: [] }                  # révision de toute l'unité

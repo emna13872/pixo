@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="A child shaking their head and wagging a finger">
+  <rect width="512" height="512" rx="72" fill="#FFE3D6"/>
+  <clipPath id="c"><rect width="512" height="512" rx="72"/></clipPath>
+  <g clip-path="url(#c)">
+  <path d="M136 512 C136 400 186 372 256 372 C326 372 376 400 376 512 Z" fill="#7B6CF6"/><path d="M180 480 L150 480" stroke="#7B6CF6" stroke-width="40" stroke-linecap="round"/>
+  <rect x="234" y="340" width="44" height="40" rx="12" fill="#E3A97F"/>
+  <circle cx="256" cy="250" r="104" fill="#F5C6A0"/>
+  <circle cx="152" cy="256" r="18" fill="#F5C6A0"/><circle cx="360" cy="256" r="18" fill="#F5C6A0"/>
+  <path d="M152 240 C146 130 366 130 360 240 C336 190 276 180 226 192 C196 198 166 210 152 240 Z" fill="#4A3428"/>
+  <circle cx="218" cy="258" r="11" fill="#3B2A22"/><circle cx="294" cy="258" r="11" fill="#3B2A22"/>
+  <circle cx="222" cy="254" r="3.5" fill="#fff"/><circle cx="298" cy="254" r="3.5" fill="#fff"/>
+  <ellipse cx="194" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/><ellipse cx="318" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/>
+  <ellipse cx="256" cy="300" rx="13" ry="15" fill="#3B2A22"/><path d="M120 200 q-22 50 0 100 M96 214 q-14 36 0 72 M392 200 q22 50 0 100 M416 214 q14 36 0 72" fill="none" stroke="#F08A5D" stroke-width="7" stroke-linecap="round"/><rect x="120" y="420" width="60" height="64" rx="22" fill="#F5C6A0"/>
+  <rect x="138" y="350" width="26" height="80" rx="13" fill="#F5C6A0"/><path d="M108 330 q-14 -16 0 -32 M196 330 q14 -16 0 -32" fill="none" stroke="#F08A5D" stroke-width="6" stroke-linecap="round"/><circle cx="420" cy="92" r="52" fill="#F08A5D"/><path d="M398 70 l44 44 M442 70 l-44 44" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>

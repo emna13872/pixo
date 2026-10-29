@@ -71,8 +71,6 @@ sing:
 praise:
   - id: praise_great_job
     text: "Great job!"
-  - id: praise_yes
-    text: "Yes!"
   - id: praise_super
     text: "Super!"
   - id: praise_well_done
@@ -149,3 +147,40 @@ welcome_back:
     text: "Hello again, {name}!"   # ajout
   - id: welcome_back_hi
     text: "Hi, {name}! Let's play!" # ajout
+
+# --- Nouvelles catégories pour les étapes du format v1 (2026-10-28) ---
+game_intro:
+  - id: game_intro_lets_play
+    text: "Let's play!"
+  - id: game_intro_game_time
+    text: "Game time!"
+  - id: game_intro_play_with_me
+    text: "Play with me!"
+  - id: game_intro_ready
+    text: "Ready? Let's play!"
+
+review_intro:
+  - id: review_intro_remember
+    text: "Do you remember?"
+  - id: review_intro_remember_this
+    text: "Remember this?"
+  - id: review_intro_lets_remember
+    text: "Let's remember!"
+
+catchup_intro:
+  - id: catchup_intro_one_more
+    text: "One more time!"
+  - id: catchup_intro_try_again
+    text: "Let's try again!"
+  - id: catchup_intro_with_me
+    text: "Again, with me!"
+
+celebrate:
+  - id: celebrate_hooray
+    text: "Hooray!"
+  - id: celebrate_star
+    text: "You're a star!"
+  - id: celebrate_yay_name
+    text: "Yay, {name}!"
+  - id: celebrate_look_at_you
+    text: "Look at you!"

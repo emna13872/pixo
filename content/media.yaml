@@ -1,0 +1,74 @@
+# Liste des médias de Pixo V1 : ce qu'il faut trouver ou créer.
+# Le validateur vérifiera que chaque image, chanson et vidéo citée dans une
+# séance existe ici (tâche 3.3). « file » reste vide tant que le média n'est pas trouvé.
+# status : todo | found | done.   license : à noter pour chaque source.
+# Format conseillé pour les images : PNG ou SVG carré (512 x 512), fond clair,
+# un seul style pour les 23 mots, nom de fichier = identifiant (word_hello.png).
+
+images:
+  - { id: word_hello, unit: u1, file: "media/images/word_hello.svg", source: "drawn for Pixo", license: "own work", status: found }
+  - { id: word_bye, unit: u1, file: "media/images/word_bye.svg", source: "drawn for Pixo", license: "own work", status: found }
+  - { id: word_yes, unit: u1, file: "media/images/word_yes.svg", source: "drawn for Pixo", license: "own work", status: found }
+  - { id: word_no, unit: u1, file: "media/images/word_no.svg", source: "drawn for Pixo", license: "own work", status: found }
+  - { id: word_one, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_two, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_three, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_four, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_five, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: word_red, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_blue, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_yellow, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_green, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_pink, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_black, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_white, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: word_head, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_eyes, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_nose, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_mouth, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_ears, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_hands, unit: u3, file: "", source: "", license: "", status: todo }
+  - { id: word_feet, unit: u3, file: "", source: "", license: "", status: todo }
+
+songs:
+  - id: song_hello
+    unit: u1
+    file: "media/songs/song_hello.mp3"   # 21 s, MP3 107 kbit/s ; pour l'instant sur le PC d'emna : notes\media\song_hello.mp3
+    source: "lyrics by emna; audio made with Suno, free plan (2026-10-29)"
+    license: "TESTING ONLY: Suno free plan is not for commercial use; re-generate on a paid plan before real users"
+    status: found
+    tune: "Frère Jacques"
+    lyrics: |
+      Hello, hello! Hello, hello!
+      Yes, yes, yes! Yes, yes, yes!
+      Hello, friend! Hello, friend!
+      Bye-bye! Bye-bye!
+    # timed with faster-whisper (small.en) on the audio; also in songs/song_hello.lrc
+    timing:
+      - at: 3.10
+        text: "Hello, hello! Hello, hello!"
+        image: word_hello
+        words: [{at: 3.22, text: "Hello,"}, {at: 5.22, text: "hello!"}, {at: 6.22, text: "Hello,"}, {at: 6.72, text: "hello!"}]
+      - at: 7.88
+        text: "Yes, yes, yes! Yes, yes, yes!"
+        image: word_yes
+        words: [{at: 7.98, text: "Yes,"}, {at: 8.50, text: "yes,"}, {at: 9.02, text: "yes!"}, {at: 10.24, text: "Yes,"}, {at: 10.56, text: "yes,"}, {at: 10.96, text: "yes!"}]
+      - at: 12.04
+        text: "Hello, friend! Hello, friend!"
+        image: word_hello
+        words: [{at: 12.14, text: "Hello,"}, {at: 12.76, text: "friend!"}, {at: 14.44, text: "Hello,"}, {at: 15.00, text: "friend!"}]
+      - at: 16.36
+        text: "Bye-bye! Bye-bye!"
+        image: word_bye
+        words: [{at: 16.46, text: "Bye-bye!"}, {at: 18.34, text: "Bye-bye!"}]
+  - { id: song_colors, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: song_body, unit: u3, file: "", source: "", license: "", status: todo }
+
+videos:
+  - { id: video_reward_u1, unit: u1, file: "", source: "", license: "", status: todo }
+  - { id: video_reward_u2, unit: u2, file: "", source: "", license: "", status: todo }
+  - { id: video_reward_u3, unit: u3, file: "", source: "", license: "", status: todo }
+
+# Images de Pixo hors mots (par exemple pour la démo du jalon 0).
+other:
+  - { id: pixo_wave, unit: all, file: "", source: "", license: "", status: todo }

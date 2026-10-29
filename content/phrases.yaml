@@ -71,8 +71,6 @@ sing:
 praise:
   - id: praise_great_job
     text: "Great job!"
-  - id: praise_yes
-    text: "Yes!"
   - id: praise_super
     text: "Super!"
   - id: praise_well_done

@@ -44,7 +44,7 @@ class Speaker(context: Context) {
     /** The clearest American English voice installed on the phone (offline first: no lag). */
     private val bestVoice: Voice? by lazy {
         tts.voices.orEmpty()
-            .filter { it.locale == Locale.US && Voice.FEATURE_NOT_INSTALLED !in it.features }
+            .filter { it.locale == Locale.US && TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED !in it.features }
             .maxWithOrNull(compareBy<Voice>({ it.quality }, { !it.isNetworkConnectionRequired }))
     }
 

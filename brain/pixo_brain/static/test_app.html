@@ -147,7 +147,34 @@ async function onCommand(cmd) {
       return send({ type: "done", id: cmd.id });
     case "listen": $("bubble").textContent += "  👂"; return listenUI(cmd);
     case "wait_tap": return tapUI(cmd);
+    case "sing": await singUI(cmd); return active && send({ type: "done", id: cmd.id });
+    case "play_video": return send({ type: "done", id: cmd.id });
   }
+}
+
+// Plays the song from the brain and shows the line being sung (karaoke style).
+function singUI(cmd) {
+  return new Promise((resolve) => {
+    const audio = new Audio("/" + cmd.url);
+    const lines = cmd.timing || [];
+    const lastStart = Math.max(0, ...lines.map((l) => l.at));
+    const show = (t) => {
+      const line = [...lines].reverse().find((l) => l.at <= t) || lines[0];
+      if (line) $("bubble").textContent = "♪ " + line.text;
+    };
+    const timer = setInterval(() => show(audio.currentTime), 100);
+    const finish = () => { clearInterval(timer); resolve(); };
+    audio.onended = finish;
+    audio.onerror = () => {  // no audio file: show the lyrics at their own pace
+      const start = performance.now();
+      clearInterval(timer);
+      const t = setInterval(() => {
+        const s = (performance.now() - start) / 1000; show(s);
+        if (s > lastStart + 2) { clearInterval(t); resolve(); }
+      }, 100);
+    };
+    audio.play().catch(() => audio.onerror());
+  });
 }
 
 function onMessage(event) {

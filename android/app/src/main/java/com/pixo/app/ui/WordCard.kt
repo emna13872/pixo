@@ -19,19 +19,22 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.pixo.app.media.RemoteImages
 import com.pixo.app.protocol.WordInfo
 
 /**
- * One word picture. Uses the drawable named after the word's image id (e.g. res/drawable/word_hello.png)
- * when it exists; until the real pictures are drawn, an emoji or a colour stands in for it.
+ * One word picture. Uses, in order: the picture the brain serves (media/images/…), the drawable
+ * named after the word's image id (res/drawable/word_hello.png), then an emoji or a colour.
  */
 @SuppressLint("DiscouragedApi") // looked up by name: the brain sends image ids
 @Composable
@@ -42,8 +45,10 @@ fun WordCard(
     tappable: Boolean,
     onTap: () -> Unit,
     modifier: Modifier = Modifier,
+    mediaBase: String = "",
 ) {
     val context = LocalContext.current
+    val remote = rememberRemoteImage(mediaBase, word?.imageUrl)
     val drawable = remember(word?.image) {
         word?.image?.takeIf { it.isNotEmpty() }
             ?.let { context.resources.getIdentifier(it, "drawable", context.packageName) } ?: 0
@@ -73,6 +78,7 @@ fun WordCard(
             Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
                 val swatch = COLOR_WORDS[wordId]
                 when {
+                    remote != null -> Image(remote, contentDescription = word?.text)
                     drawable != 0 -> Image(painterResource(drawable), contentDescription = word?.text)
                     swatch != null -> Box(
                         Modifier
@@ -87,6 +93,13 @@ fun WordCard(
             Text(word?.text ?: wordId, style = MaterialTheme.typography.titleMedium)
         }
     }
+}
+
+/** The brain's picture for a word, once downloaded; null while loading or if there is none. */
+@Composable
+fun rememberRemoteImage(mediaBase: String, imageUrl: String?): ImageBitmap? {
+    val url = imageUrl?.takeIf { it.isNotEmpty() && mediaBase.isNotEmpty() }?.let { mediaBase + it }
+    return produceState<ImageBitmap?>(null, url) { value = url?.let { RemoteImages.load(it) } }.value
 }
 
 /** Stand-ins until the real word pictures exist (see words.yaml, field `image`). */

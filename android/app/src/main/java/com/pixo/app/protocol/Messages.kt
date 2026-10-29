@@ -9,6 +9,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonArray
@@ -18,7 +19,14 @@ const val PROTOCOL_VERSION = "0.1"
 
 data class SessionInfo(val id: String, val title: String)
 
-data class WordInfo(val text: String, val image: String)
+/** [imageUrl] is relative to the brain's address (e.g. "media/images/word_hello.png"), or empty. */
+data class WordInfo(val text: String, val image: String, val imageUrl: String = "")
+
+/** One word of a song, and the second it starts in the audio. */
+data class LyricWord(val at: Double, val text: String)
+
+/** One line of a song: when it starts, its text, an optional picture id and its words. */
+data class LyricLine(val at: Double, val text: String, val image: String?, val words: List<LyricWord>)
 
 /** Everything the brain can send to the app. */
 sealed interface BrainMessage {
@@ -44,7 +52,18 @@ sealed interface BrainMessage {
         val id: Int
     }
 
-    data class Say(override val id: Int, val text: String) : Command
+    /** [slow]: Pixo models a word for the child to repeat. */
+    data class Say(override val id: Int, val text: String, val slow: Boolean = false) : Command
+
+    /** Play the song at [url] (relative to the brain's address) and show its timed lyrics. */
+    data class Sing(
+        override val id: Int,
+        val song: String,
+        val url: String,
+        val timing: List<LyricLine>,
+    ) : Command
+
+    data class PlayVideo(override val id: Int, val video: String, val url: String) : Command
 
     data class Show(override val id: Int, val words: List<String>, val highlight: String?) : Command
 
@@ -66,6 +85,17 @@ private val json = Json { ignoreUnknownKeys = true }
 private fun JsonObject.string(key: String): String? = (this[key] as? JsonPrimitive)?.contentOrNull
 
 private fun JsonObject.int(key: String): Int? = (this[key] as? JsonPrimitive)?.intOrNull
+
+private fun JsonObject.double(key: String): Double? = (this[key] as? JsonPrimitive)?.doubleOrNull
+
+private fun JsonObject.lyricLine(): LyricLine? {
+    val at = double("at") ?: return null
+    val words = (this["words"] as? JsonArray).orEmpty().mapNotNull { element ->
+        val w = element as? JsonObject ?: return@mapNotNull null
+        LyricWord(w.double("at") ?: return@mapNotNull null, w.string("text").orEmpty())
+    }
+    return LyricLine(at, string("text").orEmpty(), string("image"), words)
+}
 
 private fun JsonObject.strings(key: String): List<String> =
     (this[key] as? JsonArray)?.mapNotNull { (it as? JsonPrimitive)?.contentOrNull }.orEmpty()
@@ -90,7 +120,11 @@ fun parseBrainMessage(raw: String): BrainMessage {
             title = obj.string("title").orEmpty(),
             words = (obj["words"] as? JsonObject).orEmpty().mapNotNull { (wordId, value) ->
                 val w = value as? JsonObject ?: return@mapNotNull null
-                wordId to WordInfo(w.string("text") ?: wordId, w.string("image").orEmpty())
+                wordId to WordInfo(
+                    w.string("text") ?: wordId,
+                    w.string("image").orEmpty(),
+                    w.string("image_url").orEmpty(),
+                )
             }.toMap(),
         )
 
@@ -107,7 +141,25 @@ fun parseBrainMessage(raw: String): BrainMessage {
         )
 
         id == null -> BrainMessage.Unknown(raw)
-        type == "say" -> BrainMessage.Say(id, obj.string("text").orEmpty())
+        type == "say" -> BrainMessage.Say(
+            id,
+            obj.string("text").orEmpty(),
+            (obj["slow"] as? JsonPrimitive)?.booleanOrNull ?: false,
+        )
+
+        type == "sing" -> BrainMessage.Sing(
+            id,
+            obj.string("song").orEmpty(),
+            obj.string("url").orEmpty(),
+            (obj["timing"] as? JsonArray).orEmpty().mapNotNull { (it as? JsonObject)?.lyricLine() },
+        )
+
+        type == "play_video" -> BrainMessage.PlayVideo(
+            id,
+            obj.string("video").orEmpty(),
+            obj.string("url").orEmpty(),
+        )
+
         type == "show" -> BrainMessage.Show(id, obj.strings("words"), obj.string("highlight"))
         type == "clear" -> BrainMessage.Clear(id)
         type == "animate" -> BrainMessage.Animate(id, obj.string("name").orEmpty())

@@ -11,6 +11,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.pixo.app.BuildConfig
 import com.pixo.app.avatar.AvatarCue
+import com.pixo.app.media.SongPlayer
+import com.pixo.app.media.httpBase
 import com.pixo.app.protocol.AppMessages
 import com.pixo.app.protocol.BrainConnection
 import com.pixo.app.protocol.BrainMessage
@@ -35,6 +37,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
     private val prefs = app.getSharedPreferences("pixo", Context.MODE_PRIVATE)
     private val speaker = Speaker(app)
     private val listener = Listener(app)
+    private val songs = SongPlayer()
 
     private val _ui = MutableStateFlow(
         UiState(
@@ -122,7 +125,12 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
 
             is BrainMessage.SessionStarted -> _ui.update {
                 it.copy(
-                    session = ActiveSession(message.session, message.title, message.words),
+                    session = ActiveSession(
+                        message.session,
+                        message.title,
+                        message.words,
+                        mediaBase = httpBase(it.serverUrl),
+                    ),
                     lastResult = null,
                     problem = null,
                 )
@@ -153,12 +161,27 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
         is BrainMessage.Say -> {
             updateSession { copy(subtitle = command.text, avatar = avatar.copy(talking = true)) }
             try {
-                speaker.speak(command.text)
+                speaker.speak(command.text, command.slow)
             } finally {
                 updateSession { copy(avatar = avatar.copy(talking = false)) }
             }
             AppMessages.done(command.id)
         }
+
+        is BrainMessage.Sing -> {
+            updateSession { copy(song = SongState(command.timing), avatar = avatar.copy(talking = true)) }
+            try {
+                val url = _ui.value.session?.mediaBase.orEmpty() + command.url
+                val played = songs.play(url) { seconds -> updateSession { copy(song = song?.copy(position = seconds)) } }
+                if (!played) showLyricsWithoutSound(SongState(command.timing))
+            } finally {
+                updateSession { copy(song = null, avatar = avatar.copy(talking = false)) }
+            }
+            AppMessages.done(command.id)
+        }
+
+        // No reward videos yet: the brain only sends this once one exists
+        is BrainMessage.PlayVideo -> AppMessages.done(command.id)
 
         is BrainMessage.Show -> {
             updateSession { copy(shown = command.words, highlight = command.highlight) }
@@ -205,9 +228,21 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    /** The song file is missing or broken: still show the lyrics, at their own pace. */
+    private suspend fun showLyricsWithoutSound(song: SongState) {
+        val end = song.lastStart + LAST_LINE_S
+        var position = 0.0
+        while (position < end) {
+            updateSession { copy(song = song.copy(position = position)) }
+            delay(LYRICS_TICK_MS)
+            position += LYRICS_TICK_MS / 1000.0
+        }
+    }
+
     private fun cancelCommand() {
         commandJob?.cancel()
         commandJob = null
+        songs.stop()
         speaker.stop()
         listener.stop()
     }
@@ -233,5 +268,7 @@ class SessionViewModel(app: Application) : AndroidViewModel(app) {
         /** Over USB, after `adb reverse tcp:8000 tcp:8000`. */
         const val DEFAULT_URL = "ws://127.0.0.1:8000/ws"
         const val ANIMATION_MS = 900L
+        const val LYRICS_TICK_MS = 100L
+        const val LAST_LINE_S = 2.0
     }
 }

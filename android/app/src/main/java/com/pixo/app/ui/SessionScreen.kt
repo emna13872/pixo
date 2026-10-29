@@ -67,6 +67,12 @@ fun SessionScreen(session: ActiveSession, onTap: (String) -> Unit, onStop: () ->
         )
         Spacer(Modifier.height(16.dp))
 
+        val song = session.song
+        if (song != null) {
+            LyricsPanel(song, session.words, session.mediaBase, Modifier.height(180.dp))
+            return@Column
+        }
+
         Row(
             Modifier
                 .fillMaxWidth()
@@ -81,6 +87,7 @@ fun SessionScreen(session: ActiveSession, onTap: (String) -> Unit, onStop: () ->
                     tappable = wordId in session.tapChoices,
                     onTap = { onTap(wordId) },
                     modifier = Modifier.weight(1f, fill = false),
+                    mediaBase = session.mediaBase,
                 )
             }
         }

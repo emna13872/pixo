@@ -51,7 +51,9 @@ brain → app   {"type": "session_ended", "session": "1.1", "successes": 4, "ask
 
 | type | fields | the app… | answer |
 |---|---|---|---|
-| `say` | `text` | speaks `text` (American English, slow) | `done` when finished speaking |
+| `say` | `text`, `slow` (optional, `true` = even slower, to model a word) | speaks `text` (American English, slow) | `done` when finished speaking |
+| `sing` | `song`, `url` (relative to the brain's address, e.g. `media/songs/song_hello.mp3`), `timing` (the lines: `at` in seconds, `text`, optional `image` and `words` with their own `at`) | plays the song and shows its lyrics karaoke style, with each line's picture | `done` when the song ends |
+| `play_video` | `video`, `url` | plays the reward video | `done` when it ends |
 | `show` | `words` (list of word ids), `highlight` (word id or `null`) | displays those images, the highlighted one glowing | `done` |
 | `clear` | – | removes the images | `done` |
 | `animate` | `name`: `show`, `happy`, `dance` | plays Pixo's animation | `done` (may answer right away) |
@@ -85,3 +87,5 @@ If the connection drops in the middle of a session, the brain stops the session 
 
 ## 7. Changelog
 - **0.1** (2026-10-22): first draft.
+- **0.1, additions** (2026-10-29): `say.slow`, `sing`, `play_video`; `session_started.words` gives
+  each word's `image_url`; the brain serves `content/media/` at `/media/`. Brain and app are updated together.

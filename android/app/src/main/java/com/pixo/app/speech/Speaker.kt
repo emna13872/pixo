@@ -40,11 +40,11 @@ class Speaker(context: Context) {
         })
     }
 
-    /** Speaks [text] and returns once it has been fully said (or failed). */
-    suspend fun speak(text: String) {
+    /** Speaks [text] and returns once it has been fully said (or failed). [slow]: a word to repeat. */
+    suspend fun speak(text: String, slow: Boolean = false) {
         if (!ready.await()) return
         tts.language = Locale.US
-        tts.setSpeechRate(SPEECH_RATE)
+        tts.setSpeechRate(if (slow) SLOW_RATE else SPEECH_RATE)
         tts.setPitch(PITCH)
         val id = UUID.randomUUID().toString()
         suspendCancellableCoroutine { continuation ->
@@ -69,6 +69,7 @@ class Speaker(context: Context) {
 
     private companion object {
         const val SPEECH_RATE = 0.85f // the pedagogy rules ask for a slow pace
+        const val SLOW_RATE = 0.6f // rulebook: after a first miss, the word is modelled slowly
         const val PITCH = 1.3f // a younger, friendlier voice
     }
 }

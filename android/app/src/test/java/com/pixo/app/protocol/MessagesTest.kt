@@ -32,6 +32,41 @@ class MessagesTest {
     }
 
     @Test
+    fun `reads a word's picture address`() {
+        val msg = parseBrainMessage(
+            """{"type": "session_started", "session": "u1-s1", "title": "Hello!",
+               "words": {"hello": {"text": "hello", "image": "word_hello", "image_url": "media/images/word_hello.png"}}}""",
+        ) as BrainMessage.SessionStarted
+        assertEquals("media/images/word_hello.png", msg.words.getValue("hello").imageUrl)
+    }
+
+    @Test
+    fun `reads a slow say and a song with timed lyrics`() {
+        assertEquals(
+            BrainMessage.Say(3, "Hello!", slow = true),
+            parseBrainMessage("""{"type": "say", "id": 3, "text": "Hello!", "slow": true}"""),
+        )
+        val sing = parseBrainMessage(
+            """{"type": "sing", "id": 4, "song": "song_hello", "url": "media/songs/song_hello.mp3",
+               "timing": [{"at": 3.1, "text": "Hello, hello!", "image": "word_hello",
+                           "words": [{"at": 3.22, "text": "Hello,"}, {"at": 5.22, "text": "hello!"}]},
+                          {"at": 16.36, "text": "Bye-bye!"}]}""",
+        )
+        assertEquals(
+            BrainMessage.Sing(
+                4,
+                "song_hello",
+                "media/songs/song_hello.mp3",
+                listOf(
+                    LyricLine(3.1, "Hello, hello!", "word_hello", listOf(LyricWord(3.22, "Hello,"), LyricWord(5.22, "hello!"))),
+                    LyricLine(16.36, "Bye-bye!", null, emptyList()),
+                ),
+            ),
+            sing,
+        )
+    }
+
+    @Test
     fun `reads session_ended, stopped or not`() {
         assertEquals(
             BrainMessage.SessionEnded("1.1", successes = 4, asks = 4, stopped = false),

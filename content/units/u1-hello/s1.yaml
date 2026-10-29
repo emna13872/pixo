@@ -30,7 +30,7 @@ steps:
   song:
     - say: { phrase: sing }               # « Let's sing! »
     - sing: { song: song_hello }          # sur l'air de Frère Jacques, paroles dans media.yaml
-    - celebrate: {}
+    - say: { text: "Yay, {name}!", face: celebrate, gesture: clap }   # le surnom, que la chanson ne peut pas dire
 
   review:
     []                                    # Première séance : rien à réviser.

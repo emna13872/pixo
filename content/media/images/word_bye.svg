@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="A child with a backpack waving goodbye by a door">
+  <rect width="512" height="512" rx="72" fill="#E3DCFF"/>
+  <clipPath id="c"><rect width="512" height="512" rx="72"/></clipPath>
+  <g clip-path="url(#c)"><rect x="34" y="96" width="130" height="330" rx="14" fill="#B57A4B"/><rect x="52" y="116" width="94" height="290" rx="8" fill="#9A6238"/><circle cx="132" cy="266" r="9" fill="#FFD36B"/>
+  <path d="M180 512 C180 400 230 372 300 372 C370 372 420 400 420 512 Z" fill="#43B39A"/><path d="M392 440 L442 310" stroke="#43B39A" stroke-width="40" stroke-linecap="round"/>
+  <rect x="278" y="340" width="44" height="40" rx="12" fill="#E3A97F"/>
+  <circle cx="300" cy="250" r="104" fill="#F5C6A0"/>
+  <circle cx="196" cy="256" r="18" fill="#F5C6A0"/><circle cx="404" cy="256" r="18" fill="#F5C6A0"/>
+  <path d="M196 240 C190 130 410 130 404 240 C380 190 320 180 270 192 C240 198 210 210 196 240 Z" fill="#4A3428"/>
+  <circle cx="262" cy="258" r="11" fill="#3B2A22"/><circle cx="338" cy="258" r="11" fill="#3B2A22"/>
+  <circle cx="266" cy="254" r="3.5" fill="#fff"/><circle cx="342" cy="254" r="3.5" fill="#fff"/>
+  <ellipse cx="238" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/><ellipse cx="362" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/>
+  <path d="M272 294 Q300 320 328 294" fill="none" stroke="#3B2A22" stroke-width="7" stroke-linecap="round"/><path d="M244 380 v-30 M356 380 v-30" stroke="#E2574C" stroke-width="14" stroke-linecap="round"/><g transform="rotate(10 440 190)">
+    <rect x="426" y="210" width="28" height="70" rx="12" fill="#F5C6A0"/>
+    <rect x="406" y="144.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="424" y="136.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="442" y="136.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="460" y="144.0" width="16" height="52" rx="8" fill="#F5C6A0"/>
+    <ellipse cx="440" cy="194" rx="38" ry="34" fill="#F5C6A0"/>
+    <rect x="466" y="176" width="16" height="40" rx="8" fill="#F5C6A0" transform="rotate(35 474 196)"/>
+  </g><path d="M486 150 q12 30 0 60" fill="none" stroke="#8E7CF0" stroke-width="7" stroke-linecap="round" opacity="0.9"/><path d="M504 156 q12 30 0 60" fill="none" stroke="#8E7CF0" stroke-width="7" stroke-linecap="round" opacity="0.65"/><path d="M522 162 q12 30 0 60" fill="none" stroke="#8E7CF0" stroke-width="7" stroke-linecap="round" opacity="0.4"/>
+  </g>
+</svg>

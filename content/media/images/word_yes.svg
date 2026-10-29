@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="A child nodding with a thumbs up">
+  <rect width="512" height="512" rx="72" fill="#D8F5DC"/>
+  <clipPath id="c"><rect width="512" height="512" rx="72"/></clipPath>
+  <g clip-path="url(#c)">
+  <path d="M136 512 C136 400 186 372 256 372 C326 372 376 400 376 512 Z" fill="#F2A93B"/><path d="M170 470 L130 470" stroke="#F2A93B" stroke-width="40" stroke-linecap="round"/>
+  <rect x="234" y="340" width="44" height="40" rx="12" fill="#E3A97F"/>
+  <circle cx="256" cy="250" r="104" fill="#F5C6A0"/>
+  <circle cx="152" cy="256" r="18" fill="#F5C6A0"/><circle cx="360" cy="256" r="18" fill="#F5C6A0"/>
+  <path d="M152 240 C146 130 366 130 360 240 C336 190 276 180 226 192 C196 198 166 210 152 240 Z" fill="#4A3428"/>
+  <circle cx="218" cy="258" r="11" fill="#3B2A22"/><circle cx="294" cy="258" r="11" fill="#3B2A22"/>
+  <circle cx="222" cy="254" r="3.5" fill="#fff"/><circle cx="298" cy="254" r="3.5" fill="#fff"/>
+  <ellipse cx="194" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/><ellipse cx="318" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/>
+  <path d="M226 290 Q256 332 286 290 Z" fill="#3B2A22"/><path d="M240 310 Q256 320 272 310 Q256 304 240 310Z" fill="#FF8A8A"/><path d="M150 112 q-14 22 0 44 M362 112 q14 22 0 44" fill="none" stroke="#3CB371" stroke-width="7" stroke-linecap="round"/><g transform="">
+    <rect x="90" y="410" width="80" height="70" rx="22" fill="#F5C6A0"/>
+    <rect x="114" y="350" width="30" height="76" rx="15" fill="#F5C6A0"/>
+    <path d="M90 432 H160 M90 454 H160" stroke="#E3A97F" stroke-width="4" stroke-linecap="round"/>
+  </g><circle cx="420" cy="92" r="52" fill="#3CB371"/><path d="M394 92 l18 18 l34 -36" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

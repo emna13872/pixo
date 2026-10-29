@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="A smiling child waving hello">
+  <rect width="512" height="512" rx="72" fill="#FFE7A3"/>
+  <clipPath id="c"><rect width="512" height="512" rx="72"/></clipPath>
+  <g clip-path="url(#c)">
+  <path d="M136 512 C136 400 186 372 256 372 C326 372 376 400 376 512 Z" fill="#5B8DEF"/><path d="M350 440 L402 290" stroke="#5B8DEF" stroke-width="40" stroke-linecap="round"/>
+  <rect x="234" y="340" width="44" height="40" rx="12" fill="#E3A97F"/>
+  <circle cx="256" cy="250" r="104" fill="#F5C6A0"/>
+  <circle cx="152" cy="256" r="18" fill="#F5C6A0"/><circle cx="360" cy="256" r="18" fill="#F5C6A0"/>
+  <path d="M152 240 C146 130 366 130 360 240 C336 190 276 180 226 192 C196 198 166 210 152 240 Z" fill="#4A3428"/>
+  <circle cx="218" cy="258" r="11" fill="#3B2A22"/><circle cx="294" cy="258" r="11" fill="#3B2A22"/>
+  <circle cx="222" cy="254" r="3.5" fill="#fff"/><circle cx="298" cy="254" r="3.5" fill="#fff"/>
+  <ellipse cx="194" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/><ellipse cx="318" cy="290" rx="15" ry="9" fill="#FF9EB0" opacity=".7"/>
+  <path d="M226 290 Q256 332 286 290 Z" fill="#3B2A22"/><path d="M240 310 Q256 320 272 310 Q256 304 240 310Z" fill="#FF8A8A"/><g transform="rotate(-12 400 170)">
+    <rect x="386" y="190" width="28" height="70" rx="12" fill="#F5C6A0"/>
+    <rect x="366" y="124.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="384" y="116.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="402" y="116.0" width="16" height="52" rx="8" fill="#F5C6A0"/><rect x="420" y="124.0" width="16" height="52" rx="8" fill="#F5C6A0"/>
+    <ellipse cx="400" cy="174" rx="38" ry="34" fill="#F5C6A0"/>
+    <rect x="426" y="156" width="16" height="40" rx="8" fill="#F5C6A0" transform="rotate(35 434 176)"/>
+  </g><path d="M450 130 q12 30 0 60" fill="none" stroke="#E8A93A" stroke-width="7" stroke-linecap="round" opacity="0.9"/><path d="M468 136 q12 30 0 60" fill="none" stroke="#E8A93A" stroke-width="7" stroke-linecap="round" opacity="0.65"/><path d="M486 142 q12 30 0 60" fill="none" stroke="#E8A93A" stroke-width="7" stroke-linecap="round" opacity="0.4"/>
+  </g>
+</svg>

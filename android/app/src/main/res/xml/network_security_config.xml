@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Prototype 0 talks to the brain over plain ws:// on the local network. To be replaced by
+     wss:// (LiveKit) before any real use with children. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

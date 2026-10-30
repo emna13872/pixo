@@ -22,6 +22,15 @@ class Channel(Protocol):
     async def say(self, text: str) -> None:
         """Pixo says `text` (returns once it has been said)."""
 
+    async def say_slowly(self, text: str) -> None:
+        """Pixo says `text` slowly, as a model for the child to repeat."""
+
+    async def sing(self, song: str, file: str, timing: list[dict]) -> None:
+        """Play a song (`file`, relative to content/) with its timed lyrics; returns at the end."""
+
+    async def play_video(self, video: str, file: str) -> None:
+        """Play a video (`file`, relative to content/); returns at the end."""
+
     async def show(self, words: list[str], highlight: str | None = None) -> None:
         """Display the images of `words` (word ids); `highlight` makes one image glow."""
 
@@ -49,6 +58,17 @@ class ConsoleChannel:
 
     async def say(self, text: str) -> None:
         print(f"  PIXO: {text}")
+
+    async def say_slowly(self, text: str) -> None:
+        print(f"  PIXO (slowly): {text}")
+
+    async def sing(self, song: str, file: str, timing: list[dict]) -> None:
+        print(f"  [song {song}]")
+        for line in timing:
+            print(f"    ♪ {line['at']:5.1f}s  {line['text']}")
+
+    async def play_video(self, video: str, file: str) -> None:
+        print(f"  [video {video}]")
 
     async def show(self, words: list[str], highlight: str | None = None) -> None:
         images = ", ".join(f"*{w}*" if w == highlight else w for w in words)
@@ -92,6 +112,18 @@ class LoggingChannel:
     async def say(self, text: str) -> None:
         self.log("say", text=text)
         await self._inner.say(text)
+
+    async def say_slowly(self, text: str) -> None:
+        self.log("say_slowly", text=text)
+        await self._inner.say_slowly(text)
+
+    async def sing(self, song: str, file: str, timing: list[dict]) -> None:
+        self.log("sing", song=song)
+        await self._inner.sing(song, file, timing)
+
+    async def play_video(self, video: str, file: str) -> None:
+        self.log("play_video", video=video)
+        await self._inner.play_video(video, file)
 
     async def show(self, words: list[str], highlight: str | None = None) -> None:
         self.log("show", words=words, highlight=highlight)

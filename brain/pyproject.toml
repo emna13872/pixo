@@ -16,6 +16,7 @@ dependencies = [
 pixo-validate = "pixo_brain.validate:main"
 pixo-play = "pixo_brain.play:main"
 pixo-serve = "pixo_brain.server:main"
+pixo-voice-samples = "pixo_brain.voice:samples"
 
 [dependency-groups]
 dev = [

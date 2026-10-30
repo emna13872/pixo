@@ -9,6 +9,7 @@ from fastapi.testclient import TestClient
 
 from pixo_brain.server import PROTOCOL_VERSION, InvalidContentError, create_app
 from pixo_brain.validate import DEFAULT_CONTENT
+from pixo_brain.voice import AzureVoice
 
 
 @pytest.fixture
@@ -200,3 +201,61 @@ def test_disconnect_mid_session_is_logged(client, logs):
     client.get("/health")  # let the server notice the disconnect
     log = next(logs.iterdir()).read_text(encoding="utf-8")
     assert '"kind": "disconnected"' in log
+
+
+# --- v1 sessions ------------------------------------------------------------------------
+
+V1_TAPS = ["hello", "hello", "bye", "bye", "yes", "yes", "no", "no"]  # the game, all right
+
+
+def test_v1_session_plays_with_song_and_lyrics(client):
+    assert {"id": "u1-s1", "title": "Hello!"} in client.get("/health").json()["sessions"]
+    ws = connect(client)
+    ws.send_json({"type": "start_session", "session": "u1-s1", "nickname": "Sara"})
+    app = FakeApp(ws, [["hello"], ["bye"], ["yes"], ["no"], *V1_TAPS])
+    end = app.play()
+    assert end["type"] == "session_ended" and end["successes"] == end["asks"] == 12
+    assert set(app.words) == {"hello", "bye", "yes", "no"}
+    sing = next(c for c in app.commands if c["type"] == "sing")
+    assert sing["url"] == "media/songs/song_hello.mp3"
+    assert sing["timing"][1]["text"] == "Yes, yes, yes! Yes, yes, yes!"
+
+
+def test_media_files_are_served(client):
+    response = client.get("/media/images/word_hello.svg")
+    assert response.status_code == 200
+
+
+# --- Pixo's natural voice ---------------------------------------------------------------
+
+
+def test_say_carries_azure_audio_served_at_voice(logs):
+    calls = []
+
+    def fetch(url, headers, body):
+        calls.append(body.decode())
+        return b"ID3 fake mp3"
+
+    voice = AzureVoice("key", "westeurope", "en-US-AnaNeural", logs / "voice", fetch)
+    client = TestClient(create_app(DEFAULT_CONTENT, logs, voice))
+    ws = connect(client)
+    ws.send_json({"type": "start_session", "session": "u1-s1", "nickname": "Sara"})
+    app = FakeApp(ws, [[], ["hello"], ["bye"], ["yes"], ["no"], *V1_TAPS])
+    app.play()
+    says = [c for c in app.commands if c["type"] == "say"]
+    assert all(c["audio_url"].startswith("voice/") for c in says)
+    assert client.get(says[0]["audio_url"]).content == b"ID3 fake mp3"
+    # each line is made once, then replayed from the cache
+    assert len(calls) == len({(c["text"], c.get("slow", False)) for c in says})
+
+
+def test_say_without_audio_when_azure_fails(logs):
+    def fetch(url, headers, body):
+        raise OSError("offline")
+
+    voice = AzureVoice("key", "westeurope", "en-US-AnaNeural", logs / "voice", fetch)
+    ws = connect(TestClient(create_app(DEFAULT_CONTENT, logs, voice)))
+    ws.send_json({"type": "start_session", "session": "u1-s1", "nickname": "Sara"})
+    app = FakeApp(ws, [["hello"], ["bye"], ["yes"], ["no"], *V1_TAPS])
+    app.play()
+    assert not any("audio_url" in c for c in app.commands if c["type"] == "say")

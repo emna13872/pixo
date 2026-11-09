@@ -22,7 +22,7 @@ les fichiers livrés au moteur et la base de données. Référente : **Emna**.
 ## Où on en est
 
 - Unités 1 « Hello! », 2 « Colours » et 3 « My body » : 48 mots, 10 objectifs, 12 séances écrites, vérifiées et publiées en version 1 (test).
-- Médias : 8 images existent (4 anciennes + 5 nouvelles Canva, dont « no » refaite), 40 à produire ; chanson Hello en test, chansons Colours et My body à faire avec Suno. Consignes : [12-prompts-images-et-chansons](docs/12-prompts-images-et-chansons.md).
+- Médias : 7 mots ont une image (hello, bye, yes, et 5 nouvelles Canva : hello, no refaite, hi, goodbye, please), 41 à produire ; chanson Hello en test, chansons Colours et My body à faire avec Suno. Consignes : [12-prompts-images-et-chansons](docs/12-prompts-images-et-chansons.md).
 - Base de données : script prêt et testé en local, pas encore installé dans Supabase. Voir [09-base-de-donnees](docs/09-base-de-donnees.md).
 
 ## Les 3 commandes

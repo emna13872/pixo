@@ -1,0 +1,47 @@
+{
+  "id": "m_song_colours",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "kind": "audio",
+  "mime_type": "audio/mpeg",
+  "storage_path": "media/songs/song_colours.mp3",
+  "production": "todo",
+  "duration_ms": 14000,
+  "lyrics": [
+    {
+      "start_ms": 0,
+      "end_ms": 3500,
+      "text": "Red and blue, yellow too!"
+    },
+    {
+      "start_ms": 3500,
+      "end_ms": 7000,
+      "text": "Green, green, I like green!"
+    },
+    {
+      "start_ms": 7000,
+      "end_ms": 10500,
+      "text": "Red and blue, yellow too!"
+    },
+    {
+      "start_ms": 10500,
+      "end_ms": 14000,
+      "text": "Green, green, I like green!"
+    }
+  ],
+  "words": [
+    "w_red",
+    "w_blue",
+    "w_yellow",
+    "w_green"
+  ],
+  "licence": {
+    "source": "Paroles d'emna, audio à faire avec Suno",
+    "terms": "to_check",
+    "cleared_for_children": false,
+    "note": "Minutage prévu : à remesurer sur le vrai fichier audio."
+  }
+}

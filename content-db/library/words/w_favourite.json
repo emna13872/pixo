@@ -1,0 +1,20 @@
+{
+  "id": "w_favourite",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Favourite",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "favourite",
+    "favorite",
+    "favrit"
+  ],
+  "match": "exact",
+  "image_media": "m_img_favourite",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s4",
+  "cambridge_list": true
+}

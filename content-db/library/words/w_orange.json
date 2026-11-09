@@ -1,0 +1,20 @@
+{
+  "id": "w_orange",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Orange",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "orange",
+    "orang",
+    "oranj"
+  ],
+  "match": "exact",
+  "image_media": "m_img_orange",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s2",
+  "cambridge_list": true
+}

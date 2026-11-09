@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse15_listen_action_verbs",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Comprendre des verbes d'action (clap, wave…)",
+  "framework": "GSE Young Learners",
+  "gse_value": 15,
+  "skill": "listening",
+  "cefr": "Pre-A1",
+  "description_fr": "Reconnaître des verbes d'action simples quand on les entend.",
+  "official_code": null
+}

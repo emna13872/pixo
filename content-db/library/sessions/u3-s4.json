@@ -1,0 +1,353 @@
+{
+  "id": "u3-s4",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u3-my-body",
+  "position": 4,
+  "title": "Touch your nose!",
+  "goal_fr": "Suivre des consignes avec gestes : toucher, sourire, applaudir, saluer",
+  "objectives": [
+    "obj_gse23_speak_body_parts",
+    "obj_gse15_listen_action_verbs",
+    "obj_gse13_listen_instructions"
+  ],
+  "new_words": [
+    "w_touch_your",
+    "w_smile",
+    "w_clap",
+    "w_wave"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hi {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_body"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_touch_your",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! Touch your nose!",
+      "word_id": "w_touch_your",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_touch_your",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say: Touch your nose!",
+      "word_id": "w_touch_your",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_touch_your_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_smile",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Smile!",
+      "word_id": "w_smile",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_smile",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say smile, {name}!",
+      "word_id": "w_smile",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_smile_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_clap",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Clap!",
+      "word_id": "w_clap",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_clap",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say clap!",
+      "word_id": "w_clap",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_clap_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_wave",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Wave!",
+      "word_id": "w_wave",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_wave",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say wave, {name}!",
+      "word_id": "w_wave",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_wave_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch clap!",
+      "images": [
+        {
+          "word_id": "w_clap"
+        },
+        {
+          "word_id": "w_wave"
+        },
+        {
+          "word_id": "w_smile"
+        }
+      ],
+      "correct_word_id": "w_clap",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch smile!",
+      "images": [
+        {
+          "word_id": "w_smile"
+        },
+        {
+          "word_id": "w_wave"
+        },
+        {
+          "word_id": "w_face"
+        }
+      ],
+      "correct_word_id": "w_smile",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_describe",
+      "position": 14,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "What's this, {name}?",
+      "image_media": "m_img_hand",
+      "expected_word_id": "w_hand",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_describe_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_touch_your_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Touch your nose!",
+      "word_id": "w_touch_your",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_smile_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Smile!",
+      "word_id": "w_smile",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_clap_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Clap!",
+      "word_id": "w_clap",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_wave_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Wave!",
+      "word_id": "w_wave",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is clap?",
+      "images": [
+        {
+          "word_id": "w_clap"
+        },
+        {
+          "word_id": "w_wave"
+        }
+      ],
+      "correct_word_id": "w_clap",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 20,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is smile?",
+      "images": [
+        {
+          "word_id": "w_smile"
+        },
+        {
+          "word_id": "w_wave"
+        }
+      ],
+      "correct_word_id": "w_smile",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_describe_retry_1",
+      "position": 21,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Hand!",
+      "word_id": "w_hand",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 22,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Well done, {name}! See you!",
+      "moment": "bye"
+    }
+  ]
+}

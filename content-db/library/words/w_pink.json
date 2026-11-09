@@ -1,0 +1,20 @@
+{
+  "id": "w_pink",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Pink",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "pink",
+    "pinc",
+    "pinke"
+  ],
+  "match": "exact",
+  "image_media": "m_img_pink",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s2",
+  "cambridge_list": true
+}

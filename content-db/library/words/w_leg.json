@@ -1,0 +1,20 @@
+{
+  "id": "w_leg",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Leg",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "leg",
+    "legs",
+    "lag"
+  ],
+  "match": "exact",
+  "image_media": "m_img_leg",
+  "unit_id": "u3-my-body",
+  "taught_in": "u3-s3",
+  "cambridge_list": true
+}

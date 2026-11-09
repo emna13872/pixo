@@ -1,0 +1,352 @@
+{
+  "id": "u2-s2",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u2-colours",
+  "position": 2,
+  "title": "Colours 2",
+  "goal_fr": "Nommer orange, rose, violet, marron",
+  "objectives": [
+    "obj_gse10_listen_familiar_words",
+    "obj_gse19_speak_describe_colour"
+  ],
+  "new_words": [
+    "w_orange",
+    "w_pink",
+    "w_purple",
+    "w_brown"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hi {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_colours"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_orange",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Orange!",
+      "word_id": "w_orange",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_orange",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say orange, {name}!",
+      "word_id": "w_orange",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_orange_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_pink",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Pink!",
+      "word_id": "w_pink",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_pink",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say pink!",
+      "word_id": "w_pink",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_pink_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_purple",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Purple!",
+      "word_id": "w_purple",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_purple",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say purple, {name}!",
+      "word_id": "w_purple",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_purple_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_brown",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Brown!",
+      "word_id": "w_brown",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_brown",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say brown!",
+      "word_id": "w_brown",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_brown_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch pink!",
+      "images": [
+        {
+          "word_id": "w_pink"
+        },
+        {
+          "word_id": "w_purple"
+        },
+        {
+          "word_id": "w_orange"
+        }
+      ],
+      "correct_word_id": "w_pink",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch brown!",
+      "images": [
+        {
+          "word_id": "w_brown"
+        },
+        {
+          "word_id": "w_orange"
+        },
+        {
+          "word_id": "w_red"
+        }
+      ],
+      "correct_word_id": "w_brown",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_describe",
+      "position": 14,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "What colour is it?",
+      "image_media": "m_img_blue",
+      "expected_word_id": "w_blue",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_describe_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_orange_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Orange!",
+      "word_id": "w_orange",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_pink_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Pink!",
+      "word_id": "w_pink",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_purple_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Purple!",
+      "word_id": "w_purple",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_brown_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Brown!",
+      "word_id": "w_brown",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is pink?",
+      "images": [
+        {
+          "word_id": "w_pink"
+        },
+        {
+          "word_id": "w_purple"
+        }
+      ],
+      "correct_word_id": "w_pink",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 20,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is brown?",
+      "images": [
+        {
+          "word_id": "w_brown"
+        },
+        {
+          "word_id": "w_orange"
+        }
+      ],
+      "correct_word_id": "w_brown",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_describe_retry_1",
+      "position": 21,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Blue!",
+      "word_id": "w_blue",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 22,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Well done, {name}! Bye!",
+      "moment": "bye"
+    }
+  ]
+}

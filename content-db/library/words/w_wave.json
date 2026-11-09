@@ -1,0 +1,20 @@
+{
+  "id": "w_wave",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Wave",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "wave",
+    "waves",
+    "wav"
+  ],
+  "match": "exact",
+  "image_media": "m_img_wave",
+  "unit_id": "u3-my-body",
+  "taught_in": "u3-s4",
+  "cambridge_list": true
+}

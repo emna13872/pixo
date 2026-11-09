@@ -1,0 +1,20 @@
+{
+  "id": "w_foot",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Foot",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "foot",
+    "fut",
+    "foots"
+  ],
+  "match": "exact",
+  "image_media": "m_img_foot",
+  "unit_id": "u3-my-body",
+  "taught_in": "u3-s3",
+  "cambridge_list": true
+}

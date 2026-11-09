@@ -1,0 +1,18 @@
+{
+  "id": "m_img_what_colour_is_it",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "kind": "image",
+  "mime_type": "image/png",
+  "storage_path": "media/words/what_colour_is_it.png",
+  "production": "todo",
+  "alt_text": "Un enfant qui montre un ballon avec un point d'interrogation",
+  "licence": {
+    "source": "à produire",
+    "terms": "to_check",
+    "cleared_for_children": false
+  }
+}

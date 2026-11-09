@@ -1,0 +1,20 @@
+{
+  "id": "w_what_colour_is_it",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "What colour is it?",
+  "kind": "chunk",
+  "accepted_variants": [
+    "what colour is it",
+    "what color is it",
+    "what colours is it"
+  ],
+  "match": "exact",
+  "image_media": "m_img_what_colour_is_it",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s4",
+  "cambridge_list": true
+}

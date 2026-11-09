@@ -1,0 +1,20 @@
+{
+  "id": "w_grey",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Grey",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "grey",
+    "gray",
+    "grei"
+  ],
+  "match": "exact",
+  "image_media": "m_img_grey",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s3",
+  "cambridge_list": true
+}

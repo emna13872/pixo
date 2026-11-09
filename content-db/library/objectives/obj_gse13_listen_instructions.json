@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse13_listen_instructions",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Suivre des consignes courtes avec gestes",
+  "framework": "GSE Young Learners",
+  "gse_value": 13,
+  "skill": "listening",
+  "cefr": "Pre-A1",
+  "description_fr": "Comprendre « Touch your nose! » et faire le geste.",
+  "official_code": null
+}

@@ -1,0 +1,321 @@
+{
+  "id": "u2-s1",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u2-colours",
+  "position": 1,
+  "title": "Colours 1",
+  "goal_fr": "Reconnaître et nommer rouge, bleu, jaune, vert",
+  "objectives": [
+    "obj_gse10_listen_familiar_words",
+    "obj_gse19_speak_describe_colour"
+  ],
+  "new_words": [
+    "w_red",
+    "w_blue",
+    "w_yellow",
+    "w_green"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hello {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_colours"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_red",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Red!",
+      "word_id": "w_red",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_red",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say red, {name}!",
+      "word_id": "w_red",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_red_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_blue",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Blue!",
+      "word_id": "w_blue",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_blue",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say blue!",
+      "word_id": "w_blue",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_blue_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_yellow",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Yellow!",
+      "word_id": "w_yellow",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_yellow",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say yellow, {name}!",
+      "word_id": "w_yellow",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_yellow_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_green",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Green!",
+      "word_id": "w_green",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_green",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say green!",
+      "word_id": "w_green",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_green_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch red!",
+      "images": [
+        {
+          "word_id": "w_red"
+        },
+        {
+          "word_id": "w_blue"
+        },
+        {
+          "word_id": "w_yellow"
+        }
+      ],
+      "correct_word_id": "w_red",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch green!",
+      "images": [
+        {
+          "word_id": "w_green"
+        },
+        {
+          "word_id": "w_yellow"
+        },
+        {
+          "word_id": "w_blue"
+        }
+      ],
+      "correct_word_id": "w_green",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_red_retry_1",
+      "position": 14,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Red!",
+      "word_id": "w_red",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_blue_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Blue!",
+      "word_id": "w_blue",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_yellow_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Yellow!",
+      "word_id": "w_yellow",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_green_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Green!",
+      "word_id": "w_green",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is red?",
+      "images": [
+        {
+          "word_id": "w_red"
+        },
+        {
+          "word_id": "w_blue"
+        }
+      ],
+      "correct_word_id": "w_red",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is green?",
+      "images": [
+        {
+          "word_id": "w_green"
+        },
+        {
+          "word_id": "w_yellow"
+        }
+      ],
+      "correct_word_id": "w_green",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 20,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Great job, {name}! Bye bye!",
+      "moment": "bye"
+    }
+  ]
+}

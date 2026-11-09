@@ -1,0 +1,20 @@
+{
+  "id": "w_its",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "It's…",
+  "kind": "chunk",
+  "accepted_variants": [
+    "it's",
+    "it is",
+    "its"
+  ],
+  "match": "starts_with",
+  "image_media": "m_img_its",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s4",
+  "cambridge_list": true
+}

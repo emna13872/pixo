@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse10_speak_greet",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Saluer et prendre congé (hello, hi, bye)",
+  "framework": "GSE Young Learners",
+  "gse_value": 10,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Dire bonjour et au revoir avec des mots simples.",
+  "official_code": null
+}

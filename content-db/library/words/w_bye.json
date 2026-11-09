@@ -1,0 +1,21 @@
+{
+  "id": "w_bye",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Bye",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "bye",
+    "bye bye",
+    "by",
+    "buy"
+  ],
+  "match": "exact",
+  "image_media": "m_img_bye",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s1",
+  "cambridge_list": true
+}

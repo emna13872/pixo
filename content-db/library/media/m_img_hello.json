@@ -1,0 +1,19 @@
+{
+  "id": "m_img_hello",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "kind": "image",
+  "mime_type": "image/png",
+  "storage_path": "media/words/hello.png",
+  "production": "test",
+  "alt_text": "Un enfant souriant qui fait coucou de la main",
+  "licence": {
+    "source": "Canva (générateur d'images IA)",
+    "terms": "to_check",
+    "cleared_for_children": false,
+    "note": "Fichier actuel : content/media/images/word_hello.png sur le PC. Image « no » à refaire sans croix rouge."
+  }
+}

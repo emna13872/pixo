@@ -1,0 +1,46 @@
+{
+  "id": "m_song_hello",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "kind": "audio",
+  "mime_type": "audio/mpeg",
+  "storage_path": "media/songs/song_hello.mp3",
+  "production": "test",
+  "duration_ms": 21000,
+  "lyrics": [
+    {
+      "start_ms": 3100,
+      "end_ms": 7880,
+      "text": "Hello, hello! Hello, hello!"
+    },
+    {
+      "start_ms": 7880,
+      "end_ms": 12040,
+      "text": "Yes, yes, yes! Yes, yes, yes!"
+    },
+    {
+      "start_ms": 12040,
+      "end_ms": 16360,
+      "text": "Hello, friend! Hello, friend!"
+    },
+    {
+      "start_ms": 16360,
+      "end_ms": 21000,
+      "text": "Bye-bye! Bye-bye!"
+    }
+  ],
+  "words": [
+    "w_hello",
+    "w_yes",
+    "w_bye"
+  ],
+  "licence": {
+    "source": "Paroles d'emna, audio Suno (plan gratuit), air de Frère Jacques",
+    "terms": "test_only",
+    "cleared_for_children": false,
+    "note": "À régénérer avec un plan Suno payant avant de vrais enfants."
+  }
+}

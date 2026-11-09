@@ -1,0 +1,20 @@
+{
+  "id": "w_well_done",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Well done",
+  "kind": "chunk",
+  "accepted_variants": [
+    "well done",
+    "welldone",
+    "well don"
+  ],
+  "match": "exact",
+  "image_media": "m_img_well_done",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s4",
+  "cambridge_list": true
+}

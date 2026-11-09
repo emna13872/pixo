@@ -1,0 +1,20 @@
+{
+  "id": "w_wow",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Wow",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "wow",
+    "waw",
+    "wo"
+  ],
+  "match": "exact",
+  "image_media": "m_img_wow",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s4",
+  "cambridge_list": true
+}

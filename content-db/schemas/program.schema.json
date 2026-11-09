@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.app/schemas/program.schema.json",
+  "title": "Programme (édition)",
+  "description": "La carte du programme : niveaux > modules > unités > ids des séances. Ne contient pas le contenu des séances.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de version. +1 à chaque publication d'un changement."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "type": {
+      "const": "program"
+    },
+    "title": {
+      "type": "string"
+    },
+    "language": {
+      "const": "en"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Matière : english (plus tard maths...)."
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "cefr": {
+            "type": "string"
+          },
+          "cambridge": {
+            "type": "string"
+          },
+          "gse_range": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "detail": {
+            "enum": [
+              "full",
+              "outline"
+            ]
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                },
+                "position": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "title_fr": {
+                  "type": "string"
+                },
+                "end_check": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "units": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                      },
+                      "position": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "goal_fr": {
+                        "type": "string"
+                      },
+                      "sessions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "position",
+                      "title",
+                      "sessions"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "position",
+                "title_fr",
+                "units"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "cefr",
+          "detail",
+          "modules"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "version",
+    "status",
+    "updated_at",
+    "updated_by",
+    "title",
+    "language",
+    "subject",
+    "levels"
+  ]
+}

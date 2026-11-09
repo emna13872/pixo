@@ -1,0 +1,149 @@
+{
+  "type": "index",
+  "built_at": "2026-11-09T14:53:57Z",
+  "program": "pixo-english@1",
+  "sessions": {
+    "u1-s1": 1,
+    "u1-s2": 1,
+    "u1-s3": 1,
+    "u1-s4": 1
+  },
+  "word_taught_in": {
+    "w_hello": [
+      "u1-s1"
+    ],
+    "w_bye": [
+      "u1-s1"
+    ],
+    "w_yes": [
+      "u1-s1"
+    ],
+    "w_no": [
+      "u1-s1"
+    ],
+    "w_hi": [
+      "u1-s2"
+    ],
+    "w_goodbye": [
+      "u1-s2"
+    ],
+    "w_please": [
+      "u1-s2"
+    ],
+    "w_thank_you": [
+      "u1-s2"
+    ],
+    "w_my_name_is": [
+      "u1-s3"
+    ],
+    "w_whats_your_name": [
+      "u1-s3"
+    ],
+    "w_ok": [
+      "u1-s3"
+    ],
+    "w_sorry": [
+      "u1-s3"
+    ],
+    "w_well_done": [
+      "u1-s4"
+    ],
+    "w_wow": [
+      "u1-s4"
+    ],
+    "w_see_you": [
+      "u1-s4"
+    ],
+    "w_me_too": [
+      "u1-s4"
+    ]
+  },
+  "word_used_again_in": {
+    "w_please": [
+      "u1-s3"
+    ]
+  },
+  "objective_to_sessions": {
+    "obj_gse10_speak_greet": [
+      "u1-s1",
+      "u1-s2",
+      "u1-s4"
+    ],
+    "obj_gse11_listen_polite": [
+      "u1-s2",
+      "u1-s3"
+    ],
+    "obj_gse11_speak_introduce": [
+      "u1-s3"
+    ],
+    "obj_gse12_speak_ask_name": [
+      "u1-s3"
+    ]
+  },
+  "media_to_documents": {
+    "m_song_hello": [
+      "u1-s1",
+      "u1-s2",
+      "u1-s3",
+      "u1-s4"
+    ],
+    "m_img_bye": [
+      "w_bye"
+    ],
+    "m_img_goodbye": [
+      "w_goodbye"
+    ],
+    "m_img_hello": [
+      "w_hello"
+    ],
+    "m_img_hi": [
+      "w_hi"
+    ],
+    "m_img_me_too": [
+      "w_me_too"
+    ],
+    "m_img_my_name_is": [
+      "w_my_name_is"
+    ],
+    "m_img_no": [
+      "w_no"
+    ],
+    "m_img_ok": [
+      "w_ok"
+    ],
+    "m_img_please": [
+      "w_please"
+    ],
+    "m_img_see_you": [
+      "w_see_you"
+    ],
+    "m_img_sorry": [
+      "w_sorry"
+    ],
+    "m_img_thank_you": [
+      "w_thank_you"
+    ],
+    "m_img_well_done": [
+      "w_well_done"
+    ],
+    "m_img_whats_your_name": [
+      "w_whats_your_name"
+    ],
+    "m_img_wow": [
+      "w_wow"
+    ],
+    "m_img_yes": [
+      "w_yes"
+    ]
+  },
+  "coverage": {
+    "curriculum_items": 381,
+    "items_written": 14,
+    "objectives_covered": [
+      "obj_gse10_speak_greet",
+      "obj_gse11_listen_polite",
+      "obj_gse11_speak_introduce",
+      "obj_gse12_speak_ask_name"
+    ]
+  }
+}

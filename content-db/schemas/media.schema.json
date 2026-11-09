@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.app/schemas/media.schema.json",
+  "title": "Média (édition)",
+  "description": "Une image, une chanson ou une vidéo, avec sa licence. Le fichier lui-même est dans Supabase Storage (ou media/ en local).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^m_[a-z0-9_-]+$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de version. +1 à chaque publication d'un changement."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "type": {
+      "const": "media"
+    },
+    "kind": {
+      "enum": [
+        "image",
+        "audio",
+        "video"
+      ]
+    },
+    "mime_type": {
+      "enum": [
+        "image/png",
+        "image/svg+xml",
+        "audio/mpeg",
+        "video/mp4"
+      ]
+    },
+    "storage_path": {
+      "type": "string",
+      "pattern": "^media/"
+    },
+    "production": {
+      "enum": [
+        "todo",
+        "test",
+        "final"
+      ],
+      "description": "todo = à produire ; test = existe mais provisoire ; final = version définitive."
+    },
+    "alt_text": {
+      "type": "string",
+      "description": "Ce que montre l'image (sert aussi de consigne pour la produire)."
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lyrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_ms",
+          "end_ms",
+          "text"
+        ]
+      }
+    },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w_[a-z0-9_-]+$"
+      }
+    },
+    "licence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "D'où vient le média (Canva, Suno, fait main...)."
+        },
+        "terms": {
+          "enum": [
+            "cleared",
+            "test_only",
+            "to_check"
+          ],
+          "description": "cleared = utilisable avec de vrais enfants ; test_only = tests internes seulement ; to_check = licence pas encore vérifiée."
+        },
+        "cleared_for_children": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "terms",
+        "cleared_for_children"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "version",
+    "status",
+    "updated_at",
+    "updated_by",
+    "kind",
+    "mime_type",
+    "storage_path",
+    "production",
+    "licence"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "audio"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "lyrics",
+          "duration_ms"
+        ]
+      }
+    }
+  ]
+}

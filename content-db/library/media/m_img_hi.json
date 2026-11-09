@@ -1,0 +1,18 @@
+{
+  "id": "m_img_hi",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "kind": "image",
+  "mime_type": "image/png",
+  "storage_path": "media/words/hi.png",
+  "production": "todo",
+  "alt_text": "Deux enfants qui se saluent, main levée",
+  "licence": {
+    "source": "à produire",
+    "terms": "to_check",
+    "cleared_for_children": false
+  }
+}

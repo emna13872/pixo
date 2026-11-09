@@ -1,0 +1,20 @@
+{
+  "id": "w_whats_your_name",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "What's your name?",
+  "kind": "chunk",
+  "accepted_variants": [
+    "what's your name",
+    "what is your name",
+    "whats your name"
+  ],
+  "match": "exact",
+  "image_media": "m_img_whats_your_name",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s3",
+  "cambridge_list": true
+}

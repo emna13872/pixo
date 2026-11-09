@@ -1,0 +1,318 @@
+{
+  "id": "u1-s2",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u1-hello",
+  "position": 2,
+  "title": "Please and thank you",
+  "goal_fr": "Saluer autrement et dire les mots de politesse",
+  "objectives": [
+    "obj_gse10_speak_greet",
+    "obj_gse11_listen_polite"
+  ],
+  "new_words": [
+    "w_hi",
+    "w_goodbye",
+    "w_please",
+    "w_thank_you"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hello {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_hello"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_hi",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Hi!",
+      "word_id": "w_hi",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_hi",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say hi, {name}!",
+      "word_id": "w_hi",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_hi_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_goodbye",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Goodbye!",
+      "word_id": "w_goodbye",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_goodbye",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say goodbye!",
+      "word_id": "w_goodbye",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_goodbye_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_please",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Please!",
+      "word_id": "w_please",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_please",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say please, {name}!",
+      "word_id": "w_please",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_please_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_thank_you",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Thank you!",
+      "word_id": "w_thank_you",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_thank_you",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say thank you!",
+      "word_id": "w_thank_you",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_thank_you_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch hi!",
+      "images": [
+        {
+          "word_id": "w_hi"
+        },
+        {
+          "word_id": "w_please"
+        },
+        {
+          "word_id": "w_thank_you"
+        }
+      ],
+      "correct_word_id": "w_hi",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch goodbye!",
+      "images": [
+        {
+          "word_id": "w_goodbye"
+        },
+        {
+          "word_id": "w_thank_you"
+        }
+      ],
+      "correct_word_id": "w_goodbye",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_hi_retry_1",
+      "position": 14,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Hi!",
+      "word_id": "w_hi",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_goodbye_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Goodbye!",
+      "word_id": "w_goodbye",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_please_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Please!",
+      "word_id": "w_please",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_thank_you_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Thank you!",
+      "word_id": "w_thank_you",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is hi?",
+      "images": [
+        {
+          "word_id": "w_hi"
+        },
+        {
+          "word_id": "w_please"
+        }
+      ],
+      "correct_word_id": "w_hi",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is goodbye?",
+      "images": [
+        {
+          "word_id": "w_goodbye"
+        },
+        {
+          "word_id": "w_thank_you"
+        }
+      ],
+      "correct_word_id": "w_goodbye",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 20,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Thank you, {name}! Goodbye!",
+      "moment": "bye"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Fichiers médias : trop lourds pour Git, ils restent sur le PC puis vont dans Supabase Storage
+media/**/*.png
+media/**/*.svg
+media/**/*.mp3
+media/**/*.mp4
+# Généré par pixo_content.py sql
+db/seed.sql

@@ -1,0 +1,319 @@
+{
+  "id": "u1-s3",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u1-hello",
+  "position": 3,
+  "title": "My name's…",
+  "goal_fr": "Se présenter et demander le prénom",
+  "objectives": [
+    "obj_gse11_speak_introduce",
+    "obj_gse12_speak_ask_name",
+    "obj_gse11_listen_polite"
+  ],
+  "new_words": [
+    "w_my_name_is",
+    "w_whats_your_name",
+    "w_ok",
+    "w_sorry"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hi {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_hello"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_my_name_is",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! My name's Pixo!",
+      "word_id": "w_my_name_is",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_my_name_is",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say: My name's {name}!",
+      "word_id": "w_my_name_is",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_my_name_is_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_whats_your_name",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! What's your name?",
+      "word_id": "w_whats_your_name",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_whats_your_name",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Ask me: What's your name?",
+      "word_id": "w_whats_your_name",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_whats_your_name_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_ok",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! OK!",
+      "word_id": "w_ok",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_ok",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say OK, {name}!",
+      "word_id": "w_ok",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_ok_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_sorry",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Sorry!",
+      "word_id": "w_sorry",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_sorry",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say sorry!",
+      "word_id": "w_sorry",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_sorry_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch sorry!",
+      "images": [
+        {
+          "word_id": "w_sorry"
+        },
+        {
+          "word_id": "w_ok"
+        },
+        {
+          "word_id": "w_please"
+        }
+      ],
+      "correct_word_id": "w_sorry",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch OK!",
+      "images": [
+        {
+          "word_id": "w_ok"
+        },
+        {
+          "word_id": "w_sorry"
+        }
+      ],
+      "correct_word_id": "w_ok",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_my_name_is_retry_1",
+      "position": 14,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! My name's {name}!",
+      "word_id": "w_my_name_is",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_whats_your_name_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! What's your name?",
+      "word_id": "w_whats_your_name",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_ok_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! OK!",
+      "word_id": "w_ok",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_sorry_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Sorry!",
+      "word_id": "w_sorry",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is sorry?",
+      "images": [
+        {
+          "word_id": "w_sorry"
+        },
+        {
+          "word_id": "w_ok"
+        }
+      ],
+      "correct_word_id": "w_sorry",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is OK?",
+      "images": [
+        {
+          "word_id": "w_ok"
+        },
+        {
+          "word_id": "w_sorry"
+        }
+      ],
+      "correct_word_id": "w_ok",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 20,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Thank you, {name}! Bye!",
+      "moment": "bye"
+    }
+  ]
+}

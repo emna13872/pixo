@@ -1,0 +1,430 @@
+{
+  "id": "pixo-english",
+  "type": "program",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "title": "Pixo English",
+  "language": "en",
+  "subject": "english",
+  "references": [
+    "CECRL (CEFR)",
+    "GSE Young Learners (Pearson)",
+    "Cambridge Pre A1 Starters word list"
+  ],
+  "levels": [
+    {
+      "id": "pre-a1",
+      "cefr": "Pre-A1",
+      "cambridge": "Starters",
+      "gse_range": [
+        10,
+        21
+      ],
+      "detail": "full",
+      "modules": [
+        {
+          "id": "m1",
+          "position": 1,
+          "title_fr": "Bonjour Pixo ! (moi et les autres)",
+          "end_check": "m1-check",
+          "units": [
+            {
+              "id": "u1-hello",
+              "position": 1,
+              "title": "Hello!",
+              "goal_fr": "Saluer, dire oui/non, se présenter",
+              "sessions": [
+                "u1-s1",
+                "u1-s2",
+                "u1-s3",
+                "u1-s4"
+              ]
+            },
+            {
+              "id": "u2-colours",
+              "position": 2,
+              "title": "Colours",
+              "goal_fr": "Reconnaître et nommer les couleurs",
+              "sessions": [
+                "u2-s1",
+                "u2-s2",
+                "u2-s3",
+                "u2-s4"
+              ]
+            },
+            {
+              "id": "u3-my-body",
+              "position": 3,
+              "title": "My body",
+              "goal_fr": "Nommer les parties du corps",
+              "sessions": [
+                "u3-s1",
+                "u3-s2",
+                "u3-s3",
+                "u3-s4"
+              ]
+            },
+            {
+              "id": "u4-numbers-1-10",
+              "position": 4,
+              "title": "Numbers 1-10",
+              "goal_fr": "Compter jusqu'à 10, dire son âge",
+              "sessions": [
+                "u4-s1",
+                "u4-s2",
+                "u4-s3",
+                "u4-s4"
+              ]
+            },
+            {
+              "id": "u5-how-are-you",
+              "position": 5,
+              "title": "How are you?",
+              "goal_fr": "Dire comment on se sent",
+              "sessions": [
+                "u5-s1",
+                "u5-s2",
+                "u5-s3",
+                "u5-s4"
+              ]
+            },
+            {
+              "id": "u6-lets-move",
+              "position": 6,
+              "title": "Let's move!",
+              "goal_fr": "Comprendre et faire des actions",
+              "sessions": [
+                "u6-s1",
+                "u6-s2",
+                "u6-s3",
+                "u6-s4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m2",
+          "position": 2,
+          "title_fr": "Ma famille et ma maison",
+          "end_check": "m2-check",
+          "units": [
+            {
+              "id": "u7-my-family",
+              "position": 1,
+              "title": "My family",
+              "goal_fr": "Présenter sa famille",
+              "sessions": [
+                "u7-s1",
+                "u7-s2",
+                "u7-s3",
+                "u7-s4"
+              ]
+            },
+            {
+              "id": "u8-pets-and-farm",
+              "position": 2,
+              "title": "Pets and farm",
+              "goal_fr": "Nommer les animaux familiers et de la ferme",
+              "sessions": [
+                "u8-s1",
+                "u8-s2",
+                "u8-s3",
+                "u8-s4"
+              ]
+            },
+            {
+              "id": "u9-at-the-zoo",
+              "position": 3,
+              "title": "At the zoo",
+              "goal_fr": "Nommer et décrire les animaux du zoo",
+              "sessions": [
+                "u9-s1",
+                "u9-s2",
+                "u9-s3",
+                "u9-s4"
+              ]
+            },
+            {
+              "id": "u10-my-house",
+              "position": 4,
+              "title": "My house",
+              "goal_fr": "Nommer les pièces et les meubles",
+              "sessions": [
+                "u10-s1",
+                "u10-s2",
+                "u10-s3",
+                "u10-s4"
+              ]
+            },
+            {
+              "id": "u11-my-toys",
+              "position": 5,
+              "title": "My toys",
+              "goal_fr": "Nommer ses jouets",
+              "sessions": [
+                "u11-s1",
+                "u11-s2",
+                "u11-s3",
+                "u11-s4"
+              ]
+            },
+            {
+              "id": "u12-where-is-it",
+              "position": 6,
+              "title": "Where is it?",
+              "goal_fr": "Dire où sont les choses",
+              "sessions": [
+                "u12-s1",
+                "u12-s2",
+                "u12-s3",
+                "u12-s4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m3",
+          "position": 3,
+          "title_fr": "Manger, s'habiller, ma journée",
+          "end_check": "m3-check",
+          "units": [
+            {
+              "id": "u13-yummy-fruit",
+              "position": 1,
+              "title": "Yummy fruit",
+              "goal_fr": "Nommer les fruits et les boissons",
+              "sessions": [
+                "u13-s1",
+                "u13-s2",
+                "u13-s3",
+                "u13-s4"
+              ]
+            },
+            {
+              "id": "u14-lunch-time",
+              "position": 2,
+              "title": "Lunch time",
+              "goal_fr": "Repas et politesse à table",
+              "sessions": [
+                "u14-s1",
+                "u14-s2",
+                "u14-s3",
+                "u14-s4"
+              ]
+            },
+            {
+              "id": "u15-my-clothes",
+              "position": 3,
+              "title": "My clothes",
+              "goal_fr": "Nommer ses vêtements",
+              "sessions": [
+                "u15-s1",
+                "u15-s2",
+                "u15-s3",
+                "u15-s4"
+              ]
+            },
+            {
+              "id": "u16-my-day",
+              "position": 4,
+              "title": "My day",
+              "goal_fr": "Les moments de la journée",
+              "sessions": [
+                "u16-s1",
+                "u16-s2",
+                "u16-s3",
+                "u16-s4"
+              ]
+            },
+            {
+              "id": "u17-numbers-11-20",
+              "position": 5,
+              "title": "Numbers 11-20",
+              "goal_fr": "Compter jusqu'à 20",
+              "sessions": [
+                "u17-s1",
+                "u17-s2",
+                "u17-s3",
+                "u17-s4"
+              ]
+            },
+            {
+              "id": "u18-snack-time",
+              "position": 6,
+              "title": "Snack time",
+              "goal_fr": "Demander poliment",
+              "sessions": [
+                "u18-s1",
+                "u18-s2",
+                "u18-s3",
+                "u18-s4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m4",
+          "position": 4,
+          "title_fr": "Dehors et à l'école",
+          "end_check": "m4-check",
+          "units": [
+            {
+              "id": "u19-at-school",
+              "position": 1,
+              "title": "At school",
+              "goal_fr": "Le matériel et les consignes de classe",
+              "sessions": [
+                "u19-s1",
+                "u19-s2",
+                "u19-s3",
+                "u19-s4"
+              ]
+            },
+            {
+              "id": "u20-lets-go",
+              "position": 2,
+              "title": "Let's go!",
+              "goal_fr": "Les transports",
+              "sessions": [
+                "u20-s1",
+                "u20-s2",
+                "u20-s3",
+                "u20-s4"
+              ]
+            },
+            {
+              "id": "u21-at-the-beach",
+              "position": 3,
+              "title": "At the beach",
+              "goal_fr": "La plage et la nature",
+              "sessions": [
+                "u21-s1",
+                "u21-s2",
+                "u21-s3",
+                "u21-s4"
+              ]
+            },
+            {
+              "id": "u22-sports",
+              "position": 4,
+              "title": "Sports",
+              "goal_fr": "Les sports et les jeux",
+              "sessions": [
+                "u22-s1",
+                "u22-s2",
+                "u22-s3",
+                "u22-s4"
+              ]
+            },
+            {
+              "id": "u23-abc-song",
+              "position": 5,
+              "title": "ABC song",
+              "goal_fr": "Les lettres et leurs sons (oral)",
+              "sessions": [
+                "u23-s1",
+                "u23-s2",
+                "u23-s3",
+                "u23-s4"
+              ]
+            },
+            {
+              "id": "u24-story-time",
+              "position": 6,
+              "title": "Story time",
+              "goal_fr": "Chansons et histoires",
+              "sessions": [
+                "u24-s1",
+                "u24-s2",
+                "u24-s3",
+                "u24-s4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1",
+      "cefr": "A1",
+      "cambridge": "Movers",
+      "gse_range": [
+        22,
+        29
+      ],
+      "detail": "outline",
+      "modules": [
+        {
+          "id": "m5",
+          "position": 1,
+          "title_fr": "Ma ville",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m6",
+          "position": 2,
+          "title_fr": "Mon corps et ma santé",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m7",
+          "position": 3,
+          "title_fr": "La nature et la météo",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m8",
+          "position": 4,
+          "title_fr": "Ce que j'aime, ce que je sais faire",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m9",
+          "position": 5,
+          "title_fr": "Les métiers et ma semaine",
+          "end_check": null,
+          "units": []
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "cefr": "A2",
+      "cambridge": "Flyers",
+      "gse_range": [
+        30,
+        42
+      ],
+      "detail": "outline",
+      "modules": [
+        {
+          "id": "m10",
+          "position": 1,
+          "title_fr": "Voyages et transports",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m11",
+          "position": 2,
+          "title_fr": "Le monde et l'espace",
+          "end_check": null,
+          "units": []
+        },
+        {
+          "id": "m12",
+          "position": 3,
+          "title_fr": "Raconter et imaginer",
+          "end_check": null,
+          "units": []
+        }
+      ]
+    }
+  ]
+}

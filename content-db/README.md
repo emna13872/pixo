@@ -21,8 +21,8 @@ les fichiers livrés au moteur et la base de données. Référente : **Emna**.
 
 ## Où on en est
 
-- Unité 1 « Hello! » : 16 mots, 4 objectifs, 4 séances écrites, vérifiées et publiées en version 1 (test).
-- Médias : 4 images et la chanson existent en version de test ; 12 images à produire. Voir [11-medias-a-produire](docs/11-medias-a-produire.md).
+- Unités 1 « Hello! », 2 « Colours » et 3 « My body » : 48 mots, 10 objectifs, 12 séances écrites, vérifiées et publiées en version 1 (test).
+- Médias : 8 images existent (4 anciennes + 5 nouvelles Canva, dont « no » refaite), 40 à produire ; chanson Hello en test, chansons Colours et My body à faire avec Suno. Consignes : [12-prompts-images-et-chansons](docs/12-prompts-images-et-chansons.md).
 - Base de données : script prêt et testé en local, pas encore installé dans Supabase. Voir [09-base-de-donnees](docs/09-base-de-donnees.md).
 
 ## Les 3 commandes
@@ -51,7 +51,8 @@ Détails : [10-commandes](docs/10-commandes.md).
 | [08-revision-boites-et-rythme](docs/08-revision-boites-et-rythme.md) | La révision espacée (boîtes de Leitner) et le rythme des séances |
 | [09-base-de-donnees](docs/09-base-de-donnees.md) | La base Supabase : tables, pourquoi JSONB, versions figées, sécurité |
 | [10-commandes](docs/10-commandes.md) | Comment vérifier, publier, ajouter une séance |
-| [11-medias-a-produire](docs/11-medias-a-produire.md) | Les images et chansons à produire, avec leurs consignes et licences |
+| [11-medias-a-produire](docs/11-medias-a-produire.md) | Les règles pour les médias et les licences |
+| [12-prompts-images-et-chansons](docs/12-prompts-images-et-chansons.md) | Les consignes de production : une par image, et les prompts Suno |
 | [fiches-memo](docs/fiches-memo.md) | Questions / réponses pour réviser avant une réunion |
 | [glossaire](docs/glossaire.md) | Les mots techniques en une phrase |
 

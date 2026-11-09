@@ -43,7 +43,7 @@ La carte en JSON (ids de toutes les unités et séances) : [`library/program.jso
 | Séance | Hello and bye | `u1-s1` |
 | Activité | « Say hello, {name}! » | `a_repeat_hello` |
 
-## L'unité 1 « Hello! » (écrite)
+## Les unités écrites (1 à 3)
 
 | Séance | Titre | Mots nouveaux | Objectifs |
 | --- | --- | --- | --- |
@@ -51,6 +51,16 @@ La carte en JSON (ids de toutes les unités et séances) : [`library/program.jso
 | u1-s2 | Please and thank you | hi, goodbye, please, thank you | saluer (GSE 10), politesse (GSE 11) |
 | u1-s3 | My name's… | my name's…, what's your name?, OK, sorry | se présenter (GSE 11), demander le prénom (GSE 12), politesse (GSE 11) |
 | u1-s4 | Well done! | well done, wow, see you!, me too | saluer (GSE 10) |
+| u2-s1 | Colours 1 | red, blue, yellow, green | couleurs (écoute GSE 10), décrire par la couleur (GSE 19) |
+| u2-s2 | Colours 2 | orange, pink, purple, brown | idem |
+| u2-s3 | Colours 3 | black, white, grey, colour | idem |
+| u2-s4 | My favourite colour | what colour is it?, it's…, rainbow, favourite | idem + demander la couleur (GSE 21) |
+| u3-s1 | My body 1 | head, eye, nose, mouth | nommer les parties du corps (GSE 23) |
+| u3-s2 | My body 2 | ear, hair, face, hand | idem |
+| u3-s3 | My body 3 | arm, leg, foot, body | idem |
+| u3-s4 | Touch your nose! | touch your…, smile, clap, wave | idem + verbes d'action (GSE 15), consignes avec gestes (GSE 13) |
+
+À partir de u2-s2, chaque séance a aussi un `visual_description` sur un mot déjà appris (« What colour is it? », « What's this? »).
 
 Les documents : `library/sessions/u1-s*.json`, `library/words/`, `library/objectives/`.
 

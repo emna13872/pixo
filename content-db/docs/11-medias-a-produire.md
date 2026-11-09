@@ -1,6 +1,6 @@
 # 11 · Médias à produire
 
-Chaque média a sa fiche dans `library/media/` (chemin, état, licence). Ce tableau est le récapitulatif de l'unité 1.
+Chaque média a sa fiche dans `library/media/` (chemin, état, licence). Ce tableau récapitule l'unité 1 tel qu'au premier jour ; l'état à jour des 48 images des unités 1 à 3 et leurs consignes sont dans [12-prompts-images-et-chansons](12-prompts-images-et-chansons.md).
 
 ## Règles pour tous les médias
 

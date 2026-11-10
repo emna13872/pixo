@@ -1,0 +1,20 @@
+{
+  "id": "w_my_name_is",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "My name's…",
+  "kind": "chunk",
+  "accepted_variants": [
+    "my name's",
+    "my name is",
+    "my names"
+  ],
+  "match": "starts_with",
+  "image_media": "m_img_my_name_is",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s3",
+  "cambridge_list": true
+}

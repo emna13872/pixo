@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse11_listen_polite",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Comprendre les mots de politesse",
+  "framework": "GSE Young Learners",
+  "gse_value": 11,
+  "skill": "listening",
+  "cefr": "Pre-A1",
+  "description_fr": "Reconnaître please, thank you, sorry, OK quand on les entend.",
+  "official_code": null
+}

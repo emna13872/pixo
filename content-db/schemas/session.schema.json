@@ -1,0 +1,613 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.app/schemas/session.schema.json",
+  "title": "Séance (édition)",
+  "description": "Le document que tu écris. Il cite les mots, objectifs et médias par leur id. La publication en fabrique le fichier livré.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de version. +1 à chaque publication d'un changement."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "type": {
+      "const": "session"
+    },
+    "program_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "module_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "unit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "position": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string"
+    },
+    "goal_fr": {
+      "type": "string"
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^obj_[a-z0-9_-]+$"
+      }
+    },
+    "new_words": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w_[a-z0-9_-]+$"
+      }
+    },
+    "activities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/greeting"
+          },
+          {
+            "$ref": "#/$defs/present"
+          },
+          {
+            "$ref": "#/$defs/repeat"
+          },
+          {
+            "$ref": "#/$defs/touch"
+          },
+          {
+            "$ref": "#/$defs/visual_description"
+          },
+          {
+            "$ref": "#/$defs/review"
+          },
+          {
+            "$ref": "#/$defs/sing_with_me"
+          },
+          {
+            "$ref": "#/$defs/watch_video"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "version",
+    "status",
+    "updated_at",
+    "updated_by",
+    "program_id",
+    "module_id",
+    "unit_id",
+    "position",
+    "title",
+    "objectives",
+    "new_words",
+    "activities"
+  ],
+  "$defs": {
+    "greeting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "routine"
+        },
+        "type": {
+          "const": "greeting"
+        },
+        "moment": {
+          "enum": [
+            "hello",
+            "bye"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "moment"
+      ]
+    },
+    "present": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "teaching"
+        },
+        "type": {
+          "const": "present"
+        },
+        "word_id": {
+          "type": "string",
+          "pattern": "^w_[a-z0-9_-]+$"
+        },
+        "say_times": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "word_id",
+        "say_times"
+      ]
+    },
+    "repeat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "exercise"
+        },
+        "type": {
+          "const": "repeat"
+        },
+        "word_id": {
+          "type": "string",
+          "pattern": "^w_[a-z0-9_-]+$"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "retry_activity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          }
+        },
+        "success_celebration": {
+          "type": "string"
+        },
+        "response_timeout": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "word_id",
+        "response_timeout",
+        "score",
+        "max_attempts",
+        "retry_activity_ids"
+      ]
+    },
+    "touch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "exercise"
+        },
+        "type": {
+          "const": "touch"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "retry_activity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          }
+        },
+        "success_celebration": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "word_id": {
+                "type": "string",
+                "pattern": "^w_[a-z0-9_-]+$"
+              }
+            },
+            "required": [
+              "word_id"
+            ]
+          }
+        },
+        "correct_word_id": {
+          "type": "string",
+          "pattern": "^w_[a-z0-9_-]+$"
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "images",
+        "correct_word_id",
+        "score",
+        "max_attempts",
+        "retry_activity_ids"
+      ]
+    },
+    "visual_description": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "exercise"
+        },
+        "type": {
+          "const": "visual_description"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "retry_activity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          }
+        },
+        "success_celebration": {
+          "type": "string"
+        },
+        "image_media": {
+          "type": "string",
+          "pattern": "^m_[a-z0-9_-]+$"
+        },
+        "expected_word_id": {
+          "type": "string",
+          "pattern": "^w_[a-z0-9_-]+$"
+        },
+        "response_timeout": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "image_media",
+        "expected_word_id",
+        "response_timeout",
+        "score",
+        "max_attempts",
+        "retry_activity_ids"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "exercise"
+        },
+        "type": {
+          "const": "review"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "retry_activity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          }
+        },
+        "success_celebration": {
+          "type": "string"
+        },
+        "review_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "review_activity_type": {
+          "enum": [
+            "repeat",
+            "touch"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "review_count",
+        "review_activity_type",
+        "score",
+        "max_attempts",
+        "retry_activity_ids"
+      ]
+    },
+    "sing_with_me": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "reward"
+        },
+        "type": {
+          "const": "sing_with_me"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "media_id": {
+          "type": "string",
+          "pattern": "^m_[a-z0-9_-]+$"
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "media_id"
+      ]
+    },
+    "watch_video": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "execution_mode": {
+          "enum": [
+            "normal",
+            "retry_only"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "const": "reward"
+        },
+        "type": {
+          "const": "watch_video"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "media_id": {
+          "type": "string",
+          "pattern": "^m_[a-z0-9_-]+$"
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "category",
+        "type",
+        "execution_mode",
+        "instruction",
+        "media_id"
+      ]
+    }
+  }
+}

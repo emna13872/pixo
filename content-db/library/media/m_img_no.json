@@ -1,0 +1,19 @@
+{
+  "id": "m_img_no",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:30:00Z",
+  "updated_by": "emna",
+  "kind": "image",
+  "mime_type": "image/png",
+  "storage_path": "media/words/no.png",
+  "production": "test",
+  "alt_text": "Un enfant qui secoue la tête, main levée (sans croix rouge)",
+  "licence": {
+    "source": "Canva (générateur d'images IA), 2026-11-09",
+    "terms": "to_check",
+    "cleared_for_children": false,
+    "note": "Canva media id MAHab0akKw8, dossier Canva « Pixo – images des mots (unités 1 à 3) ». À télécharger en PNG dans content-db/media/words/no.png."
+  }
+}

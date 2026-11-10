@@ -17,6 +17,7 @@ Prototype 0 works.
 | `brain/` | Python brain: loads and checks the content, runs sessions (the only part that decides) | emna (Viven later) |
 | `app/` | Android app (Kotlin, Jetpack Compose): displays, speaks, listens, never decides | (Step 4) |
 | `docs/` | Technical references: session schema, app ↔ brain protocol | everyone |
+| `content-db/` | The pedagogical content database: library, JSON schemas, published sessions, Supabase script, documentation (French). Start with [content-db/README.md](content-db/README.md) | emna |
 
 ## Everyday commands
 

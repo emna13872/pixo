@@ -1,0 +1,351 @@
+{
+  "id": "u3-s1",
+  "type": "session",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u3-my-body",
+  "position": 1,
+  "title": "My body 1",
+  "goal_fr": "Nommer la tête, l'œil, le nez, la bouche",
+  "objectives": [
+    "obj_gse23_speak_body_parts"
+  ],
+  "new_words": [
+    "w_head",
+    "w_eye",
+    "w_nose",
+    "w_mouth"
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hello {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_id": "m_song_body"
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_head",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Head!",
+      "word_id": "w_head",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_head",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say head, {name}!",
+      "word_id": "w_head",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_head_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_eye",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Eye!",
+      "word_id": "w_eye",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_eye",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say eye!",
+      "word_id": "w_eye",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_eye_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_nose",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Nose!",
+      "word_id": "w_nose",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_nose",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say nose, {name}!",
+      "word_id": "w_nose",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_nose_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_mouth",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Mouth!",
+      "word_id": "w_mouth",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_mouth",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say mouth!",
+      "word_id": "w_mouth",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_mouth_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch nose!",
+      "images": [
+        {
+          "word_id": "w_nose"
+        },
+        {
+          "word_id": "w_mouth"
+        },
+        {
+          "word_id": "w_eye"
+        }
+      ],
+      "correct_word_id": "w_nose",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch head!",
+      "images": [
+        {
+          "word_id": "w_head"
+        },
+        {
+          "word_id": "w_eye"
+        },
+        {
+          "word_id": "w_mouth"
+        }
+      ],
+      "correct_word_id": "w_head",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ]
+    },
+    {
+      "id": "a_describe",
+      "position": 14,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "What colour is it?",
+      "image_media": "m_img_red",
+      "expected_word_id": "w_red",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_describe_retry_1"
+      ]
+    },
+    {
+      "id": "a_repeat_head_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Head!",
+      "word_id": "w_head",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_eye_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Eye!",
+      "word_id": "w_eye",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_nose_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Nose!",
+      "word_id": "w_nose",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_mouth_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Mouth!",
+      "word_id": "w_mouth",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is nose?",
+      "images": [
+        {
+          "word_id": "w_nose"
+        },
+        {
+          "word_id": "w_mouth"
+        }
+      ],
+      "correct_word_id": "w_nose",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 20,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is head?",
+      "images": [
+        {
+          "word_id": "w_head"
+        },
+        {
+          "word_id": "w_eye"
+        }
+      ],
+      "correct_word_id": "w_head",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_describe_retry_1",
+      "position": 21,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Red!",
+      "word_id": "w_red",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 22,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Great job, {name}! Bye bye!",
+      "moment": "bye"
+    }
+  ]
+}

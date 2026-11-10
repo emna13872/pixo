@@ -1,0 +1,20 @@
+{
+  "id": "w_touch_your",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Touch your…",
+  "kind": "chunk",
+  "accepted_variants": [
+    "touch your",
+    "tuch your",
+    "touch you"
+  ],
+  "match": "starts_with",
+  "image_media": "m_img_touch_your",
+  "unit_id": "u3-my-body",
+  "taught_in": "u3-s4",
+  "cambridge_list": true
+}

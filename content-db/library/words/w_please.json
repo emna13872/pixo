@@ -1,0 +1,20 @@
+{
+  "id": "w_please",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Please",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "please",
+    "pleas",
+    "plees"
+  ],
+  "match": "exact",
+  "image_media": "m_img_please",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s2",
+  "cambridge_list": true
+}

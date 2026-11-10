@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.app/schemas/word.schema.json",
+  "title": "Mot ou expression (édition)",
+  "description": "Un mot (vocabulary) ou une expression (chunk). Existe une seule fois ; les séances le citent par son id.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^w_[a-z0-9_-]+$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de version. +1 à chaque publication d'un changement."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "type": {
+      "const": "word"
+    },
+    "text": {
+      "type": "string",
+      "description": "Le mot tel que Pixo le dit et tel qu'il apparaît dans words[].word."
+    },
+    "kind": {
+      "enum": [
+        "vocabulary",
+        "chunk"
+      ]
+    },
+    "accepted_variants": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9' .-]+$"
+      },
+      "description": "En minuscules. Seulement les erreurs de reconnaissance vocale : jamais un synonyme, jamais un autre mot du programme."
+    },
+    "match": {
+      "enum": [
+        "exact",
+        "starts_with"
+      ],
+      "description": "starts_with pour une expression suivie d'un prénom (My name's Sami)."
+    },
+    "image_media": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^m_"
+    },
+    "unit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "taught_in": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "cambridge_list": {
+      "type": "boolean",
+      "description": "true si le mot est dans la liste officielle Cambridge Pre A1 Starters."
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "version",
+    "status",
+    "updated_at",
+    "updated_by",
+    "text",
+    "kind",
+    "accepted_variants",
+    "match",
+    "image_media",
+    "unit_id",
+    "taught_in",
+    "cambridge_list"
+  ]
+}

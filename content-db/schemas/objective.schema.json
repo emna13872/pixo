@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pixo.app/schemas/objective.schema.json",
+  "title": "Objectif (édition)",
+  "description": "Un objectif d'apprentissage relié au référentiel GSE Young Learners. Partagé par plusieurs séances.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^obj_[a-z0-9_-]+$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de version. +1 à chaque publication d'un changement."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived"
+      ]
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "type": {
+      "const": "objective"
+    },
+    "title_fr": {
+      "type": "string",
+      "description": "Titre court, recopié dans le fichier livré."
+    },
+    "framework": {
+      "const": "GSE Young Learners"
+    },
+    "gse_value": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 90
+    },
+    "skill": {
+      "enum": [
+        "listening",
+        "speaking",
+        "reading",
+        "writing"
+      ]
+    },
+    "cefr": {
+      "type": "string"
+    },
+    "description_fr": {
+      "type": "string"
+    },
+    "official_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Code exact du référentiel Pearson, à recopier avant usage officiel."
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "version",
+    "status",
+    "updated_at",
+    "updated_by",
+    "title_fr",
+    "framework",
+    "gse_value",
+    "skill",
+    "cefr"
+  ]
+}

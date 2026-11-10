@@ -1,0 +1,19 @@
+{
+  "id": "w_me_too",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Me too",
+  "kind": "chunk",
+  "accepted_variants": [
+    "me too",
+    "me to"
+  ],
+  "match": "exact",
+  "image_media": "m_img_me_too",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s4",
+  "cambridge_list": true
+}

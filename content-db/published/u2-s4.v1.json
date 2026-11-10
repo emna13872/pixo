@@ -1,0 +1,484 @@
+{
+  "id": "u2-s4",
+  "version": 1,
+  "position": 4,
+  "title": "My favourite colour",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u2-colours",
+  "objectives": [
+    {
+      "id": "obj_gse10_listen_familiar_words",
+      "title": "Reconnaître des noms et adjectifs familiers (couleurs)",
+      "framework": "GSE Young Learners",
+      "gse_value": 10,
+      "skill": "listening"
+    },
+    {
+      "id": "obj_gse19_speak_describe_colour",
+      "title": "Décrire un objet par sa couleur",
+      "framework": "GSE Young Learners",
+      "gse_value": 19,
+      "skill": "speaking"
+    },
+    {
+      "id": "obj_gse21_speak_ask_colour",
+      "title": "Demander la couleur d'un objet",
+      "framework": "GSE Young Learners",
+      "gse_value": 21,
+      "skill": "speaking"
+    }
+  ],
+  "words": [
+    {
+      "id": "w_what_colour_is_it",
+      "word": "What colour is it?",
+      "uri": "media/words/what_colour_is_it.png",
+      "type": "chunk",
+      "accepted_variants": [
+        "what colour is it",
+        "what color is it",
+        "what colours is it"
+      ]
+    },
+    {
+      "id": "w_its",
+      "word": "It's…",
+      "uri": "media/words/its.png",
+      "type": "chunk",
+      "accepted_variants": [
+        "it's",
+        "it is",
+        "its"
+      ],
+      "match": "starts_with"
+    },
+    {
+      "id": "w_rainbow",
+      "word": "Rainbow",
+      "uri": "media/words/rainbow.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "rainbow",
+        "rain bow",
+        "rainbo"
+      ]
+    },
+    {
+      "id": "w_favourite",
+      "word": "Favourite",
+      "uri": "media/words/favourite.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "favourite",
+        "favorite",
+        "favrit"
+      ]
+    },
+    {
+      "id": "w_colour",
+      "word": "Colour",
+      "uri": "media/words/colour.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "colour",
+        "color",
+        "culler"
+      ]
+    },
+    {
+      "id": "w_purple",
+      "word": "Purple",
+      "uri": "media/words/purple.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "purple",
+        "purpel",
+        "perple"
+      ]
+    },
+    {
+      "id": "w_green",
+      "word": "Green",
+      "uri": "media/words/green.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "green",
+        "grin",
+        "greem"
+      ]
+    },
+    {
+      "id": "w_orange",
+      "word": "Orange",
+      "uri": "media/words/orange.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "orange",
+        "orang",
+        "oranj"
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hi {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_song",
+      "position": 2,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Let's sing, {name}!",
+      "media_uri": "media/songs/song_colours.mp3",
+      "lyrics": "Red and blue, yellow too! Green, green, I like green! Red and blue, yellow too! Green, green, I like green!",
+      "timestamps": [
+        {
+          "start_ms": 0,
+          "end_ms": 3500,
+          "text": "Red and blue, yellow too!"
+        },
+        {
+          "start_ms": 3500,
+          "end_ms": 7000,
+          "text": "Green, green, I like green!"
+        },
+        {
+          "start_ms": 7000,
+          "end_ms": 10500,
+          "text": "Red and blue, yellow too!"
+        },
+        {
+          "start_ms": 10500,
+          "end_ms": 14000,
+          "text": "Green, green, I like green!"
+        }
+      ]
+    },
+    {
+      "id": "a_review",
+      "position": 3,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember?",
+      "review_count": 2,
+      "review_activity_type": "repeat",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_what_colour_is_it",
+      "position": 4,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! What colour is it?",
+      "word_id": "w_what_colour_is_it",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_what_colour_is_it",
+      "position": 5,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Ask: What colour is it?",
+      "word_id": "w_what_colour_is_it",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_what_colour_is_it_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_its",
+      "position": 6,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! It's red!",
+      "word_id": "w_its",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_its",
+      "position": 7,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say: It's red, {name}!",
+      "word_id": "w_its",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_its_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_rainbow",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! A rainbow!",
+      "word_id": "w_rainbow",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_rainbow",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say rainbow, {name}!",
+      "word_id": "w_rainbow",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_rainbow_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_favourite",
+      "position": 10,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! My favourite!",
+      "word_id": "w_favourite",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_favourite",
+      "position": 11,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say favourite!",
+      "word_id": "w_favourite",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_favourite_retry_1"
+      ]
+    },
+    {
+      "id": "a_touch_1",
+      "position": 12,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch rainbow!",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_1_retry_1"
+      ],
+      "images": [
+        {
+          "label": "Rainbow",
+          "uri": "media/words/rainbow.png"
+        },
+        {
+          "label": "Favourite",
+          "uri": "media/words/favourite.png"
+        },
+        {
+          "label": "Colour",
+          "uri": "media/words/colour.png"
+        }
+      ],
+      "correct_label": "Rainbow"
+    },
+    {
+      "id": "a_touch_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch purple!",
+      "max_attempts": 3,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_2_retry_1"
+      ],
+      "images": [
+        {
+          "label": "Purple",
+          "uri": "media/words/purple.png"
+        },
+        {
+          "label": "Green",
+          "uri": "media/words/green.png"
+        },
+        {
+          "label": "Orange",
+          "uri": "media/words/orange.png"
+        }
+      ],
+      "correct_label": "Purple"
+    },
+    {
+      "id": "a_describe",
+      "position": 14,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "What colour is it?",
+      "expected_word_id": "w_green",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_describe_retry_1"
+      ],
+      "uri": "media/words/green.png"
+    },
+    {
+      "id": "a_repeat_what_colour_is_it_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! What colour is it?",
+      "word_id": "w_what_colour_is_it",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_its_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! It's red!",
+      "word_id": "w_its",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_rainbow_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Rainbow!",
+      "word_id": "w_rainbow",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_favourite_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Favourite!",
+      "word_id": "w_favourite",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_touch_1_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is rainbow?",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [],
+      "images": [
+        {
+          "label": "Rainbow",
+          "uri": "media/words/rainbow.png"
+        },
+        {
+          "label": "Colour",
+          "uri": "media/words/colour.png"
+        }
+      ],
+      "correct_label": "Rainbow"
+    },
+    {
+      "id": "a_touch_2_retry_1",
+      "position": 20,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is purple?",
+      "max_attempts": 2,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [],
+      "images": [
+        {
+          "label": "Purple",
+          "uri": "media/words/purple.png"
+        },
+        {
+          "label": "Green",
+          "uri": "media/words/green.png"
+        }
+      ],
+      "correct_label": "Purple"
+    },
+    {
+      "id": "a_describe_retry_1",
+      "position": 21,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Green!",
+      "word_id": "w_green",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 22,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Well done, {name}! See you!",
+      "moment": "bye"
+    }
+  ]
+}

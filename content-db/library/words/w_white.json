@@ -1,0 +1,20 @@
+{
+  "id": "w_white",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "White",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "white",
+    "wite",
+    "wight"
+  ],
+  "match": "exact",
+  "image_media": "m_img_white",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s3",
+  "cambridge_list": true
+}

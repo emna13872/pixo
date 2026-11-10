@@ -1,0 +1,425 @@
+{
+  "type": "index",
+  "built_at": "2026-11-09T15:37:25Z",
+  "program": "pixo-english@1",
+  "sessions": {
+    "u1-s1": 1,
+    "u1-s2": 1,
+    "u1-s3": 1,
+    "u1-s4": 1,
+    "u2-s1": 1,
+    "u2-s2": 1,
+    "u2-s3": 1,
+    "u2-s4": 1,
+    "u3-s1": 1,
+    "u3-s2": 1,
+    "u3-s3": 1,
+    "u3-s4": 1
+  },
+  "word_taught_in": {
+    "w_hello": [
+      "u1-s1"
+    ],
+    "w_bye": [
+      "u1-s1"
+    ],
+    "w_yes": [
+      "u1-s1"
+    ],
+    "w_no": [
+      "u1-s1"
+    ],
+    "w_hi": [
+      "u1-s2"
+    ],
+    "w_goodbye": [
+      "u1-s2"
+    ],
+    "w_please": [
+      "u1-s2"
+    ],
+    "w_thank_you": [
+      "u1-s2"
+    ],
+    "w_my_name_is": [
+      "u1-s3"
+    ],
+    "w_whats_your_name": [
+      "u1-s3"
+    ],
+    "w_ok": [
+      "u1-s3"
+    ],
+    "w_sorry": [
+      "u1-s3"
+    ],
+    "w_well_done": [
+      "u1-s4"
+    ],
+    "w_wow": [
+      "u1-s4"
+    ],
+    "w_see_you": [
+      "u1-s4"
+    ],
+    "w_me_too": [
+      "u1-s4"
+    ],
+    "w_red": [
+      "u2-s1"
+    ],
+    "w_blue": [
+      "u2-s1"
+    ],
+    "w_yellow": [
+      "u2-s1"
+    ],
+    "w_green": [
+      "u2-s1"
+    ],
+    "w_orange": [
+      "u2-s2"
+    ],
+    "w_pink": [
+      "u2-s2"
+    ],
+    "w_purple": [
+      "u2-s2"
+    ],
+    "w_brown": [
+      "u2-s2"
+    ],
+    "w_black": [
+      "u2-s3"
+    ],
+    "w_white": [
+      "u2-s3"
+    ],
+    "w_grey": [
+      "u2-s3"
+    ],
+    "w_colour": [
+      "u2-s3"
+    ],
+    "w_what_colour_is_it": [
+      "u2-s4"
+    ],
+    "w_its": [
+      "u2-s4"
+    ],
+    "w_rainbow": [
+      "u2-s4"
+    ],
+    "w_favourite": [
+      "u2-s4"
+    ],
+    "w_head": [
+      "u3-s1"
+    ],
+    "w_eye": [
+      "u3-s1"
+    ],
+    "w_nose": [
+      "u3-s1"
+    ],
+    "w_mouth": [
+      "u3-s1"
+    ],
+    "w_ear": [
+      "u3-s2"
+    ],
+    "w_hair": [
+      "u3-s2"
+    ],
+    "w_face": [
+      "u3-s2"
+    ],
+    "w_hand": [
+      "u3-s2"
+    ],
+    "w_arm": [
+      "u3-s3"
+    ],
+    "w_leg": [
+      "u3-s3"
+    ],
+    "w_foot": [
+      "u3-s3"
+    ],
+    "w_body": [
+      "u3-s3"
+    ],
+    "w_touch_your": [
+      "u3-s4"
+    ],
+    "w_smile": [
+      "u3-s4"
+    ],
+    "w_clap": [
+      "u3-s4"
+    ],
+    "w_wave": [
+      "u3-s4"
+    ]
+  },
+  "word_used_again_in": {
+    "w_please": [
+      "u1-s3"
+    ],
+    "w_red": [
+      "u2-s2"
+    ],
+    "w_pink": [
+      "u2-s3"
+    ],
+    "w_colour": [
+      "u2-s4",
+      "u2-s4"
+    ],
+    "w_purple": [
+      "u2-s4",
+      "u2-s4"
+    ],
+    "w_green": [
+      "u2-s4",
+      "u2-s4"
+    ],
+    "w_orange": [
+      "u2-s4"
+    ],
+    "w_nose": [
+      "u3-s2"
+    ],
+    "w_hand": [
+      "u3-s3",
+      "u3-s3"
+    ],
+    "w_face": [
+      "u3-s4"
+    ]
+  },
+  "objective_to_sessions": {
+    "obj_gse10_speak_greet": [
+      "u1-s1",
+      "u1-s2",
+      "u1-s4"
+    ],
+    "obj_gse11_listen_polite": [
+      "u1-s2",
+      "u1-s3"
+    ],
+    "obj_gse11_speak_introduce": [
+      "u1-s3"
+    ],
+    "obj_gse12_speak_ask_name": [
+      "u1-s3"
+    ],
+    "obj_gse10_listen_familiar_words": [
+      "u2-s1",
+      "u2-s2",
+      "u2-s3",
+      "u2-s4"
+    ],
+    "obj_gse19_speak_describe_colour": [
+      "u2-s1",
+      "u2-s2",
+      "u2-s3",
+      "u2-s4"
+    ],
+    "obj_gse21_speak_ask_colour": [
+      "u2-s4"
+    ],
+    "obj_gse23_speak_body_parts": [
+      "u3-s1",
+      "u3-s2",
+      "u3-s3",
+      "u3-s4"
+    ],
+    "obj_gse15_listen_action_verbs": [
+      "u3-s4"
+    ],
+    "obj_gse13_listen_instructions": [
+      "u3-s4"
+    ]
+  },
+  "media_to_documents": {
+    "m_song_hello": [
+      "u1-s1",
+      "u1-s2",
+      "u1-s3",
+      "u1-s4"
+    ],
+    "m_song_colours": [
+      "u2-s1",
+      "u2-s2",
+      "u2-s3",
+      "u2-s4"
+    ],
+    "m_song_body": [
+      "u3-s1",
+      "u3-s2",
+      "u3-s3",
+      "u3-s4"
+    ],
+    "m_img_arm": [
+      "w_arm"
+    ],
+    "m_img_black": [
+      "w_black"
+    ],
+    "m_img_blue": [
+      "w_blue"
+    ],
+    "m_img_body": [
+      "w_body"
+    ],
+    "m_img_brown": [
+      "w_brown"
+    ],
+    "m_img_bye": [
+      "w_bye"
+    ],
+    "m_img_clap": [
+      "w_clap"
+    ],
+    "m_img_colour": [
+      "w_colour"
+    ],
+    "m_img_ear": [
+      "w_ear"
+    ],
+    "m_img_eye": [
+      "w_eye"
+    ],
+    "m_img_face": [
+      "w_face"
+    ],
+    "m_img_favourite": [
+      "w_favourite"
+    ],
+    "m_img_foot": [
+      "w_foot"
+    ],
+    "m_img_goodbye": [
+      "w_goodbye"
+    ],
+    "m_img_green": [
+      "w_green"
+    ],
+    "m_img_grey": [
+      "w_grey"
+    ],
+    "m_img_hair": [
+      "w_hair"
+    ],
+    "m_img_hand": [
+      "w_hand"
+    ],
+    "m_img_head": [
+      "w_head"
+    ],
+    "m_img_hello": [
+      "w_hello"
+    ],
+    "m_img_hi": [
+      "w_hi"
+    ],
+    "m_img_its": [
+      "w_its"
+    ],
+    "m_img_leg": [
+      "w_leg"
+    ],
+    "m_img_me_too": [
+      "w_me_too"
+    ],
+    "m_img_mouth": [
+      "w_mouth"
+    ],
+    "m_img_my_name_is": [
+      "w_my_name_is"
+    ],
+    "m_img_no": [
+      "w_no"
+    ],
+    "m_img_nose": [
+      "w_nose"
+    ],
+    "m_img_ok": [
+      "w_ok"
+    ],
+    "m_img_orange": [
+      "w_orange"
+    ],
+    "m_img_pink": [
+      "w_pink"
+    ],
+    "m_img_please": [
+      "w_please"
+    ],
+    "m_img_purple": [
+      "w_purple"
+    ],
+    "m_img_rainbow": [
+      "w_rainbow"
+    ],
+    "m_img_red": [
+      "w_red"
+    ],
+    "m_img_see_you": [
+      "w_see_you"
+    ],
+    "m_img_smile": [
+      "w_smile"
+    ],
+    "m_img_sorry": [
+      "w_sorry"
+    ],
+    "m_img_thank_you": [
+      "w_thank_you"
+    ],
+    "m_img_touch_your": [
+      "w_touch_your"
+    ],
+    "m_img_wave": [
+      "w_wave"
+    ],
+    "m_img_well_done": [
+      "w_well_done"
+    ],
+    "m_img_what_colour_is_it": [
+      "w_what_colour_is_it"
+    ],
+    "m_img_whats_your_name": [
+      "w_whats_your_name"
+    ],
+    "m_img_white": [
+      "w_white"
+    ],
+    "m_img_wow": [
+      "w_wow"
+    ],
+    "m_img_yellow": [
+      "w_yellow"
+    ],
+    "m_img_yes": [
+      "w_yes"
+    ]
+  },
+  "coverage": {
+    "curriculum_items": 381,
+    "items_written": 45,
+    "objectives_covered": [
+      "obj_gse10_listen_familiar_words",
+      "obj_gse10_speak_greet",
+      "obj_gse11_listen_polite",
+      "obj_gse11_speak_introduce",
+      "obj_gse12_speak_ask_name",
+      "obj_gse13_listen_instructions",
+      "obj_gse15_listen_action_verbs",
+      "obj_gse19_speak_describe_colour",
+      "obj_gse21_speak_ask_colour",
+      "obj_gse23_speak_body_parts"
+    ]
+  }
+}

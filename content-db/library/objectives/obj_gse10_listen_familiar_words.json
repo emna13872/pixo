@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse10_listen_familiar_words",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Reconnaître des noms et adjectifs familiers (couleurs)",
+  "framework": "GSE Young Learners",
+  "gse_value": 10,
+  "skill": "listening",
+  "cefr": "Pre-A1",
+  "description_fr": "Reconnaître les couleurs quand on les entend.",
+  "official_code": null
+}

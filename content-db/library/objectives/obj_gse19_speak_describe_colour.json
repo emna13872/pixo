@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse19_speak_describe_colour",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Décrire un objet par sa couleur",
+  "framework": "GSE Young Learners",
+  "gse_value": 19,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Dire la couleur d'un objet (It's red).",
+  "official_code": null
+}

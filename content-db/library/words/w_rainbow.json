@@ -1,0 +1,20 @@
+{
+  "id": "w_rainbow",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Rainbow",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "rainbow",
+    "rain bow",
+    "rainbo"
+  ],
+  "match": "exact",
+  "image_media": "m_img_rainbow",
+  "unit_id": "u2-colours",
+  "taught_in": "u2-s4",
+  "cambridge_list": false
+}

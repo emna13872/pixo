@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse12_speak_ask_name",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Demander le prénom",
+  "framework": "GSE Young Learners",
+  "gse_value": 12,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Demander « What's your name? ».",
+  "official_code": null
+}

@@ -1,0 +1,21 @@
+{
+  "id": "w_see_you",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "See you!",
+  "kind": "chunk",
+  "accepted_variants": [
+    "see you",
+    "see ya",
+    "see u",
+    "c you"
+  ],
+  "match": "exact",
+  "image_media": "m_img_see_you",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s4",
+  "cambridge_list": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse21_speak_ask_colour",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Demander la couleur d'un objet",
+  "framework": "GSE Young Learners",
+  "gse_value": 21,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Demander « What colour is it? ».",
+  "official_code": null
+}

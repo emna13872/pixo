@@ -1,0 +1,20 @@
+{
+  "id": "w_face",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "text": "Face",
+  "kind": "vocabulary",
+  "accepted_variants": [
+    "face",
+    "fase",
+    "faice"
+  ],
+  "match": "exact",
+  "image_media": "m_img_face",
+  "unit_id": "u3-my-body",
+  "taught_in": "u3-s2",
+  "cambridge_list": true
+}

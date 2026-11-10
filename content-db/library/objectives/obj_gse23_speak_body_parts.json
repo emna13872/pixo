@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse23_speak_body_parts",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Nommer les parties du corps",
+  "framework": "GSE Young Learners",
+  "gse_value": 23,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Dire le nom des parties du corps.",
+  "official_code": null
+}

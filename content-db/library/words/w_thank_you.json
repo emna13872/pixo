@@ -1,0 +1,21 @@
+{
+  "id": "w_thank_you",
+  "type": "word",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "text": "Thank you",
+  "kind": "chunk",
+  "accepted_variants": [
+    "thank you",
+    "thankyou",
+    "thank u",
+    "tank you"
+  ],
+  "match": "exact",
+  "image_media": "m_img_thank_you",
+  "unit_id": "u1-hello",
+  "taught_in": "u1-s2",
+  "cambridge_list": true
+}

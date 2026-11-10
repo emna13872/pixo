@@ -1,0 +1,18 @@
+{
+  "id": "m_img_colour",
+  "type": "media",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T16:00:00Z",
+  "updated_by": "emna",
+  "kind": "image",
+  "mime_type": "image/png",
+  "storage_path": "media/words/colour.png",
+  "production": "todo",
+  "alt_text": "Une palette de peinture avec plein de couleurs",
+  "licence": {
+    "source": "à produire",
+    "terms": "to_check",
+    "cleared_for_children": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "obj_gse11_speak_introduce",
+  "type": "objective",
+  "version": 1,
+  "status": "draft",
+  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_by": "emna",
+  "title_fr": "Se présenter (My name's…)",
+  "framework": "GSE Young Learners",
+  "gse_value": 11,
+  "skill": "speaking",
+  "cefr": "Pre-A1",
+  "description_fr": "Dire son prénom avec « My name's… ».",
+  "official_code": null
+}

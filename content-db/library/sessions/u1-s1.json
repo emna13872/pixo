@@ -1,16 +1,16 @@
 {
   "id": "u1-s1",
   "type": "session",
-  "version": 1,
+  "version": 2,
   "status": "draft",
-  "updated_at": "2026-11-09T15:00:00Z",
+  "updated_at": "2026-11-14T11:00:00Z",
   "updated_by": "emna",
   "program_id": "pixo-english",
   "module_id": "m1",
   "unit_id": "u1-hello",
   "position": 1,
   "title": "Hello and bye",
-  "goal_fr": "Dire bonjour, au revoir, oui et non",
+  "goal_fr": "Dire bonjour, au revoir, oui et non, et répondre par oui ou non",
   "objectives": [
     "obj_gse10_speak_greet"
   ],
@@ -57,7 +57,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "Say hello, {name}!",
+      "instruction": "Hello, {name}! Say hello!",
       "word_id": "w_hello",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -83,7 +83,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "Say bye!",
+      "instruction": "Bye-bye! Now you say bye!",
       "word_id": "w_bye",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -93,8 +93,31 @@
       ]
     },
     {
-      "id": "a_present_yes",
+      "id": "a_touch_hello",
       "position": 7,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Touch hello!",
+      "max_attempts": 3,
+      "images": [
+        {
+          "word_id": "w_hello"
+        },
+        {
+          "word_id": "w_bye"
+        }
+      ],
+      "correct_word_id": "w_hello",
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_touch_hello_retry_1"
+      ]
+    },
+    {
+      "id": "a_present_yes",
+      "position": 8,
       "category": "teaching",
       "type": "present",
       "execution_mode": "normal",
@@ -104,7 +127,7 @@
     },
     {
       "id": "a_repeat_yes",
-      "position": 8,
+      "position": 9,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "normal",
@@ -120,7 +143,7 @@
     },
     {
       "id": "a_present_no",
-      "position": 9,
+      "position": 10,
       "category": "teaching",
       "type": "present",
       "execution_mode": "normal",
@@ -130,7 +153,7 @@
     },
     {
       "id": "a_repeat_no",
-      "position": 10,
+      "position": 11,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "normal",
@@ -145,57 +168,42 @@
       ]
     },
     {
-      "id": "a_touch_1",
-      "position": 11,
-      "category": "exercise",
-      "type": "touch",
-      "execution_mode": "normal",
-      "score": 10,
-      "instruction": "Touch hello!",
-      "images": [
-        {
-          "word_id": "w_hello"
-        },
-        {
-          "word_id": "w_bye"
-        },
-        {
-          "word_id": "w_yes"
-        }
-      ],
-      "correct_word_id": "w_hello",
-      "max_attempts": 3,
-      "success_celebration": "celebration_001",
-      "retry_activity_ids": [
-        "a_touch_1_retry_1"
-      ]
-    },
-    {
-      "id": "a_touch_2",
+      "id": "a_yesno_1",
       "position": 12,
       "category": "exercise",
-      "type": "touch",
+      "type": "visual_description",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "Touch yes!",
-      "images": [
-        {
-          "word_id": "w_yes"
-        },
-        {
-          "word_id": "w_no"
-        }
-      ],
-      "correct_word_id": "w_yes",
+      "instruction": "Look! Is it hello?",
       "max_attempts": 3,
-      "success_celebration": "celebration_001",
       "retry_activity_ids": [
-        "a_touch_2_retry_1"
-      ]
+        "a_yesno_1_retry_1"
+      ],
+      "image_media": "m_img_hello",
+      "expected_word_id": "w_yes",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001"
+    },
+    {
+      "id": "a_yesno_2",
+      "position": 13,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "And this one? Is it hello?",
+      "max_attempts": 3,
+      "retry_activity_ids": [
+        "a_yesno_2_retry_1"
+      ],
+      "image_media": "m_img_bye",
+      "expected_word_id": "w_no",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001"
     },
     {
       "id": "a_repeat_hello_retry_1",
-      "position": 13,
+      "position": 14,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -209,7 +217,7 @@
     },
     {
       "id": "a_repeat_bye_retry_1",
-      "position": 14,
+      "position": 15,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -222,8 +230,29 @@
       "retry_activity_ids": []
     },
     {
+      "id": "a_touch_hello_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "touch",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Where is hello?",
+      "max_attempts": 2,
+      "images": [
+        {
+          "word_id": "w_hello"
+        },
+        {
+          "word_id": "w_bye"
+        }
+      ],
+      "correct_word_id": "w_hello",
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
       "id": "a_repeat_yes_retry_1",
-      "position": 15,
+      "position": 17,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -237,7 +266,7 @@
     },
     {
       "id": "a_repeat_no_retry_1",
-      "position": 16,
+      "position": 18,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -250,54 +279,42 @@
       "retry_activity_ids": []
     },
     {
-      "id": "a_touch_1_retry_1",
-      "position": 17,
+      "id": "a_yesno_1_retry_1",
+      "position": 19,
       "category": "exercise",
-      "type": "touch",
+      "type": "visual_description",
       "execution_mode": "retry_only",
       "score": 0,
-      "instruction": "Where is hello?",
-      "images": [
-        {
-          "word_id": "w_hello"
-        },
-        {
-          "word_id": "w_bye"
-        }
-      ],
-      "correct_word_id": "w_hello",
+      "instruction": "Look again! Is it hello?",
       "max_attempts": 2,
-      "success_celebration": "celebration_001",
-      "retry_activity_ids": []
+      "retry_activity_ids": [],
+      "image_media": "m_img_hello",
+      "expected_word_id": "w_yes",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001"
     },
     {
-      "id": "a_touch_2_retry_1",
-      "position": 18,
+      "id": "a_yesno_2_retry_1",
+      "position": 20,
       "category": "exercise",
-      "type": "touch",
+      "type": "visual_description",
       "execution_mode": "retry_only",
       "score": 0,
-      "instruction": "Where is yes?",
-      "images": [
-        {
-          "word_id": "w_yes"
-        },
-        {
-          "word_id": "w_no"
-        }
-      ],
-      "correct_word_id": "w_yes",
+      "instruction": "Look again! Is it hello?",
       "max_attempts": 2,
-      "success_celebration": "celebration_001",
-      "retry_activity_ids": []
+      "retry_activity_ids": [],
+      "image_media": "m_img_bye",
+      "expected_word_id": "w_no",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001"
     },
     {
       "id": "a_bye",
-      "position": 19,
+      "position": 21,
       "category": "routine",
       "type": "greeting",
       "execution_mode": "normal",
-      "instruction": "Great job, {name}! Bye bye!",
+      "instruction": "Great job, {name}! Bye-bye!",
       "moment": "bye"
     }
   ]

@@ -1,0 +1,354 @@
+{
+  "id": "u1-s4",
+  "version": 2,
+  "position": 4,
+  "title": "Well done!",
+  "program_id": "pixo-english",
+  "module_id": "m1",
+  "unit_id": "u1-hello",
+  "objectives": [
+    {
+      "id": "obj_gse10_speak_greet",
+      "title": "Saluer et prendre congé (hello, hi, bye)",
+      "framework": "GSE Young Learners",
+      "gse_value": 10,
+      "skill": "speaking"
+    }
+  ],
+  "words": [
+    {
+      "id": "w_well_done",
+      "word": "Well done",
+      "uri": "media/words/well_done.png",
+      "type": "chunk",
+      "accepted_variants": [
+        "well done",
+        "welldone",
+        "well don"
+      ]
+    },
+    {
+      "id": "w_wow",
+      "word": "Wow",
+      "uri": "media/words/wow.png",
+      "type": "vocabulary",
+      "accepted_variants": [
+        "wow",
+        "waw",
+        "wo"
+      ]
+    },
+    {
+      "id": "w_see_you",
+      "word": "See you!",
+      "uri": "media/words/see_you.png",
+      "type": "chunk",
+      "accepted_variants": [
+        "see you",
+        "see ya",
+        "see u",
+        "c you"
+      ]
+    },
+    {
+      "id": "w_me_too",
+      "word": "Me too",
+      "uri": "media/words/me_too.png",
+      "type": "chunk",
+      "accepted_variants": [
+        "me too",
+        "me to"
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "a_hello",
+      "position": 1,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Hello {name}! I'm Pixo!",
+      "moment": "hello"
+    },
+    {
+      "id": "a_present_wow",
+      "position": 2,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Wow!",
+      "word_id": "w_wow",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_wow",
+      "position": 3,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say wow, {name}!",
+      "word_id": "w_wow",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_wow_retry_1"
+      ]
+    },
+    {
+      "id": "a_scene_wow",
+      "position": 4,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "A big rainbow! What do you say?",
+      "max_attempts": 3,
+      "retry_activity_ids": [
+        "a_scene_wow_retry_1"
+      ],
+      "expected_word_id": "w_wow",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "uri": "media/words/wow.png"
+    },
+    {
+      "id": "a_present_well_done",
+      "position": 5,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Look! Well done!",
+      "word_id": "w_well_done",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_well_done",
+      "position": 6,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Say well done!",
+      "word_id": "w_well_done",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_well_done_retry_1"
+      ]
+    },
+    {
+      "id": "a_scene_well_done",
+      "position": 7,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Your friend wins! What do you say?",
+      "max_attempts": 3,
+      "retry_activity_ids": [
+        "a_scene_well_done_retry_1"
+      ],
+      "expected_word_id": "w_well_done",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "uri": "media/words/well_done.png"
+    },
+    {
+      "id": "a_present_me_too",
+      "position": 8,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! Me too!",
+      "word_id": "w_me_too",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_me_too",
+      "position": 9,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "I love songs! Say me too!",
+      "word_id": "w_me_too",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_me_too_retry_1"
+      ]
+    },
+    {
+      "id": "a_review",
+      "position": 10,
+      "category": "exercise",
+      "type": "review",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "Do you remember? Touch it!",
+      "review_count": 4,
+      "review_activity_type": "touch",
+      "max_attempts": 3,
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_present_see_you",
+      "position": 11,
+      "category": "teaching",
+      "type": "present",
+      "execution_mode": "normal",
+      "instruction": "Listen! See you!",
+      "word_id": "w_see_you",
+      "say_times": 2
+    },
+    {
+      "id": "a_repeat_see_you",
+      "position": 12,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "normal",
+      "score": 10,
+      "instruction": "See you, {name}! Say see you!",
+      "word_id": "w_see_you",
+      "max_attempts": 3,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": [
+        "a_repeat_see_you_retry_1"
+      ]
+    },
+    {
+      "id": "a_song",
+      "position": 13,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Well done! Let's sing, {name}!",
+      "media_uri": "media/songs/song_hello.mp3",
+      "lyrics": "Hello, hello! Hello, hello! Yes, yes, yes! Yes, yes, yes! Hello, friend! Hello, friend! Bye-bye! Bye-bye!",
+      "timestamps": [
+        {
+          "start_ms": 3100,
+          "end_ms": 7880,
+          "text": "Hello, hello! Hello, hello!"
+        },
+        {
+          "start_ms": 7880,
+          "end_ms": 12040,
+          "text": "Yes, yes, yes! Yes, yes, yes!"
+        },
+        {
+          "start_ms": 12040,
+          "end_ms": 16360,
+          "text": "Hello, friend! Hello, friend!"
+        },
+        {
+          "start_ms": 16360,
+          "end_ms": 21000,
+          "text": "Bye-bye! Bye-bye!"
+        }
+      ]
+    },
+    {
+      "id": "a_repeat_wow_retry_1",
+      "position": 14,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Wow!",
+      "word_id": "w_wow",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_scene_wow_retry_1",
+      "position": 15,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "A rainbow! Say wow!",
+      "max_attempts": 2,
+      "retry_activity_ids": [],
+      "expected_word_id": "w_wow",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "uri": "media/words/wow.png"
+    },
+    {
+      "id": "a_repeat_well_done_retry_1",
+      "position": 16,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Well done!",
+      "word_id": "w_well_done",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_scene_well_done_retry_1",
+      "position": 17,
+      "category": "exercise",
+      "type": "visual_description",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Your friend wins! Say well done!",
+      "max_attempts": 2,
+      "retry_activity_ids": [],
+      "expected_word_id": "w_well_done",
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "uri": "media/words/well_done.png"
+    },
+    {
+      "id": "a_repeat_me_too_retry_1",
+      "position": 18,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! Me too!",
+      "word_id": "w_me_too",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_repeat_see_you_retry_1",
+      "position": 19,
+      "category": "exercise",
+      "type": "repeat",
+      "execution_mode": "retry_only",
+      "score": 0,
+      "instruction": "Again! See you!",
+      "word_id": "w_see_you",
+      "max_attempts": 2,
+      "response_timeout": 5,
+      "success_celebration": "celebration_001",
+      "retry_activity_ids": []
+    },
+    {
+      "id": "a_bye",
+      "position": 20,
+      "category": "routine",
+      "type": "greeting",
+      "execution_mode": "normal",
+      "instruction": "Well done, {name}! See you!",
+      "moment": "bye"
+    }
+  ]
+}

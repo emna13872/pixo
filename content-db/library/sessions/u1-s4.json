@@ -1,9 +1,9 @@
 {
   "id": "u1-s4",
   "type": "session",
-  "version": 2,
+  "version": 3,
   "status": "draft",
-  "updated_at": "2026-11-14T11:00:00Z",
+  "updated_at": "2026-11-14T12:30:00Z",
   "updated_by": "emna",
   "program_id": "pixo-english",
   "module_id": "m1",
@@ -47,7 +47,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "Say wow, {name}!",
+      "instruction": "Your turn, {name}!",
       "word_id": "w_wow",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -90,7 +90,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "Say well done!",
+      "instruction": "Now you!",
       "word_id": "w_well_done",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -133,7 +133,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "I love songs! Say me too!",
+      "instruction": "I love songs! And you?",
       "word_id": "w_me_too",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -172,7 +172,7 @@
       "type": "repeat",
       "execution_mode": "normal",
       "score": 10,
-      "instruction": "See you, {name}! Say see you!",
+      "instruction": "Bye-bye, {name}!",
       "word_id": "w_see_you",
       "max_attempts": 3,
       "response_timeout": 5,
@@ -182,18 +182,8 @@
       ]
     },
     {
-      "id": "a_song",
-      "position": 13,
-      "category": "reward",
-      "type": "sing_with_me",
-      "execution_mode": "normal",
-      "score": 0,
-      "instruction": "Well done! Let's sing, {name}!",
-      "media_id": "m_song_hello"
-    },
-    {
       "id": "a_repeat_wow_retry_1",
-      "position": 14,
+      "position": 13,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -207,7 +197,7 @@
     },
     {
       "id": "a_scene_wow_retry_1",
-      "position": 15,
+      "position": 14,
       "category": "exercise",
       "type": "visual_description",
       "execution_mode": "retry_only",
@@ -222,7 +212,7 @@
     },
     {
       "id": "a_repeat_well_done_retry_1",
-      "position": 16,
+      "position": 15,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -236,7 +226,7 @@
     },
     {
       "id": "a_scene_well_done_retry_1",
-      "position": 17,
+      "position": 16,
       "category": "exercise",
       "type": "visual_description",
       "execution_mode": "retry_only",
@@ -251,7 +241,7 @@
     },
     {
       "id": "a_repeat_me_too_retry_1",
-      "position": 18,
+      "position": 17,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -265,7 +255,7 @@
     },
     {
       "id": "a_repeat_see_you_retry_1",
-      "position": 19,
+      "position": 18,
       "category": "exercise",
       "type": "repeat",
       "execution_mode": "retry_only",
@@ -276,6 +266,16 @@
       "response_timeout": 5,
       "success_celebration": "celebration_001",
       "retry_activity_ids": []
+    },
+    {
+      "id": "a_song",
+      "position": 19,
+      "category": "reward",
+      "type": "sing_with_me",
+      "execution_mode": "normal",
+      "score": 0,
+      "instruction": "Well done! Let's sing, {name}!",
+      "media_id": "m_song_hello"
     },
     {
       "id": "a_bye",
